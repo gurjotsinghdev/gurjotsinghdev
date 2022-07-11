@@ -2,7 +2,7 @@
     padding: 50px 25px;
     margin: 0;
     background-color: var(--background);
-    height: 90vh;
+    height: 45vh;
 } 
 
 .heroSection h1 {
@@ -12,7 +12,7 @@
 .heroSection p {
     margin: 0;
     padding: 0;
-    font-size: 22px;
+    font-size: 16px;
 }
 
 .heroSection .heroMeta {
@@ -35,6 +35,11 @@
     } 
     .heroSection h1 {
         font-size: 35px;
+    }
+    .heroSection p {
+        margin: 0;
+        padding: 0;
+        font-size: 25px;
     }
   }
 
