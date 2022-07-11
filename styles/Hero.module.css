@@ -5,6 +5,10 @@
     height: 90vh;
 } 
 
+.heroSection h1 {
+    font-size: 25px;
+}
+
 .heroSection p {
     margin: 0;
     padding: 0;
@@ -29,5 +33,8 @@
         background-color: var(--background);
         height: 80vh;
     } 
+    .heroSection h1 {
+        font-size: 35px;
+    }
   }
 
