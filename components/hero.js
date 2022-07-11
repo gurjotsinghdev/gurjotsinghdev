@@ -7,7 +7,7 @@ export default function Hero ( ) {
         <>
             <div className={styles.heroSection}>
                 <h1>
-                Hello, I'm Gurjot Singh. <br />I build scalable products 
+                Hello, I&apos;m Gurjot Singh. <br />I build scalable products 
                 with <span className="dark">design</span> & <span className="dark">engineering</span>. 
                 </h1>
                 <button className="primaryBtn"><a href="https://linkedin.com/in/gurjotsinghdev">Let's Connect</a></button>
