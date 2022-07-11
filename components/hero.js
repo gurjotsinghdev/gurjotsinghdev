@@ -10,7 +10,7 @@ export default function Hero ( ) {
                 Hello, I'm Gurjot Singh. <br />I build scalable products 
                 with <span className="dark">design</span> & <span className="dark">engineering</span>. 
                 </h1>
-                <button className="primaryBtn">Let's Connect</button>
+                <button className="primaryBtn"><a href="https://linkedin.com/in/gurjotsinghdev">Let's Connect</a></button>
                 <div className={styles.heroMeta}>
                     <div className={styles.position}>
                         <p className={styles.positionPunjabi}>ਸੋਫਟਵੇਅਰ ਇੰਜੀਨੀਅਰ</p>
