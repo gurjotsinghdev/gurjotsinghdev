@@ -1,4 +1,9 @@
-
+.footer {
+  display: grid;
+  grid-template-columns: 1r 1fr;
+  margin: 0px 25px;
+  text-align: center;
+}
 
 
 
@@ -8,6 +13,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0px 25vw;
+    text-align: left;
 }
   }
 
