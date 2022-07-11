@@ -5,7 +5,7 @@
 }
 
 .logo {
-    font-size: 99px;
+    font-size: 25px;
 }
 
 .mainMenu {
@@ -13,7 +13,6 @@
     gap: 15px;
     font-size: 20px;
     justify-content: end;
-    padding-top: 8px;
     font-weight: 600;
 }
 
