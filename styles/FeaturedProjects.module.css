@@ -1,0 +1,10 @@
+.featuredProjects {
+    padding: 50px 25px;
+    margin: 0;
+    height: 50vh;
+} 
+
+.featuredProjects h1 {
+    font-size: 25px;
+
+}
