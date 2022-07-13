@@ -9,10 +9,10 @@ export default function FeaturedProjects ( ) {
                <h1>Selected Projects</h1>
                <div className="projectsList">
                    <div className="project1">
-                       {/* <Image src="/public/img/projects/unifypartners.png" alt="" width={500} height={300} /> */}
+                       
                    </div>
                </div>
-               <button className="primaryBtn"><a href="https://linkedin.com/in/gurjotsinghdev">View All Projects</a></button>
+               <button className="primaryBtn"><a href="https://linkedin.com/in/gurjotsinghdev">View Projects</a></button>
             </div>
             
         </>
