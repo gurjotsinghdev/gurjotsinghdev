@@ -8,3 +8,13 @@
     font-size: 25px;
 
 }
+
+@media only screen and (min-width: 800px) {
+    .featuredProjects {
+        padding: 50px 25vw;
+        margin: 0;
+        background-color: var(--background);
+        height: 500px;
+    } 
+   
+  }
