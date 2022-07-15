@@ -5,7 +5,6 @@
 
 .featuredProjects h1 {
     font-size: 25px;
-
 }
 
 .projectImg {
@@ -14,11 +13,13 @@
 }
 
 .projectBox {
-    margin: 50px 0px;
+    margin: 0px 0px 10px 0px;
 }
 
 .projectTitle {
-    font-size: 20px;
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 35px;
 }
 
 @media only screen and (min-width: 800px) {
@@ -36,12 +37,10 @@
         gap: 25px;
     }
 
-    .projectBox {
-        margin: 5px 0px;
-    }
-
     .projectTitle {
         font-size: 25px;
+        margin-bottom: 5px;
+
     }
    
   }
