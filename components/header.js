@@ -12,7 +12,7 @@ export default function Header ( ) {
                 </h1>
                 <div className={styles.mainMenu}>
                     <Link href="/work"><a>Work</a></Link>
-                    <p>About</p>
+                    <Link href="/about"><a>About</a></Link>
                 </div>
             </div>
         </>
