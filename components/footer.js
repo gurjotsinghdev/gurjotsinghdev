@@ -5,10 +5,9 @@ export default function Footer ( ) {
     return (
         <>
             <div className={styles.footer}>
-                <p>hello there</p>
-                <p>The source code for this project is <u><a href="https://github.com">available on GitHub</a></u>. Built with Next.js</p>
-                
-
+                <p className={styles.footerTitle}>Built with Next.js</p>
+                <p className={styles.footerText}>The source code for this project is <u><a href="https://github.com">available on GitHub</a></u>.</p>
+            
             </div>
         </>
     )

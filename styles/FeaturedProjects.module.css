@@ -1,7 +1,6 @@
 .featuredProjects {
     padding: 50px 25px;
     margin: 0;
-    height: 50vh;
 } 
 
 .featuredProjects h1 {
@@ -9,12 +8,28 @@
 
 }
 
+.projectImg {
+    border-radius: 5px;
+    border: 2px solid black!important;
+}
+
+.projectBox {
+    margin: 50px 0px;
+}
+
 @media only screen and (min-width: 800px) {
     .featuredProjects {
         padding: 50px 25vw;
-        margin: 0;
-        background-color: var(--background);
-        height: 500px;
     } 
+
+    .featuredProjects h1 {
+        font-size: 35px;
+    }
+
+    .projectsList{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
    
   }

@@ -2,10 +2,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0px 25px;
+    align-content: center;
 }
 
 .logo {
     font-size: 35px;
+    margin: 0px;
+    padding-top: 7px;
 }
 
 .mainMenu {
