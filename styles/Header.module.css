@@ -1,7 +1,7 @@
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0px 25px;
+    margin: 10px 25px;
     align-content: center;
 }
 
@@ -23,7 +23,7 @@
     .header {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        margin: 0px 25vw;
+        margin: 10px 25vw;
     }
 
     .mainMenu {
