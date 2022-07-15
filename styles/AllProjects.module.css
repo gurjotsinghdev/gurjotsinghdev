@@ -1,0 +1,46 @@
+.allProjects {
+    padding: 25px 25px;
+    margin: 0;
+} 
+
+.allProjects h1 {
+    font-size: 25px;
+}
+
+.projectImg {
+    border-radius: 5px;
+    border: 2px solid black!important;
+}
+
+.projectBox {
+    margin: 0px 0px 10px 0px;
+}
+
+.projectTitle {
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 35px;
+}
+
+@media only screen and (min-width: 800px) {
+    .allProjects {
+        padding: 50px 25vw;
+    } 
+
+    .allProjects h1 {
+        font-size: 35px;
+    }
+
+    .projectsList{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .projectTitle {
+        font-size: 25px;
+        margin-bottom: 5px;
+
+    }
+   
+  }

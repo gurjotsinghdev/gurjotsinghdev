@@ -1,14 +1,12 @@
 import Head from 'next/head'
-import Link from 'next/link'
-
 import Image from 'next/image'
-import styles from '../styles/FeaturedProjects.module.css'
+import styles from '../styles/AllProjects.module.css'
 import project1Img from '../public/img/projects/ariadental.png'
 
-export default function FeaturedProjects() {
+export default function AllProjects() {
     return (
         <>
-            <div className={styles.featuredProjects}>
+            <div className={styles.allProjects}>
                 <h1>Selected Projects</h1>
                 <div className={styles.projectsList}>  
                     <div className={styles.projectBox}>
@@ -45,8 +43,7 @@ export default function FeaturedProjects() {
                     </div>
 
                 </div>
-                <Link href="/work">
-                <button className="primaryBtn"><a>View Projects</a></button></Link>
+                <button className="primaryBtn"><a href="https://linkedin.com/in/gurjotsinghdev">Read More About Me</a></button>
             </div>
 
         </>
