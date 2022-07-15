@@ -8,7 +8,7 @@ export default function FeaturedProjects() {
         <>
             <div className={styles.featuredProjects}>
                 <h1>Selected Projects</h1>
-                <div className={styles.projectsList}>
+                <div className={styles.projectsList}>  
                     <div className={styles.projectBox}>
                         <Image
                             src={project1Img}
@@ -19,7 +19,7 @@ export default function FeaturedProjects() {
                         // blurDataURL="data:..." automatically provided
                         // placeholder="blur" // Optional blur-up while loading
                         />
-                        <p><b>Aria Dental</b> - UX, Dev </p>
+                        <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
                     <div className={styles.projectBox}>
                         <Image
@@ -31,7 +31,7 @@ export default function FeaturedProjects() {
                         // blurDataURL="data:..." automatically provided
                         // placeholder="blur" // Optional blur-up while loading
                         />
-                        <p><b>Aria Dental</b> - UX, Dev </p>
+                        <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
                     <div className={styles.projectBox}>
                         <Image
@@ -43,7 +43,7 @@ export default function FeaturedProjects() {
                         // blurDataURL="data:..." automatically provided
                         // placeholder="blur" // Optional blur-up while loading
                         />
-                        <p><b>Aria Dental</b> - UX, Dev </p>
+                        <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
                     <div className={styles.projectBox}>
                         <Image
@@ -55,8 +55,9 @@ export default function FeaturedProjects() {
                         // blurDataURL="data:..." automatically provided
                         // placeholder="blur" // Optional blur-up while loading
                         />
-                        <p><b>Aria Dental</b> - UX, Dev </p>
+                        <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
+
                 </div>
                 <button className="primaryBtn"><a href="https://linkedin.com/in/gurjotsinghdev">View Projects</a></button>
             </div>
