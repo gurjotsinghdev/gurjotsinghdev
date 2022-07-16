@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 
+import pokeball from '../public/pokeball.png'
 import styles from '../styles/Header.module.css'
 
 export default function Header ( ) {
@@ -14,7 +16,16 @@ export default function Header ( ) {
                     <Link href="/work"><a>Work</a></Link>
                     <Link href="/about"><a>About</a></Link>
                     <Link href="/about"><a>Blog</a></Link>
-                    <Link href="/"><a><u>Talk Now</u></a></Link>
+                    <Link href="/"><a>
+                    <Image
+                        src={pokeball}
+                        alt="Picture of the author"
+                        className={styles.pokeball}
+                        width={35}
+                        height={35}
+                    />
+                    </a>
+                    </Link>
 
                 </div>
             </div>

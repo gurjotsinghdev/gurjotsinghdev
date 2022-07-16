@@ -15,8 +15,11 @@
     gap: 20px;
     font-size: 20px;
     justify-content: flex-end;
-    font-weight: 600;
     align-items: center;
+}
+
+.pokeball {
+    margin-bottom: -2px!important;
 }
 
 @media only screen and (min-width: 800px) {
