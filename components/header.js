@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import logo from '../public/gurjotsinghdev_logo.png'
 
 import pokeball from '../public/pokeball.png'
 import styles from '../styles/Header.module.css'
@@ -11,7 +12,15 @@ export default function Header ( ) {
             
             <div className={styles.header}>
                 <h1 className={styles.logo}> 
-                <Link href="/"><a>G.</a></Link> 
+                <Link href="/"><a>
+                <Image
+                        src={logo}
+                        alt="Picture of the author"
+                        className={styles.logo}
+                        width={35}
+                        height={35}
+                    />
+                </a></Link> 
                 </h1>
                 <div className={styles.mainMenu}>
                     <Link href="/work"><a>Work</a></Link>
