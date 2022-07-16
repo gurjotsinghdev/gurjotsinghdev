@@ -17,8 +17,8 @@ export default function Header ( ) {
                         src={logo}
                         alt="Picture of the author"
                         className={styles.logo}
-                        width={35}
-                        height={35}
+                        width={80}
+                        height={80}
                     />
                 </a></Link> 
                 </h1>
