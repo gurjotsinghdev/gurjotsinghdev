@@ -31,8 +31,8 @@ export default function Header ( ) {
                         src={pokeball}
                         alt="Picture of the author"
                         className={styles.pokeball}
-                        width={35}
-                        height={35}
+                        width={50}
+                        height={50}
                     />
                     </a>
                     </Link>
