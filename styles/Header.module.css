@@ -1,6 +1,6 @@
 .header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 5fr;
     margin: 10px 25px;
     align-content: center;
 }
@@ -12,7 +12,7 @@
 
 .mainMenu {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     font-size: 20px;
     justify-content: flex-end;
     font-weight: 600;
