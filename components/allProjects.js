@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/AllProjects.module.css'
 import project1Img from '../public/img/projects/ariadental.png'
+import Link from 'next/link'
 
 export default function AllProjects() {
     return (
@@ -43,7 +44,8 @@ export default function AllProjects() {
                     </div>
 
                 </div>
-                <button className="primaryBtn"><a href="https://linkedin.com/in/gurjotsinghdev">Read More About Me</a></button>
+                <Link href="/about">
+                <button className="primaryBtn"><a>About Me</a></button></Link>
             </div>
 
         </>
