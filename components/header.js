@@ -7,7 +7,9 @@ import styles from '../styles/Header.module.css'
 
 export default function Header ( ) {
     return (
-        <>    
+        <>
+            <title>Gurjot Singh - Software Engineer</title>
+    
             <div className={styles.header}>
                 <h1 className={styles.logo}> 
                 <Link href="/"><a>
