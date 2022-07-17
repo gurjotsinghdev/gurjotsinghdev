@@ -33,8 +33,6 @@ export default function Post({ postData }) {
         <br />
         {postData.id}
         <br />
-        <Date dateString={postData.date} />
-        <br />
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </Layout>
     );
