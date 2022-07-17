@@ -19,6 +19,17 @@
 
 .pokeball {
     margin-bottom: -2px!important;
+    animation-name: pokeball;
+    animation-duration: 3s;
+    animation-delay: 1s;
+}
+
+@keyframes pokeball {
+    0% {transform: rotate(0);}
+    25% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
 }
 
 @media only screen and (min-width: 800px) {
