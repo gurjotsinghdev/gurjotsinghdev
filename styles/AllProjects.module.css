@@ -25,6 +25,7 @@
 @media only screen and (min-width: 800px) {
     .allProjects {
         padding: 50px 25vw;
+        margin: 0;
     } 
 
     .allProjects h1 {
