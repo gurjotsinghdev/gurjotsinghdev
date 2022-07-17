@@ -71,15 +71,28 @@ a {
   transform: translate(2px, 2px);
 }
 
-.blogLayout {
-    padding: 30px 25px;
-    margin: 0;
+.blogArchive {
+  padding: 25px 25px;
+  margin: 0;
+  height: 50vh;
+}
+
+.blogArchive h2 {
+  font-size: 25px;
+}
+
+.blogArchive p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
 }
 
 @media only screen and (min-width: 800px) {
-  .blogLayout {
-    padding: 25px 25vw;
-    margin: 0;
+ 
+.blogArchive {
+  padding: 50px 25vw;
+  margin: 0;
+  height: 50vh;
 }
 
 }
