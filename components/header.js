@@ -8,10 +8,6 @@ import styles from '../styles/Header.module.css'
 export default function Header ( ) {
     return (
         <>  
-            <Head>            
-                <title>Gurjot Singh - Software Engineer</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-            </Head>
     
             <div className={styles.header}>
                 <h1 className={styles.logo}> 
