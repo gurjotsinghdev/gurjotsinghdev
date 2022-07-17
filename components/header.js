@@ -2,14 +2,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../public/gurjotsinghdev_logo.png'
-
 import pokeball from '../public/pokeball.png'
 import styles from '../styles/Header.module.css'
 
 export default function Header ( ) {
     return (
-        <>
-            
+        <>    
             <div className={styles.header}>
                 <h1 className={styles.logo}> 
                 <Link href="/"><a>

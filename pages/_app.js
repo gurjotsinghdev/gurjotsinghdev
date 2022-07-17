@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-
+import Head from "next/head";
 import Header from '../components/header.js'
 import Footer from '../components/footer.js'
 
