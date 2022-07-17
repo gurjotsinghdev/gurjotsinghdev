@@ -3685,7 +3685,7 @@
     "workbox-webpack-plugin" "^6.5.3"
     "workbox-window" "^6.5.3"
 
-"next@>=9.0.0", "next@12.2.2":
+"next@^12.2.2", "next@>=9.0.0":
   "integrity" "sha512-zAYFY45aBry/PlKONqtlloRFqU/We3zWYdn2NoGvDZkoYUYQSJC8WMcalS5C19MxbCZLUVCX7D7a6gTGgl2yLg=="
   "resolved" "https://registry.npmjs.org/next/-/next-12.2.2.tgz"
   "version" "12.2.2"
