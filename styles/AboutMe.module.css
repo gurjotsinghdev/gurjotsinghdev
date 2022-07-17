@@ -3,7 +3,7 @@
     margin: 0;
 } 
 
-.aboutMe h1 {
+.aboutMe h2 {
     font-size: 25px;
 }
 
@@ -20,5 +20,9 @@
         padding: 50px 25vw;
         margin: 0;       
     } 
+
+    .aboutMe h2 {
+        font-size: 35px;
+    }
   }
 
