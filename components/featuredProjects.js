@@ -16,8 +16,8 @@ export default function FeaturedProjects() {
                             src={project1Img}
                             alt="Picture of the author"
                             className={styles.projectImg}
-                            width="600"
-                            height="300"
+                            width={600}
+                            height={300}
                         />
                         <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
@@ -26,8 +26,8 @@ export default function FeaturedProjects() {
                             src={project1Img}
                             alt="Picture of the author"
                             className={styles.projectImg}
-                            width="600"
-                            height="300"
+                            width={600}
+                            height={300}
                         />
                         <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
@@ -36,8 +36,8 @@ export default function FeaturedProjects() {
                             src={project1Img}
                             alt="Picture of the author"
                             className={styles.projectImg}
-                            width="600"
-                            height="300"
+                            width={600}
+                            height={300}
                         />
                         <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
@@ -46,8 +46,8 @@ export default function FeaturedProjects() {
                             src={project1Img}
                             alt="Picture of the author"
                             className={styles.projectImg}
-                            width="600"
-                            height="300"
+                            width={600}
+                            height={300}
                         />
                         <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
