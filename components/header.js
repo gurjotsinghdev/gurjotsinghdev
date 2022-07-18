@@ -25,7 +25,7 @@ export default function Header ( ) {
                     <Link href="/work"><a>Work</a></Link>
                     <Link href="/about"><a>About</a></Link>
                     <Link href="/blog"><a>Blog</a></Link>
-                    <Link href="/"><a>
+                    <Link href="/pokedex"><a>
                     <Image
                         src={pokeball}
                         alt="Picture of the author"

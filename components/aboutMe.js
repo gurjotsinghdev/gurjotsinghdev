@@ -27,8 +27,8 @@ export default function AboutMe ( ) {
                 <p>HTML, CSS, Typescript, React, Redux, Next.js </p>   
                 <h3>Backend Development</h3>    
                 <p>Node.js, Express.js, Strapi, MongoDB, PostgreSQL</p>   
-                <h3>Site Reliability Engineering</h3> 
-                <p>Datadog, Kibana </p>   
+                <h3>DevOps / SRE</h3> 
+                <p>Docker, Kubernetes, Ansible, AWS, GCP, Linode, CI/CD </p>   
    
             </div>
             
