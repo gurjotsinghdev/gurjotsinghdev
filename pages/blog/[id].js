@@ -37,6 +37,8 @@ export default function Post({ postData }) {
         {/* {postData.id} */}
         <br />
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <br /><hr /><br />
+
         <Link href="/blog">
           <button className="primaryBtn"><a>Back to All Blogs</a></button></Link>
         </article>
