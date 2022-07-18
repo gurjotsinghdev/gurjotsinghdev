@@ -6,22 +6,30 @@ export default function AboutMe ( ) {
     return (
         <>
             <div className={styles.aboutMe}>
-                <h2>
-                    About Me
-                </h2>
+                <h2>About Me</h2>
                 <p>
-                    Hello there
+                Hello, I'm Gurjot Singh. A Product Manager & Software Engineer. 
+                I’m passionate about solving problems through delightful user experience. 
+                This passion has taken me on a journey through my career in engineering, design, and project leadership. 
+                <br/><br/>
+
+                In my free time, I enjoy walking, meditation and classical music.
                 </p>
-                <br /> <br />
+                <br /> <hr /> 
                 <h2>
                     Skillset
                 </h2>
                 <h3>Product Management</h3> 
-                <p>Hello there</p>   
+                <p>Trello • Notion</p>   
                 <h3>UX Design and Research</h3>  
-                <h3>Frontend Development</h3>    
+                <p>UI Kit, Userflow, Persona, Wireframing, Prototypes </p>   
+                <h3>Frontend Development</h3>   
+                <p>Trello, Notion</p>   
                 <h3>Backend Development</h3>    
-                <h3>Site Reliability Engineering</h3>    
+                <p>Trello, Notion</p>   
+                <h3>Site Reliability Engineering</h3> 
+                <p>Trello, Notion</p>   
+   
             </div>
             
         </>

@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Link from 'next/link';
+
 import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import utilStyles from '../../styles/utils.module.css'
@@ -25,16 +27,20 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }) {
     return (
-      <Layout>
-         <Head>
+      <>
+        <Head>
         <title>{postData.title}</title>
         </Head>
-        {postData.title}
-        <br />
-        {postData.id}
+        <article className="blogPosts">
+        <h2>{postData.title}</h2>
+        <hr />
+        {/* {postData.id} */}
         <br />
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </Layout>
+        <Link href="/blog">
+          <button className="primaryBtn"><a>Back to All Blogs</a></button></Link>
+        </article>
+      </>
     );
   }
   
