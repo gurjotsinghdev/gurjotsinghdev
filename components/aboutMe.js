@@ -19,16 +19,12 @@ export default function AboutMe ( ) {
                 <h2>
                     Skillset
                 </h2>
-                <h3>Product Management</h3> 
-                <p>Trello, Notion, Slack, Skype, Teams</p>   
-                <h3>UX Design and Research</h3>  
+                <h3>UI/UX Design and Research</h3>  
                 <p>UI Kit, Userflow, Persona, Wireframing, Prototypes </p>   
                 <h3>Frontend Development</h3>   
                 <p>HTML, CSS, Typescript, React, Redux, Next.js </p>   
                 <h3>Backend Development</h3>    
                 <p>Node.js, Express.js, Strapi, MongoDB, PostgreSQL</p>   
-                <h3>DevOps / SRE</h3> 
-                <p>Docker, Kubernetes, Ansible, AWS, GCP, Linode, NGINX, CI/CD </p>   
    
             </div>
             
