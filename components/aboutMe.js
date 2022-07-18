@@ -8,8 +8,8 @@ export default function AboutMe ( ) {
             <div className={styles.aboutMe}>
                 <h2>About Me</h2>
                 <p>
-                Hello, I'm Gurjot Singh. A Product Manager & Software Engineer. 
-                I’m passionate about solving problems through delightful user experience. 
+                Hello, I&apos;m Gurjot Singh. A Product Manager & Software Engineer. 
+                I&apos;m passionate about solving problems through delightful user experience. 
                 This passion has taken me on a journey through my career in engineering, design, and project leadership. 
                 <br/><br/>
 
