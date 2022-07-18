@@ -20,15 +20,15 @@ export default function AboutMe ( ) {
                     Skillset
                 </h2>
                 <h3>Product Management</h3> 
-                <p>Trello • Notion</p>   
+                <p>Trello, Notion, Slack, Skype, Teams</p>   
                 <h3>UX Design and Research</h3>  
                 <p>UI Kit, Userflow, Persona, Wireframing, Prototypes </p>   
                 <h3>Frontend Development</h3>   
-                <p>HTML • CSS • Typescript • React • Redux • Next.js </p>   
+                <p>HTML, CSS, Typescript, React, Redux, Next.js </p>   
                 <h3>Backend Development</h3>    
-                <p>Node.js • Express.js • Strapi • MongoDB • PostgreSQL</p>   
+                <p>Node.js, Express.js, Strapi, MongoDB, PostgreSQL</p>   
                 <h3>Site Reliability Engineering</h3> 
-                <p>Datadog • Kibana </p>   
+                <p>Datadog, Kibana </p>   
    
             </div>
             

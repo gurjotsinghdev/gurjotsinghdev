@@ -9,6 +9,8 @@
     margin: 5px 0px 0px 0px;
 }
 
+
+
 .mainMenu {
     display: flex;
     gap: 20px;
@@ -18,11 +20,19 @@
 }
 
 .pokeball {
-    margin-bottom: -2px!important;
+    margin-bottom: -3px!important;
     animation-name: pokeball;
     animation-duration: 1s;
     animation-delay: 1s;
     animation-iteration-count: 1;
+    
+}
+
+.pokeball:hover {
+    transform: scale(1.1);
+    margin-top: -1px!important;
+
+
 }
 
 @keyframes pokeball {

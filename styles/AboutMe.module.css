@@ -7,10 +7,17 @@
     font-size: 25px;
 }
 
+.aboutMe h3 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    
+}
+
 .aboutMe p {
-    margin: 0;
     padding: 0;
     font-size: 16px;
+    margin-top: 0;
 }
 
 
@@ -24,5 +31,17 @@
     .aboutMe h2 {
         font-size: 35px;
     }
+
+    .aboutMe h3 {
+        font-size: 25px;
+        
+    }
+
+    .aboutMe p {
+
+        font-size: 20px;
+    }
+    
+
   }
 
