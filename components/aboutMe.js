@@ -28,7 +28,7 @@ export default function AboutMe ( ) {
                 <h3>Backend Development</h3>    
                 <p>Node.js, Express.js, Strapi, MongoDB, PostgreSQL</p>   
                 <h3>DevOps / SRE</h3> 
-                <p>Docker, Kubernetes, Ansible, AWS, GCP, Linode, CI/CD </p>   
+                <p>Docker, Kubernetes, Ansible, AWS, GCP, Linode, NGINX, CI/CD </p>   
    
             </div>
             
