@@ -15,8 +15,8 @@ export default function FeaturedProjects() {
             <div className={styles.featuredProjects}>
                 <h1>Selected Projects</h1>
                 <div className={styles.projectsList}>  
+                    <Link href="https://ariadental.com/">
                     <div className={styles.projectBox}>
-                        <Link href="https://ariadental.com/">
                         <Image
                             src={project1Img}
                             alt="Picture of the author"
@@ -24,9 +24,10 @@ export default function FeaturedProjects() {
                             width="400"
                             height="200"
                         />
-                        </Link>
                         <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                     </div>
+                    </Link>
+                    <Link href="https://unifypartners.ca/">
                     <div className={styles.projectBox}>
                         <Image
                             src={project2Img}
@@ -37,6 +38,8 @@ export default function FeaturedProjects() {
                         />
                         <p className={styles.projectTitle}><b>Unify Partners</b> - UI, UX, Dev </p>
                     </div>
+                    </Link>
+                    <Link href="https://northcoastskeenafirstnations.ca/">
                     <div className={styles.projectBox}>
                         <Image
                             src={project3Img}
@@ -47,6 +50,8 @@ export default function FeaturedProjects() {
                         />
                         <p className={styles.projectTitle}><b>North Coast Skeena </b> - UX, Dev </p>
                     </div>
+                    </Link>
+                    <Link href="https://fvcl.ca/">
                     <div className={styles.projectBox}>
                         <Image
                             src={project4Img}
@@ -57,6 +62,7 @@ export default function FeaturedProjects() {
                         />
                         <p className={styles.projectTitle}><b>Fraser Valley Cataract & Laser</b> - Dev </p>
                     </div>
+                    </Link>
 
                 </div>
                 <Link href="/work">
