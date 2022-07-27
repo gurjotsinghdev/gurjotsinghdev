@@ -19,10 +19,10 @@ export default function AboutMe ( ) {
                 <h2>
                     Skillset
                 </h2>
-                <h3>UX Design and Research</h3>  
-                <p>Product Research, Userflow, Persona, Wireframing, Prototypes </p>   
                 <h3>Frontend Development</h3>   
                 <p>HTML, CSS, Typescript, React, Redux, Next.js </p>   
+                <h3>UX Design and Research</h3>  
+                <p>Product Research, Userflow, Persona, Wireframing, Prototypes </p>   
                 <h3>Backend Development</h3>    
                 <p>Node.js, Express.js, Strapi, MongoDB, PostgreSQL</p>   
    
