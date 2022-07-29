@@ -18,7 +18,7 @@ export default function AboutMe ( ) {
                 </p>
                 <br /> <hr /> 
                 <h2>
-                    Skillset & Pokémons 
+                    Skillset 
                 </h2>
                 <h3>Full Stack Development </h3>
                 <p>HTML, CSS, SCSS, Javascript, Typescript, React, Redux, Express, Node, MongoDB, Next, Strapi, GraphQL, Jest, Storybook, Wordpress, PHP, Redis, Elasticsearch </p>   
@@ -27,8 +27,7 @@ export default function AboutMe ( ) {
                 <h3>Site Reliability Engineering</h3>  
                 <p>Linux, Nginx, Docker, Kubernetes, Ansible, AWS, Linode</p>    
 
-                <Link href="/pokedex">
-                <button className="primaryBtn"><a>Meet All Pokémon</a></button></Link>
+                
             </div>
             
         </>
