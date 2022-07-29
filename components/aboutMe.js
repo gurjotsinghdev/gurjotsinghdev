@@ -24,7 +24,7 @@ export default function AboutMe ( ) {
                 <h3>UI/UX Design</h3>  
                 <p>Branding, UI Kits, Design Systems, Userflow, Wireframes</p>   
                 <h3>Site Reliability Engineering</h3>  
-                <p>Branding, UI Kits, Design Systems, Userflow, Wireframes</p>    
+                <p>Linux, Nginx, Docker, Kubernetes, Ansible, AWS, Linode</p>    
    
             </div>
             
