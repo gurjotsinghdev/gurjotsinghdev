@@ -26,7 +26,8 @@ export default function AboutMe ( ) {
                 <p>Branding, UI Kits, Design Systems, Userflow, Wireframes</p>   
                 <h3>Site Reliability Engineering</h3>  
                 <p>Linux, Nginx, Docker, Kubernetes, Ansible, AWS, Linode</p>    
-
+                <a href="https://gurjotsinghdev.vercel.app/public/resume.pdf">
+                <button className="primaryBtn">Download Resume</button></a>
                 
             </div>
             
