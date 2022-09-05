@@ -21,7 +21,7 @@ export default function AboutMe ( ) {
                     Skillset 
                 </h2>
                 <h3>Full Stack Development </h3>
-                <p>HTML, CSS, Javascript, PHP, ReactJS </p>   
+                <p>HTML, CSS, Javascript, PHP, Wordpress, Reactjs, Nodejs</p>   
                 <h3>UI/UX Design</h3>  
                 <p>Branding, UI Kits, Design Systems, Userflow, Wireframes</p>   
                 <h3>Site Reliability Engineering</h3>  
