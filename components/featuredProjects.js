@@ -15,6 +15,30 @@ export default function FeaturedProjects() {
             <div className={styles.featuredProjects}>
                 <h1>Selected Projects</h1>
                 <div className={styles.projectsList}>
+                    <Link href="https://unifypartners.co/">
+                        <div className={styles.projectBox}>
+                            <Image
+                                src={project2Img}
+                                alt="Picture of the author"
+                                className={styles.projectImg}
+                                width="400"
+                                height="200"
+                            />
+                            <p className={styles.projectTitle}><b>Unify Partners</b> - UI, UX, Dev </p>
+                        </div>
+                    </Link>
+                    <Link href="https://wordpress.org/plugins/login-magician/">
+                        <div className={styles.projectBox}>
+                            <Image
+                                src={loginMagicianImg}
+                                alt="Picture of the author"
+                                className={styles.projectImg}
+                                width="400"
+                                height="200"
+                            />
+                            <p className={styles.projectTitle}><b>Login Magician</b> - WP Plugin, Dev </p>
+                        </div>
+                    </Link>
                     <Link href="https://ariadental.com/">
                         <div className={styles.projectBox}>
                             <Image
@@ -27,40 +51,16 @@ export default function FeaturedProjects() {
                             <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
                         </div>
                     </Link>
-                    <Link href="https://unifypartners.ca/">
+                    <Link href="https://github.com/gurjotsinghdev/sharan-content">
                         <div className={styles.projectBox}>
                             <Image
-                                src={project2Img}
+                                src={sharanContentImg}
                                 alt="Picture of the author"
                                 className={styles.projectImg}
                                 width="400"
                                 height="200"
                             />
-                            <p className={styles.projectTitle}><b>Unify Partners</b> - UI, UX, Dev </p>
-                        </div>
-                    </Link>
-                    <Link href="https://northcoastskeenafirstnations.ca/">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={project3Img}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>North Coast Skeena </b> - UX, Dev </p>
-                        </div>
-                    </Link>
-                    <Link href="https://fvcl.ca/">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={project4Img}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>Fraser Valley Cataract & Laser</b> - Dev </p>
+                            <p className={styles.projectTitle}><b>Sharan Content</b> - UX, Dev </p>
                         </div>
                     </Link>
 

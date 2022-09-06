@@ -5,6 +5,9 @@ import project1Img from '../public/img/projects/ariadental.png'
 import project2Img from '../public/img/projects/unifypartners.png'
 import project3Img from '../public/img/projects/ncsfn.png'
 import project4Img from '../public/img/projects/fvcl.png'
+import sharanContentImg from '../public/img/projects/sharan-content.png'
+import loginMagicianImg from '../public/img/projects/login-magician.png'
+
 import Link from 'next/link'
 
 export default function AllProjects() {
@@ -13,41 +16,6 @@ export default function AllProjects() {
             <div className={styles.allProjects}>
                 <h1>Selected Projects</h1>
                 <div className={styles.projectsList}>
-                    <Link href="https://ariadental.com/">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={project1Img}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
-                        </div>
-                    </Link><Link href="https://ariadental.com/">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={project1Img}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
-                        </div>
-                    </Link>
-                    <Link href="https://ariadental.com/">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={project1Img}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
-                        </div>
-                    </Link>
                     <Link href="https://unifypartners.co/">
                         <div className={styles.projectBox}>
                             <Image
@@ -58,6 +26,42 @@ export default function AllProjects() {
                                 height="200"
                             />
                             <p className={styles.projectTitle}><b>Unify Partners</b> - UI, UX, Dev </p>
+                        </div>
+                    </Link>
+                    <Link href="https://wordpress.org/plugins/login-magician/">
+                        <div className={styles.projectBox}>
+                            <Image
+                                src={loginMagicianImg}
+                                alt="Picture of the author"
+                                className={styles.projectImg}
+                                width="400"
+                                height="200"
+                            />
+                            <p className={styles.projectTitle}><b>Login Magician</b> - WP Plugin, Dev </p>
+                        </div>
+                    </Link>
+                    <Link href="https://ariadental.com/">
+                        <div className={styles.projectBox}>
+                            <Image
+                                src={project1Img}
+                                alt="Picture of the author"
+                                className={styles.projectImg}
+                                width="400"
+                                height="200"
+                            />
+                            <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
+                        </div>
+                    </Link>
+                    <Link href="https://github.com/gurjotsinghdev/sharan-content">
+                        <div className={styles.projectBox}>
+                            <Image
+                                src={sharanContentImg}
+                                alt="Picture of the author"
+                                className={styles.projectImg}
+                                width="400"
+                                height="200"
+                            />
+                            <p className={styles.projectTitle}><b>Sharan Content</b> - UX, Dev </p>
                         </div>
                     </Link>
                     <Link href="https://northcoastskeenafirstnations.ca/">
@@ -81,7 +85,7 @@ export default function AllProjects() {
                                 width="400"
                                 height="200"
                             />
-                            <p className={styles.projectTitle}><b>Fraser Valley Cataract & Laser</b> - Dev </p>
+                            <p className={styles.projectTitle}><b>FVCL</b> - Dev </p>
                         </div>
                     </Link>
 
