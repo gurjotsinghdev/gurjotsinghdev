@@ -7,6 +7,8 @@ import project1Img from '../public/img/projects/ariadental.png'
 import project2Img from '../public/img/projects/unifypartners.png'
 import project3Img from '../public/img/projects/ncsfn.png'
 import project4Img from '../public/img/projects/fvcl.png'
+import loginMagicianImg from '../public/img/projects/login-magician.png'
+import sharanContentImg from '../public/img/projects/sharan-content.png'
 
 
 export default function FeaturedProjects() {
