@@ -21,9 +21,9 @@ export default function AboutMe ( ) {
                     Skillset 
                 </h2>
                 <h3>Full Stack Development </h3>
-                <p>HTML, CSS, Javascript, PHP, Reactjs, Redux,  Nextjs, Nodejs, Express, MongoDB</p>   
+                <p>HTML, CSS, Javascript, Typescript, PHP, Reactjs, Redux,  Nextjs, Nodejs, Express, MongoDB</p>   
                 <h3>UI/UX Design</h3>  
-                <p>Branding, UI Kits, Design Systems, Userflow, Wireframes</p>   
+                <p>Wordpress, Shopify, Webflow, Userflows, Wireframes</p>   
                 <h3>Site Reliability Engineering</h3>  
                 <p>Linux, Nginx, Docker, Kubernetes, Ansible, AWS, Linode</p>    
                 <a href="https://gurjotsinghdev.vercel.app/resume.pdf">
