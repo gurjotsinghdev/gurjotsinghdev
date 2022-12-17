@@ -18,7 +18,7 @@
 .heroSection .heroMeta {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 85px 0px;
+    margin: 55px 0px;
     justify-content: center;
 }
 
@@ -41,5 +41,6 @@
         padding: 0;
         font-size: 22px;
     }
+
   }
 

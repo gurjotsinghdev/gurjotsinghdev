@@ -14,6 +14,11 @@ export default function AboutMe ( ) {
                 This passion has taken me on a journey through my career in engineering, design, and project leadership. 
                 <br/><br/>
 
+                I have 5+ years of experience in Enterprise wordpress development focused on building ROI-driven, 
+                enterprise-class websites that deliver unbeatable performance, control, and security. 
+                My solutions are focused on providing scalability, feature-rich functionality, and amazing designs.
+                <br/><br/>
+
                 In my free time, I enjoy walking, meditation and classical music.
                 </p>
                 <br /> <hr /> 

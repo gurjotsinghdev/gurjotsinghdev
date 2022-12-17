@@ -7,8 +7,8 @@ export default function Hero ( ) {
         <>
             <div className={styles.heroSection}>
                 <h1>
-                Hello, I&apos;m Gurjot Singh. <br />I build scalable products 
-                with <span className="dark">design</span> & <span className="dark">engineering</span>. 
+                Hello, I&apos;m Gurjot Singh. <br />I build <u>Enterprise Wordpress</u> applications for mission critical projects. 
+               
                 </h1>
                 <a href="https://linkedin.com/in/gurjotsinghdev">
                 <button className="primaryBtn">Lets Connect</button></a>
@@ -16,6 +16,7 @@ export default function Hero ( ) {
                     <div className={styles.position}>
                         <p className={styles.positionPunjabi}>ਸੋਫਟਵੇਅਰ ਇੰਜੀਨੀਅਰ</p>
                         <p className={styles.positionEnglish}>Software Engineer</p>
+                       
                     </div>
                     <div className={styles.location}>
                     <p className={styles.locationPunjabi}>ਵੈਨਕੂਵਰ, ਬੀ.ਸੀ</p>
