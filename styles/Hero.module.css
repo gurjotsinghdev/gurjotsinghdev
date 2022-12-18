@@ -17,7 +17,7 @@
 
 .heroSection .heroMeta {
     display: grid;
-    grid-template-columns: 2.3fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin: 55px 0px;
     justify-content: center;
 }
@@ -42,12 +42,6 @@
         font-size: 22px;
     }
 
-    .heroSection .heroMeta {
-        display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        margin: 55px 0px;
-        justify-content: center;
-    }
 
   }
 

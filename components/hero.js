@@ -14,8 +14,8 @@ export default function Hero ( ) {
                 <button className="primaryBtn">Lets Connect</button></a>
                 <div className={styles.heroMeta}>
                     <div className={styles.position}>
-                        <p className={styles.positionPunjabi}>ਐਂਟਰਪ੍ਰਾਈਜ਼ ਵਰਡਪ੍ਰੈਸ ਸਲਾਹਕਾਰ</p>
-                        <p className={styles.positionEnglish}>Enterprise Wordpress Consultant</p>
+                        <p className={styles.positionPunjabi}>ਸੋਫਟਵੇਅਰ ਇੰਜੀਨੀਅਰ</p>
+                        <p className={styles.positionEnglish}>Software Engineer</p>
                        
                     </div>
                     <div className={styles.location}>
