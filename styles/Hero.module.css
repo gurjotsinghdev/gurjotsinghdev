@@ -2,7 +2,7 @@
     padding: 50px 25px;
     margin: 0;
     background-color: var(--background);
-    height: 55vh;
+    height: 50vh;
     display:grid;
 grid-template-columns: 1fr;
 } 
@@ -28,16 +28,14 @@ grid-template-columns: 1fr;
     padding-left: 1px;
 }
 
-.heroLottie {
-    display: none;
-}
+
 
 @media only screen and (min-width: 800px) {
     .heroSection {
         padding: 50px 25vw;
         margin: 0;
         background-color: var(--background);
-        height: 570px;
+        height: 500px;
         display:grid;
         grid-template-columns: 2fr 1fr;
     } 
