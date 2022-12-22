@@ -19,7 +19,7 @@ grid-template-columns: 1fr;
 
 .heroSection .heroMeta {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     margin: 55px 0px;
     justify-content: center;
 }
@@ -36,8 +36,6 @@ grid-template-columns: 1fr;
         margin: 0;
         background-color: var(--background);
         height: 500px;
-        display:grid;
-        grid-template-columns: 2fr 1fr;
     } 
 
     .heroLottie {
