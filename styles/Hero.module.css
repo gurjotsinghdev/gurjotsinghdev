@@ -2,7 +2,9 @@
     padding: 50px 25px;
     margin: 0;
     background-color: var(--background);
-    height: 50vh;
+    height: 55vh;
+    display:grid;
+grid-template-columns: 1fr;
 } 
 
 .heroSection h1 {
@@ -26,13 +28,26 @@
     padding-left: 1px;
 }
 
+.heroLottie {
+    display: none;
+}
+
 @media only screen and (min-width: 800px) {
     .heroSection {
         padding: 50px 25vw;
         margin: 0;
         background-color: var(--background);
-        height: 500px;
+        height: 570px;
+        display:grid;
+        grid-template-columns: 2fr 1fr;
     } 
+
+    .heroLottie {
+        display: unset;
+    }
+
+ 
+
     .heroSection h1 {
         font-size: 35px;
     }
