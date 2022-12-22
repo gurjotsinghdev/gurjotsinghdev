@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import styles from '../styles/Hero.module.css'
-import script from 'next/script'
 
 export default function Hero ( ) {
     return (
