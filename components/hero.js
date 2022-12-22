@@ -28,7 +28,7 @@ export default function Hero ( ) {
                 </div>
 
                 <div className={styles.heroLottie}>
-                <div class="astro-img">  
+                <div>  
           <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
           <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_1cazwtnc.json"  background="transparent"  speed="0.5"  loop autoplay></lottie-player>
         </div>
