@@ -7,7 +7,7 @@ import Footer from '../components/footer.js'
 function MyApp({ Component, pageProps }) {
 
   return <>
-  <Head>            
+  <Head lang="en">            
     <title>Gurjot - Software Engineer</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
   </Head>
