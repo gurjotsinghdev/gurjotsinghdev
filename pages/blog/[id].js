@@ -32,7 +32,7 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
         </Head>
         <article className="blogPosts">
-        <h2>{postData.title}</h2>
+        <h2 className="blogTitle" >{postData.title}</h2>
         <hr />
         {/* {postData.id} */}
         <br />
