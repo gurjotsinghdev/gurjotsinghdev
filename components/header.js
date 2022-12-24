@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../public/gurjotsinghdev_logo.png'
 import pokeball from '../public/pokeball.png'
 import styles from '../styles/Header.module.css'
 
