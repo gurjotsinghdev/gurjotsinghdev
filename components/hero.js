@@ -7,7 +7,7 @@ export default function Hero ( ) {
         <>
             <div className={styles.heroSection}>
                 <h1>
-                Hello, I&apos;m Gurjot Singh. <br />I build <u>Enterprise Wordpress</u> applications for mission critical projects. 
+                Hello, I&apos;m Gurjot Singh. <br />I build enterprise-grade web applications and digital ecommerce solutions for mission critical projects. 
                
                 </h1>
                 <a href="https://linkedin.com/in/gurjotsinghdev">
