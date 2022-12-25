@@ -67,7 +67,7 @@ export default function FeaturedProjects() {
                     </Link>
 
                 </div>
-                <Link href="/work">
+                <Link href="/projects">
                     <button className="primaryBtn"><a>View All Projects</a></button></Link>
             </div>
 
