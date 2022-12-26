@@ -14,7 +14,7 @@ export default function AllProjects() {
     return (
         <>
             <div className={styles.allProjects}>
-                <h1>Selected Projects</h1>
+                <h1>Projects Library</h1>
                 <div className={styles.projectsList}>
                     <Link href="https://unifypartners.co/">
                         <div className={styles.projectBox}>
