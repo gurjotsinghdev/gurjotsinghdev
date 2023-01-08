@@ -7,7 +7,9 @@ import pokeball from '../public/pokeball1.png'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-
+let pokepop = () => {
+    alert("Hello world!!");
+}
 export default function Header() {
     return (
         <>
@@ -28,17 +30,16 @@ export default function Header() {
                     <Link href="/projects"><a>Projects</a></Link>
                     <Link href="/about"><a>About</a></Link>
                     <Link href="/blog"><a>Blog</a></Link>
-                    <Popup trigger={<button className="pokebutton"> <Image
+                    <Link href="/">
+                    <a onClick={() => pokepop()} >
+                    <Image
                         src={pokeball}
                         alt="Picture of the author"
                         className={styles.pokeball}
                         width={40}
                         height={40}
-                    /> </button>}
-                        position="bottom center">
-                        <div>GeeksforGeeks</div>
-                        <button>Click here</button>
-                    </Popup>
+
+                    /></a></Link>
 
                 </div>
             </div >
