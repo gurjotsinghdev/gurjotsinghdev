@@ -22,8 +22,8 @@
 .pokeball {
     margin-bottom: -3px!important;
     animation-name: pokeball;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
+    animation-duration: 0.3s;
+    animation-delay: 0.2s;
     animation-iteration-count: 1;
     
 }
@@ -37,6 +37,10 @@
 	cursor: pointer;
 	outline: inherit;
 }
+
+
+
+
 
 @keyframes pokeball {
     0% {transform: rotate(0);}

@@ -8,7 +8,13 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 let pokepop = () => {
-    alert("Hello world!!");
+    let pokepop = document.getElementById("pokepopboxid");
+    if (pokepop.style.display == "none") {
+        pokepop.style.display = "block";
+      } else {
+        pokepop.style.display = "none";
+      }
+
 }
 export default function Header() {
     return (
@@ -41,6 +47,10 @@ export default function Header() {
 
                     /></a></Link>
 
+                </div>
+                <div id="pokepopboxid" className="pokepopbox">
+                    <h2>My Pokemon</h2>
+                    
                 </div>
             </div >
         </>
