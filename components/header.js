@@ -4,7 +4,6 @@ import Image from 'next/image'
 import logo from '../public/gurjotsinghdev_logo.png'
 import styles from '../styles/Header.module.css'
 import pokeball from '../public/pokeball1.png'
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 let pokepop = () => {
