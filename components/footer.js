@@ -9,8 +9,8 @@ export default function Footer() {
                     <a href="https://www.youtube.com/@gurjotsinghdev"> Youtube </a> -
                     <a href="https://www.github.com/gurjotsinghdev"> Github </a> -
                     <a href="https://codepen.io/gurjotsinghdev/"> Codepen </a> -
-                    <a href="https://stackoverflow.com/users/17474663/gurjot-singh"> Stack Overflow </a> - 
-                    <a href="https://www.linkedin.com/in/gurjotsinghdev/"> LinkedIn </a> </p>
+                    <a href="https://stackoverflow.com/users/17474663/gurjot-singh"> Stack Overflow </a>
+                    </p>
 
                 <p className={styles.footerText}>Source code&nbsp;<u><a href="https://github.com/gurjotsinghdev/gurjotsinghdev">available on GitHub</a></u>.</p>
 
