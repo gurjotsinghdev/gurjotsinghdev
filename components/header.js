@@ -8,10 +8,10 @@ import 'reactjs-popup/dist/index.css';
 
 let pokepop = () => {
     let pokepop = document.getElementById("pokepopboxid");
-    if (pokepop.style.display == "none") {
-        pokepop.style.display = "block";
-      } else {
+    if (pokepop.style.display == "block") {
         pokepop.style.display = "none";
+      } else {
+        pokepop.style.display = "block";
       }
 
 }
