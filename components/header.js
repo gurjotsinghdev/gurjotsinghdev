@@ -49,6 +49,8 @@ export default function Header() {
                 </div>
                 <div id="pokepopboxid" className="pokepopbox">
                     <h2>My Pokemon</h2>
+                    <p>Fun Fact #27</p>
+                    <p>JavaScript in FUN!</p>
                     
                 </div>
             </div >
