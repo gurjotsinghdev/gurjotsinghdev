@@ -13,9 +13,16 @@ let pokepop = () => {
       } else {
         pokepop.style.display = "block";
       }
-
 }
+
+let HidePokeBox = () => {
+    let hirePokeBox = document.getElementById("pokepopboxid");
+    hirePokeBox.style.display = "none";
+}
+
+
 export default function Header() {
+
     return (
         <>
             <div className={styles.topHeader}>
@@ -49,7 +56,7 @@ export default function Header() {
                     /></a></Link>
 
                 </div>
-                <div id="pokepopboxid" className="pokepopbox">
+                <div onScroll={ () => HidePokeBox() } id="pokepopboxid" className="pokepopbox">
                     <h2>Fun Fact #27</h2>
                     <p>JavaScript in FUN!</p>
                     
