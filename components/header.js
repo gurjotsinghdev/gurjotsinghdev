@@ -13,7 +13,7 @@ let pokepop = () => {
       } else {
         pokepop.style.display = "block";
         setTimeout(() => {
-            pokepop.style.display = "none";
+            pokepop.style.display = "none"; 
           }, "3000")
       }
 }
