@@ -19,7 +19,7 @@ export default function Header() {
     return (
         <>
             <div className={styles.topHeader}>
-                <p>Want to chat about your dream project? <a href="https://google.com">Schedule Your FREE Consultation today!</a></p>
+                <p>Want to chat about your dream project? <a href="https://calendly.com/gurjotsinghdev/schedule-consultation">Schedule Your FREE Consultation today!</a></p>
             </div>
             <div className={styles.header}>
                 <h1 className={styles.logo}>
