@@ -12,8 +12,14 @@ let pokepop = () => {
         pokepop.style.display = "none";
       } else {
         pokepop.style.display = "block";
+        setTimeout(() => {
+            pokepop.style.display = "none";
+          }, "3000")
       }
 }
+
+
+  
 
 let HidePokeBox = () => {
     let hirePokeBox = document.getElementById("pokepopboxid");
