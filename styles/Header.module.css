@@ -16,7 +16,9 @@
     font-weight: 800;
 }
 
-
+.topHeader a {
+    text-decoration: underline;
+}
 
 .logo {
     margin: 5px 0px 0px 0px;
