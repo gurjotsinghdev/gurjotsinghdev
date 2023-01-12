@@ -3,11 +3,17 @@
     grid-template-columns: 1fr 5fr;
     margin: 10px 25px;
     align-content: center;
+    padding-top: 67px;
 }
 
 .topHeader {
     text-align: center;
     background-color: var(--background);
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    padding: 0px 10vw;
 }
 
 .topHeader p {
@@ -69,6 +75,8 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin: 10px 25vw;
+        padding-top: 47px;
+
     }
 
     .mainMenu {
