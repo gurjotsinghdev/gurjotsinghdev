@@ -17,7 +17,7 @@ export default function FeaturedProjects() {
             <div className={styles.featuredProjects}>
                 <h1>Selected Projects</h1>
                 <div className={styles.projectsList}>
-                    <Link href="https://unifypartners.co/">
+                    <Link href="https://unifypartners.ca/">
                         <div className={styles.projectBox}>
                             <Image
                                 src={project2Img}
