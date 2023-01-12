@@ -5,6 +5,19 @@
     align-content: center;
 }
 
+.topHeader {
+    text-align: center;
+    background-color: var(--background);
+}
+
+.topHeader p {
+    margin: 0!important;
+    padding: 10px;
+    font-weight: 800;
+}
+
+
+
 .logo {
     margin: 5px 0px 0px 0px;
 }
