@@ -10,8 +10,8 @@ export default function Hero ( ) {
                 Hello, I&apos;m Gurjot Singh. <br />I build enterprise-grade web applications and digital ecommerce solutions for mission critical projects. 
                
                 </h1>
-                <a href="https://linkedin.com/in/gurjotsinghdev">
-                <button className="primaryBtn">Lets Connect</button></a>
+                <Link href="https://linkedin.com/in/gurjotsinghdev" rel="noopener noreferrer" target="_blank">
+                <button className="primaryBtn">Lets Connect</button></Link>
                 <div className={styles.heroMeta}>
                     <div className={styles.position}>
                         <p className={styles.positionPunjabi}>ਸੋਫਟਵੇਅਰ ਇੰਜੀਨੀਅਰ</p>
