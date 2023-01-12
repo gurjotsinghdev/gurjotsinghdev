@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Hero.module.css'
+import Link from 'next/link'
 
 
 export default function Hero ( ) {
