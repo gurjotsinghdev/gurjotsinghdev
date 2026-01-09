@@ -4,14 +4,16 @@ import Link from 'next/link'
 
 
 export default function Hero ( ) {
+    const whatsappUrl = 'https://wa.me/17789290374?text=Hi%20Gurjot%2C%20I%27d%20like%20to%20discuss%20a%20project.';
+
     return (
         <>
             <div className={styles.heroSection}>
                 <h1>
-                Hello, I&apos;m Gurjot Singh. <br />I build enterprise-grade web applications for mission critical projects. 
+                Hello, I&apos;m Gurjot Singh. <br />I build enterprise-grade web applications and APIs for mission critical projects. 
                
                 </h1>
-                <Link href="https://linkedin.com/in/gurjotsinghdev" rel="noopener noreferrer" target="_blank">
+                <Link href={whatsappUrl} rel="noopener noreferrer" target="_blank">
                 <button className="primaryBtn">Lets Connect</button></Link>
                 <div className={styles.heroMeta}>
                     <div className={styles.position}>

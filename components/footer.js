@@ -6,7 +6,6 @@ export default function Footer() {
         <>
             <div className={styles.footer}>
                 <p className={styles.footerSocial}>
-                    <a href="https://www.youtube.com/@gurjotsinghdev"> Youtube </a> -
                     <a href="https://www.github.com/gurjotsinghdev"> Github </a> -
                     <a href="https://codepen.io/gurjotsinghdev/"> Codepen </a> -
                     <a href="https://stackoverflow.com/users/17474663/gurjot-singh"> Stack Overflow </a>

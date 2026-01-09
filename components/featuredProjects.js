@@ -26,7 +26,7 @@ export default function FeaturedProjects() {
                                 width="400"
                                 height="200"
                             />
-                            <p className={styles.projectTitle}><b>Unify Partners</b> - UI, UX, Dev </p>
+                            <p className={styles.projectTitle}><b>Unify Partners</b> - Full Stack Development</p>
                         </div>
                     </Link>
                     <Link href="https://wordpress.org/plugins/login-magician/">
@@ -38,7 +38,7 @@ export default function FeaturedProjects() {
                                 width="400"
                                 height="200"
                             />
-                            <p className={styles.projectTitle}><b>Login Magician</b> - WP Plugin, Dev </p>
+                            <p className={styles.projectTitle}><b>Login Magician</b> - Plugin Development</p>
                         </div>
                     </Link>
                     <Link href="https://ariadental.com/">
@@ -50,7 +50,7 @@ export default function FeaturedProjects() {
                                 width="400"
                                 height="200"
                             />
-                            <p className={styles.projectTitle}><b>Aria Dental</b> - UX, Dev </p>
+                            <p className={styles.projectTitle}><b>Aria Dental</b> - Web Development</p>
                         </div>
                     </Link>
                     <Link href="https://github.com/gurjotsinghdev/sharan-content">
@@ -62,7 +62,7 @@ export default function FeaturedProjects() {
                                 width="400"
                                 height="200"
                             />
-                            <p className={styles.projectTitle}><b>Sharan Content</b> - UX, Dev </p>
+                            <p className={styles.projectTitle}><b>Sharan Content</b> - Web App Development</p>
                         </div>
                     </Link>
 

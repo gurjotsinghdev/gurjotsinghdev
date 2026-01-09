@@ -28,11 +28,12 @@ let HidePokeBox = () => {
 
 
 export default function Header() {
+    const whatsappUrl = 'https://wa.me/17789290374?text=Hi%20Gurjot%2C%20I%27d%20like%20to%20discuss%20a%20project.';
 
     return (
         <>
             <div className={styles.topHeader}>
-                <p>Want to chat about your dream project? <a href="https://calendly.com/gurjotsinghdev/schedule-consultation">Schedule Your FREE Consultation today!</a></p>
+                <p>Want to chat about your dream project? <a href={whatsappUrl}>Message me on WhatsApp today!</a></p>
             </div>
             <div className={styles.header}>
                 <h1 className={styles.logo}>
