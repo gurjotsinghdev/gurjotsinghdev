@@ -60,3 +60,22 @@
 
 
   }
+
+@media only screen and (max-width: 520px) {
+    .heroSection {
+        padding-top: 100px;
+        min-height: 58vh;
+    }
+
+    .heroSection h1 {
+        font-size: 28px;
+    }
+
+    .heroSection p {
+        font-size: 14px;
+    }
+
+    .heroSection .heroMeta {
+        gap: 12px;
+    }
+}

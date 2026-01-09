@@ -13,12 +13,10 @@
     text-align: center;
     background-color: transparent;
     color: var(--primary);
-    position:fixed;
-    top:0;
+    position: static;
     width:100%;
-    z-index:100;
     padding: 0px 3vw;
-    border-bottom: none;
+    border-bottom: 1px solid rgba(11, 15, 18, 0.18);
 }
 
 .topHeader p {
@@ -51,6 +49,8 @@
     font-family: var(--mono);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    flex-wrap: wrap;
+    row-gap: 6px;
 }
 
 .mainMenu a {
@@ -112,3 +112,15 @@
 
     }
   }
+
+@media only screen and (max-width: 520px) {
+    .topHeader p {
+        font-size: 11px;
+    }
+
+    .mainMenu {
+        font-size: 12px;
+        gap: 12px;
+        letter-spacing: 0.06em;
+    }
+}

@@ -194,3 +194,11 @@ Link {
 }
 
 }
+
+@media only screen and (max-width: 520px) {
+  .primaryBtn {
+    font-size: 12px;
+    line-height: 42px;
+    padding: 0 22px;
+  }
+}
