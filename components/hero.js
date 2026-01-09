@@ -1,8 +1,5 @@
 import Head from 'next/head'
 import styles from '../styles/Hero.module.css'
-import Link from 'next/link'
-
-
 export default function Hero ( ) {
     const whatsappUrl = 'https://wa.me/17789290374?text=Hi%20Gurjot%2C%20I%27d%20like%20to%20discuss%20a%20project.';
 
@@ -13,8 +10,9 @@ export default function Hero ( ) {
                 Hello, I&apos;m Gurjot Singh. <br />I build enterprise-grade web applications and APIs for mission critical projects. 
                
                 </h1>
-                <Link href={whatsappUrl} rel="noopener noreferrer" target="_blank">
-                <button className="primaryBtn">Lets Connect</button></Link>
+                <a className="primaryBtn" href={whatsappUrl} rel="noopener noreferrer" target="_blank">
+                    Lets Connect
+                </a>
                 <div className={styles.heroMeta}>
                     <div className={styles.position}>
                         <p className={styles.positionPunjabi}>ਸੋਫਟਵੇਅਰ ਇੰਜੀਨੀਅਰ</p>

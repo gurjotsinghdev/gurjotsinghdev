@@ -33,7 +33,7 @@ export default function Header() {
     return (
         <>
             <div className={styles.topHeader}>
-                <p>Want to chat about your dream project? <a href={whatsappUrl}>Message me on WhatsApp today!</a></p>
+                <p>Want to chat about your dream project? <a href={whatsappUrl} rel="noopener noreferrer" target="_blank">Message me on WhatsApp today!</a></p>
             </div>
             <div className={styles.header}>
                 <h1 className={styles.logo}>
@@ -52,7 +52,7 @@ export default function Header() {
                     <Link href="/about"><a>About</a></Link>
                     <Link href="/blog"><a>Blog</a></Link>
                     <Link href="/">
-                    <a onClick={() => pokepop()} >
+                    <a className={styles.pokeballLink} onClick={() => pokepop()} >
                     <Image
                         src={pokeball}
                         alt="Picture of the author"

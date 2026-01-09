@@ -31,8 +31,9 @@ export default function AboutMe ( ) {
                 <p>Node.js, Express, REST APIs, MongoDB, PostgreSQL, MySQL, PHP</p>
                 <h3>DevOps &amp; Infrastructure</h3>
                 <p>Linux, Nginx, Docker, Kubernetes, Ansible, AWS, Linode</p>
-                <a href="https://gurjotsinghdev.vercel.app/resume.pdf">
-                <button className="primaryBtn">Download Resume</button></a>
+                <a className="primaryBtn" href="https://gurjotsinghdev.vercel.app/resume.pdf" rel="noopener noreferrer" target="_blank">
+                    Download Resume
+                </a>
                 
             </div>
             

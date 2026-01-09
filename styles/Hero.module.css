@@ -1,12 +1,18 @@
 .heroSection {
-    padding: 40px 25px;
-    margin: 0;
-    background-color: var(--background);
-    height: 55vh;
+    padding: clamp(70px, 10vw, 140px) 25px 60px;
+    margin: 0 auto;
+    max-width: var(--container);
+    min-height: 60vh;
+    display: grid;
+    gap: 24px;
+    align-content: center;
+    background-color: transparent;
 } 
 
 .heroSection h1 {
-    font-size: 25px;
+    font-size: clamp(30px, 4vw, 52px);
+    margin: 0;
+    max-width: 26ch;
 }
 
 .heroSection p {
@@ -17,33 +23,39 @@
 
 .heroSection .heroMeta {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 55px 0px;
-    justify-content: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 32px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
 }
 
+.position,
 .location {
-    padding-left: 1px;
+    background: var(--secondary);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
 }
 
 @media only screen and (min-width: 800px) {
     .heroSection {
-        padding: 50px 25vw;
-        margin: 0;
-        background-color: var(--background);
-        height: 520px;
+        padding: 120px 25px 80px;
+        min-height: 520px;
     } 
     .heroSection h1 {
-        font-size: 30px;
+        font-size: clamp(34px, 4vw, 54px);
     }
     .heroSection p {
         margin: 0;
         padding: 0;
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .heroMeta {
-        padding-top: 30px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 36px;
     }
 
 

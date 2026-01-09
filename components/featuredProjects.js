@@ -1,75 +1,61 @@
-import Head from 'next/head'
 import Link from 'next/link'
-
-import Image from 'next/image'
 import styles from '../styles/FeaturedProjects.module.css'
-import project1Img from '../public/img/projects/ariadental.png'
-import project2Img from '../public/img/projects/unifypartners.png'
-import project3Img from '../public/img/projects/ncsfn.png'
-import project4Img from '../public/img/projects/fvcl.png'
-import loginMagicianImg from '../public/img/projects/login-magician.png'
-import sharanContentImg from '../public/img/projects/sharan-content.png'
 
 
 export default function FeaturedProjects() {
+    const projects = [
+        {
+            title: 'WWPMC',
+            href: 'https://wwpmc.com/',
+            tag: 'Web design',
+        },
+        {
+            title: 'Sauna Viking',
+            href: 'https://saunaviking.com/',
+            tag: 'Web design',
+        },
+        {
+            title: 'Central Gas Services',
+            href: 'https://centralgasservices.com/',
+            tag: 'Web design',
+        },
+        {
+            title: 'VPAC Construction',
+            href: 'https://centralgasservices.com/',
+            tag: 'Web design',
+        },
+    ];
+
     return (
         <>
-            <div className={styles.featuredProjects}>
-                <h1>Selected Projects</h1>
-                <div className={styles.projectsList}>
-                    <Link href="https://unifypartners.ca/">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={project2Img}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>Unify Partners</b> - Full Stack Development</p>
-                        </div>
-                    </Link>
-                    <Link href="https://wordpress.org/plugins/login-magician/">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={loginMagicianImg}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>Login Magician</b> - Plugin Development</p>
-                        </div>
-                    </Link>
-                    <Link href="https://ariadental.com/">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={project1Img}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>Aria Dental</b> - Web Development</p>
-                        </div>
-                    </Link>
-                    <Link href="https://github.com/gurjotsinghdev/sharan-content">
-                        <div className={styles.projectBox}>
-                            <Image
-                                src={sharanContentImg}
-                                alt="Picture of the author"
-                                className={styles.projectImg}
-                                width="400"
-                                height="200"
-                            />
-                            <p className={styles.projectTitle}><b>Sharan Content</b> - Web App Development</p>
-                        </div>
-                    </Link>
-
+            <section className={styles.featuredProjects} aria-labelledby="selected-projects">
+                <div className={styles.sectionHeader}>
+                    <h2 id="selected-projects">Selected Projects</h2>
+                    <p>Focused on production-ready development and scalable delivery.</p>
                 </div>
-                <Link href="/projects">
-                    <button className="primaryBtn"><a>View All Projects</a></button></Link>
-            </div>
+                <div className={styles.projectsList}>
+                    {projects.map((project) => (
+                        <a
+                            key={project.title}
+                            className={styles.projectCard}
+                            href={project.href}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            <div className={styles.projectTop}>
+                                <h3>{project.title}</h3>
+                                <span className={styles.projectType}>{project.tag}</span>
+                            </div>
+                            <span className={styles.projectCta}>View project</span>
+                        </a>
+                    ))}
+                </div>
+                <div className={styles.projectFooter}>
+                    <Link href="/projects">
+                        <a className="primaryBtn">View All Projects</a>
+                    </Link>
+                </div>
+            </section>
 
         </>
     )

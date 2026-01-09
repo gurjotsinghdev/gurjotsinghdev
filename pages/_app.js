@@ -7,10 +7,15 @@ import Footer from '../components/footer.js'
 function MyApp({ Component, pageProps }) {
 
   return <>
-  <Head lang="en">            
-    <title>Gurjot - Software Engineer</title>
-    <link rel="icon" href="favicon.png" />
-    <meta key="description" name="description" content="initial-scale=1.0, width=device-width" />
+  <Head>            
+    <title>Gurjot Singh - Software Engineer</title>
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      key="description"
+      name="description"
+      content="Gurjot Singh is a software engineer focused on full stack development, building reliable web applications and APIs."
+    />
   </Head>
   <Header />
   <Component {...pageProps} />

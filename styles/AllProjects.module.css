@@ -1,49 +1,91 @@
 .allProjects {
-    padding: 25px 25px;
+    padding: clamp(32px, 6vw, 70px) 25px;
+    margin: 0 auto;
+    max-width: var(--container);
+}
+
+.sectionHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 26px;
+}
+
+.sectionHeader h2 {
+    font-size: clamp(24px, 3vw, 36px);
     margin: 0;
-} 
-
-.allProjects h1 {
-    font-size: 25px;
 }
 
-.projectImg {
-    border-radius: 5px;
-    border: 2px solid black!important;
+.sectionHeader p {
+    margin: 0;
+    color: var(--muted);
+    max-width: 60ch;
 }
 
-.projectBox {
-    margin: 0px 0px 10px 0px;
-    cursor: pointer;
-
+.projectsList {
+    display: grid;
+    gap: 20px;
 }
 
-.projectTitle {
-    font-size: 22px;
-    margin-top: 5px;
-    margin-bottom: 35px;
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 22px;
+    border-radius: 18px;
+    border: 2px solid var(--primary);
+    background: var(--secondary);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projectCard:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0 var(--primary);
+    color: var(--primary);
+}
+
+.projectTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.projectTop h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.projectType {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--primary);
+    background: var(--background);
+}
+
+.projectCta {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.projectFooter {
+    margin-top: 28px;
 }
 
 @media only screen and (min-width: 800px) {
-    .allProjects {
-        padding: 50px 25vw;
-        margin: 0;
-    } 
-
-    .allProjects h1 {
-        font-size: 35px;
+    .projectsList {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
     }
 
-    .projectsList{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
+    .projectTop h3 {
+        font-size: 22px;
     }
-
-    .projectTitle {
-        font-size: 25px;
-        margin-bottom: 5px;
-
-    }
-   
-  }
+}

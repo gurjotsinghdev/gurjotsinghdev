@@ -40,12 +40,12 @@ export default function Post({ postData }) {
         <br /><hr /><br />
 
         <Link href="/blog">
-          <button className="primaryBtn"><a>Back to All Blogs</a></button></Link>
+          <a className="primaryBtn">Back to All Blogs</a>
+        </Link>
         </article>
       </>
     );
   }
   
   
-
 
