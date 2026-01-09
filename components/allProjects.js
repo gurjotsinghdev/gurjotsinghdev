@@ -20,7 +20,7 @@ export default function AllProjects() {
         },
         {
             title: 'VPAC Construction',
-            href: 'https://centralgasservices.com/',
+            href: 'https://vpacconstruction.com/',
             tag: 'Web design',
         },
         {
