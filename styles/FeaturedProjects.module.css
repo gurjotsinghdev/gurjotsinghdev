@@ -89,3 +89,25 @@
         font-size: 22px;
     }
 }
+
+@media only screen and (max-width: 520px) {
+    .featuredProjects {
+        padding: 36px 18px;
+    }
+
+    .sectionHeader {
+        margin-bottom: 20px;
+    }
+
+    .projectCard {
+        padding: 18px;
+    }
+
+    .projectTop h3 {
+        font-size: 18px;
+    }
+
+    .projectType {
+        font-size: 11px;
+    }
+}

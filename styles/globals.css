@@ -196,6 +196,10 @@ Link {
 }
 
 @media only screen and (max-width: 520px) {
+  .blogArchive, .blogPosts {
+    padding: 32px 18px;
+  }
+
   .primaryBtn {
     font-size: 12px;
     line-height: 42px;
