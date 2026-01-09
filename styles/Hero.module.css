@@ -12,7 +12,7 @@
 .heroSection h1 {
     font-size: clamp(30px, 4vw, 52px);
     margin: 0;
-    max-width: 26ch;
+    max-width: 31ch;
 }
 
 .heroSection p {

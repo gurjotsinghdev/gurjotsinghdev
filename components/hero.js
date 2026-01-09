@@ -7,7 +7,7 @@ export default function Hero ( ) {
         <>
             <div className={styles.heroSection}>
                 <h1>
-                Hello, I&apos;m Gurjot Singh. <br />I build enterprise-grade web applications and APIs for mission critical projects. 
+                Hello, I&apos;m Gurjot Singh. <br />I build enterprise-grade web applications for mission critical projects. 
                
                 </h1>
                 <a className="primaryBtn" href={whatsappUrl} rel="noopener noreferrer" target="_blank">
