@@ -1,14 +1,22 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { Rise, Fade, Marquee, Counter, Faq } from "../components/bits";
+import { ScrollRail, Magnetic, Scramble } from "../components/motion-bits";
+import Gallery from "../components/gallery";
 import {
   studio, links, ticker, services, work,
   testimonials, metrics, capabilities, process, pricing, faqs,
 } from "../lib/content";
 
+// Decoration only, and it pulls in Three — never let it block first paint.
+const Field = dynamic(() => import("../components/field"), { ssr: false });
+
 export default function Page() {
   return (
     <div id="top">
+      <ScrollRail />
+
       {/* ================= TICKER ================= */}
       <div className="ticker" aria-hidden="true">
         <Marquee trackClass="ticker__track" duration={44}>
@@ -21,7 +29,9 @@ export default function Page() {
       </div>
 
       {/* ================= HERO ================= */}
-      <section className="wrap hero">
+      <div className="hero-wrap">
+        <Field />
+        <section className="wrap hero">
         <div className="hero__meta">
           <span className="label">{studio.role}</span>
           <span className="mono" style={{ color: "var(--body)" }}>
@@ -51,21 +61,26 @@ export default function Page() {
 
           <Fade delay={0.5}>
             <div className="btn-row">
-              <a
-                className="btn btn--accent"
-                href={links.whatsapp}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Start a project
-              </a>
-              <a className="btn" href="#work">
-                See the work
-              </a>
+              <Magnetic>
+                <a
+                  className="btn btn--accent"
+                  href={links.whatsapp}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Start a project
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a className="btn" href="#work">
+                  See the work
+                </a>
+              </Magnetic>
             </div>
           </Fade>
         </div>
-      </section>
+        </section>
+      </div>
 
       {/* ================= CLIENT MARQUEE ================= */}
       <Marquee className="marquee" trackClass="marquee__track" duration={52}>
@@ -81,7 +96,7 @@ export default function Page() {
       <section className="wrap sec">
         <div className="grid-2 grid-2--wide">
           <Fade>
-            <span className="label">STATEMENT.TXT</span>
+            <span className="label"><Scramble text="STATEMENT.TXT" /></span>
             <h2 className="h2" style={{ marginTop: 22 }}>
               Two people
               <br />
@@ -110,7 +125,7 @@ export default function Page() {
       <section className="sec--ink sec--tight">
         <div className="wrap">
           <Fade>
-            <span className="label">METRICS</span>
+            <span className="label"><Scramble text="METRICS" /></span>
           </Fade>
           <div className="grid-2" style={{ marginTop: 26 }}>
             <div className="grid-2" style={{ gap: 2 }}>
@@ -147,13 +162,13 @@ export default function Page() {
       {/* ================= SERVICES ================= */}
       <section className="wrap sec" id="services">
         <Fade>
-          <span className="label">WHAT I DO</span>
+          <span className="label"><Scramble text="WHAT I DO" /></span>
           <h2 className="h2" style={{ marginTop: 22, marginBottom: 12 }}>
             Three things<span className="accent">.</span>
           </h2>
           <p className="lede">
-            Done by the same person, which is the entire point — the design knows what the
-            marketing needs, and the marketing knows what the build can do.
+            Done by the same person, which is the entire point — the build already knows what
+            search needs, and whoever hosts it is the one who made it.
           </p>
         </Fade>
 
@@ -185,46 +200,29 @@ export default function Page() {
       </section>
 
       {/* ================= WORK ================= */}
-      <section className="wrap sec" id="work">
-        <Fade>
-          <span className="label">SELECTED WORK</span>
-          <h2 className="h2" style={{ marginTop: 22 }}>
-            Live sites<span className="accent">.</span>
-          </h2>
-        </Fade>
+      <section className="sec" id="work">
+        <div className="wrap">
+          <Fade>
+            <span className="label"><Scramble text="SELECTED WORK" /></span>
+            <h2 className="h2" style={{ marginTop: 22, marginBottom: 12 }}>
+              Live sites<span className="accent">.</span>
+            </h2>
+            <p className="lede">
+              Seven businesses that needed a site to do something other than exist. Scroll to pan
+              across them.
+            </p>
+          </Fade>
+        </div>
 
-        <div className="work" style={{ marginTop: 44 }}>
-          {work.map((w, i) => {
-            const Row = w.href ? "a" : "div";
-            return (
-              <Fade key={w.no} delay={Math.min(i * 0.05, 0.3)}>
-                <Row
-                  className="work__row"
-                  {...(w.href
-                    ? { href: w.href, rel: "noopener noreferrer", target: "_blank" }
-                    : {})}
-                >
-                  <span className="work__no">{w.no}</span>
-                  <span className="work__name">{w.name}</span>
-                  <span className="work__tags">
-                    {w.tags.map((t) => (
-                      <span className="chip" key={t}>
-                        {t}
-                      </span>
-                    ))}
-                  </span>
-                  <span className="work__go">{w.href ? "VISIT ↗" : "URL PENDING"}</span>
-                </Row>
-              </Fade>
-            );
-          })}
+        <div style={{ marginTop: 48 }}>
+          <Gallery />
         </div>
       </section>
 
       {/* ================= PROCESS ================= */}
       <section className="wrap sec" id="process">
         <Fade>
-          <span className="label">HOW IT RUNS</span>
+          <span className="label"><Scramble text="HOW IT RUNS" /></span>
           <h2 className="h2" style={{ marginTop: 22, marginBottom: 12 }}>
             No forms.
             <br />
@@ -253,7 +251,7 @@ export default function Page() {
       {/* ================= PROOF ================= */}
       <section className="wrap sec--tight">
         <Fade>
-          <span className="label">WHAT CLIENTS SAY</span>
+          <span className="label"><Scramble text="WHAT CLIENTS SAY" /></span>
           <h2 className="h2" style={{ marginTop: 22, marginBottom: 12 }}>
             Nothing yet<span className="accent">.</span>
           </h2>
@@ -281,15 +279,15 @@ export default function Page() {
       {/* ================= PRICING ================= */}
       <section className="wrap sec" id="pricing">
         <Fade>
-          <span className="label">PRICING</span>
+          <span className="label"><Scramble text="PRICING" /></span>
           <h2 className="h2" style={{ marginTop: 22, marginBottom: 12 }}>
             Fixed price,
             <br />
             written down<span className="accent">.</span>
           </h2>
           <p className="lede">
-            Every project is quoted after a real conversation. These are honest starting points,
-            not a menu.
+            One number for the site, agreed before anything starts. The monthly options are
+            month to month — no lock-in, and you keep everything if you leave.
           </p>
         </Fade>
 
@@ -299,9 +297,10 @@ export default function Page() {
               <article className="card">
                 <div className="price__top">
                   <h3 className="h4">{p.name}</h3>
-                  <span className="price__from">FROM</span>
+                  <span className="price__from">{p.id === "site" ? "FLAT" : "FROM"}</span>
                 </div>
                 <span className="price__amt">{p.from}</span>
+                <span className="price__cadence">{p.cadence}</span>
                 <hr className="rule--thin" />
                 <p className="body" style={{ fontSize: 14.5 }}>
                   {p.note}
@@ -322,7 +321,7 @@ export default function Page() {
       {/* ================= FAQ ================= */}
       <section className="wrap sec" id="faq">
         <Fade>
-          <span className="label">QUESTIONS</span>
+          <span className="label"><Scramble text="QUESTIONS" /></span>
           <h2 className="h2" style={{ marginTop: 22 }}>
             The bits you'd
             <br />
@@ -341,7 +340,7 @@ export default function Page() {
       <footer className="foot" id="contact">
         <div className="wrap">
           <Fade>
-            <span className="label">GET IN TOUCH</span>
+            <span className="label"><Scramble text="GET IN TOUCH" /></span>
             <h2 className="h2" style={{ marginTop: 22, marginBottom: 28 }}>
               Got something
               <br />

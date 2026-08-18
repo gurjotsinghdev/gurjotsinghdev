@@ -1,13 +1,14 @@
 import "./globals.css";
 import { Clock } from "../components/bits";
+import Loader from "../components/loader";
 import { studio, links } from "../lib/content";
 
 export const metadata = {
   metadataBase: new URL("https://gurjotsinghdev.vercel.app"),
-  title: `${studio.name} — Web Design, Marketing & Product`,
+  title: `${studio.name} — Web Design, SEO & Hosting`,
   description: studio.sub,
   openGraph: {
-    title: `${studio.name} — Web Design, Marketing & Product`,
+    title: `${studio.name} — Web Design, SEO & Hosting`,
     description: studio.sub,
     type: "website",
     locale: "en_CA",
@@ -33,6 +34,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <Loader />
+
         <a className="skip" href="#main">
           Skip to content
         </a>
