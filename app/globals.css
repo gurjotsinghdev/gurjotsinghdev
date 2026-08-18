@@ -711,9 +711,10 @@ html.is-loading, html.is-loading body { overflow: hidden; }
   inset: 0;
   opacity: 0;
   transition: opacity 1.4s ease;
-  pointer-events: none;
+  /* Grabbable, unlike the rest of the decoration. */
+  pointer-events: auto;
   /* Stands in for the canvas until (or unless) WebGL starts. */
-  background: radial-gradient(58% 58% at 50% 48%, rgba(255, 74, 0, 0.13) 0%, transparent 68%);
+  background: radial-gradient(56% 56% at 50% 48%, rgba(90, 169, 255, 0.16) 0%, transparent 68%);
 }
 
 .globe.is-on { opacity: 1; }
