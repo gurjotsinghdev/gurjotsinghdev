@@ -10,7 +10,7 @@ import {
 } from "../lib/content";
 
 // Decoration only, and it pulls in Three — never let it block first paint.
-const Field = dynamic(() => import("../components/field"), { ssr: false });
+const Globe = dynamic(() => import("../components/globe"), { ssr: false });
 
 export default function Page() {
   return (
@@ -30,8 +30,8 @@ export default function Page() {
 
       {/* ================= HERO ================= */}
       <div className="hero-wrap">
-        <Field />
         <section className="wrap hero">
+          <div className="hero__copy">
         <div className="hero__meta">
           <span className="label">{studio.role}</span>
           <span className="mono" style={{ color: "var(--body)" }}>
@@ -79,6 +79,11 @@ export default function Page() {
             </div>
           </Fade>
         </div>
+          </div>
+
+          <div className="hero__stage">
+            <Globe />
+          </div>
         </section>
       </div>
 

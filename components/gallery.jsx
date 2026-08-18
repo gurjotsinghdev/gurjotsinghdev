@@ -1,21 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useSpring, useReducedMotion } from "motion/react";
 import { work } from "../lib/content";
 
 /* ==========================================================================
    Work gallery.
 
    On a wide screen the section pins and the cards travel left as you scroll —
-   vertical input, horizontal motion.
+   vertical input, horizontal motion. On touch, and whenever reduced motion is
+   requested, it degrades to an ordinary swipeable strip.
 
-   On touch, and whenever reduced motion is requested, it degrades to an
-   ordinary swipeable strip. Hijacking scroll on a phone is how you make a site
-   people cannot get out of, so that path is deliberately boring.
+   The scroll maths are done by hand rather than with a scroll-linked motion
+   value. The section's height is only known after the track has been measured,
+   and a library that caches its target's layout on mount reads that height as
+   zero and then never moves. Measuring in the same rAF loop that applies the
+   transform removes that ordering problem entirely.
    ========================================================================== */
 
-/** Deterministic 0–1 from a string, so each project gets stable artwork. */
 function seed(str) {
   let h = 2166136261;
   for (let i = 0; i < str.length; i += 1) {
@@ -34,7 +35,7 @@ function seed(str) {
  */
 function Cover({ item }) {
   const s = seed(item.slug);
-  const hue = Math.round(14 + s * 26); // warm band, kept near the brand orange
+  const hue = Math.round(14 + s * 26);
   const rot = -18 + s * 36;
   const a = `hsl(${hue} 92% 52%)`;
   const b = `hsl(${Math.round(hue + 18)} 78% 38%)`;
@@ -58,7 +59,6 @@ function Cover({ item }) {
           <rect x="-160" y="120" width="1120" height="330" fill={`url(#p-${item.slug})`} />
         </g>
 
-        {/* The project number, set huge and cropped by the frame. */}
         <text
           x="52"
           y="470"
@@ -111,52 +111,78 @@ function Card({ item }) {
 }
 
 export default function Gallery() {
-  const reduce = useReducedMotion();
   const wrapRef = useRef(null);
   const trackRef = useRef(null);
   const [pinned, setPinned] = useState(false);
-  const [distance, setDistance] = useState(0);
+  const [height, setHeight] = useState(null);
 
-  // Pin only where it is a good idea: wide screens with a real pointer.
+  // Pin only where it is a good idea: wide screens, a real pointer, and motion
+  // not disabled. Hijacking scroll on a phone traps people.
   useEffect(() => {
-    const check = () => {
-      const ok =
+    const check = () =>
+      setPinned(
         window.matchMedia("(min-width: 1000px)").matches &&
-        window.matchMedia("(pointer: fine)").matches &&
-        !reduce;
-      setPinned(ok);
-    };
+          window.matchMedia("(pointer: fine)").matches &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      );
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
-  }, [reduce]);
+  }, []);
 
-  // How far the track has to travel to show its last card.
   useEffect(() => {
-    if (!pinned) return;
+    if (!pinned) {
+      setHeight(null);
+      return;
+    }
+
+    const wrap = wrapRef.current;
+    const track = trackRef.current;
+    if (!wrap || !track) return;
+
+    let raf;
+    let current = 0;
+    let distance = 0;
+
     const measure = () => {
-      const track = trackRef.current;
-      if (!track) return;
-      setDistance(Math.max(0, track.scrollWidth - window.innerWidth + 96));
+      distance = Math.max(0, track.scrollWidth - window.innerWidth + 96);
+      // The runway has to equal the travel, or the last card never arrives.
+      setHeight(window.innerHeight + distance);
     };
+
     measure();
+
+    const loop = () => {
+      raf = requestAnimationFrame(loop);
+
+      const rect = wrap.getBoundingClientRect();
+      const runway = rect.height - window.innerHeight;
+      if (runway <= 0) return;
+
+      // 0 when the section's top hits the viewport top, 1 when its bottom does.
+      const p = Math.min(Math.max(-rect.top / runway, 0), 1);
+      const goal = -p * distance;
+
+      // Lerp so the track trails the scrollbar slightly instead of snapping.
+      current += (goal - current) * 0.12;
+      if (Math.abs(goal - current) < 0.1) current = goal;
+
+      track.style.transform = `translate3d(${current.toFixed(2)}px, 0, 0)`;
+    };
+
+    loop();
+
     const ro = new ResizeObserver(measure);
-    if (trackRef.current) ro.observe(trackRef.current);
+    ro.observe(track);
     window.addEventListener("resize", measure);
+
     return () => {
+      cancelAnimationFrame(raf);
       ro.disconnect();
       window.removeEventListener("resize", measure);
+      track.style.transform = "";
     };
   }, [pinned]);
-
-  const { scrollYProgress } = useScroll({
-    target: wrapRef,
-    offset: ["start start", "end end"],
-  });
-
-  const rawX = useTransform(scrollYProgress, [0, 1], [0, -distance]);
-  // A little spring stops the track feeling nailed to the scrollbar.
-  const x = useSpring(rawX, { stiffness: 220, damping: 40, mass: 0.6 });
 
   if (!pinned) {
     return (
@@ -172,13 +198,13 @@ export default function Gallery() {
   }
 
   return (
-    <div ref={wrapRef} className="gal" style={{ height: `calc(100vh + ${distance}px)` }}>
+    <div ref={wrapRef} className="gal" style={height ? { height } : undefined}>
       <div className="gal__pin">
-        <motion.div ref={trackRef} className="gal__track" style={{ x }}>
+        <div ref={trackRef} className="gal__track">
           {work.map((item) => (
             <Card item={item} key={item.slug} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );

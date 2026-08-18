@@ -83,7 +83,7 @@ export default function WaFloat() {
               <i aria-hidden="true" /> online
             </span>
           </span>
-          <span className="wa__cta">Message me on WhatsApp →</span>
+          <span className="wa__cta">Usually replies within the hour →</span>
         </span>
 
         <span className="sr-only">
