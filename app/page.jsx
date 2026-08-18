@@ -346,18 +346,28 @@ export default function Page() {
               <br />
               worth building<span className="accent">?</span>
             </h2>
-            <a className="foot__mail" href={links.email}>
-              {links.emailLabel}
+            <a
+              className="foot__mail"
+              href={links.whatsapp}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {links.whatsappLabel}
             </a>
+            <p className="mono" style={{ marginTop: 14, color: "#8f98a1" }}>
+              WhatsApp is the fastest way to reach me.
+            </p>
             <div className="btn-row" style={{ marginTop: 34 }}>
-              <a
-                className="btn"
-                href={links.whatsapp}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                WhatsApp · {links.whatsappLabel}
-              </a>
+              <Magnetic>
+                <a
+                  className="btn"
+                  href={links.whatsapp}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Start a conversation
+                </a>
+              </Magnetic>
             </div>
           </Fade>
 

@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Clock } from "../components/bits";
 import Loader from "../components/loader";
+import WaFloat from "../components/wa-float";
 import { studio, links } from "../lib/content";
 
 export const metadata = {
@@ -71,6 +72,8 @@ export default function RootLayout({ children }) {
         </header>
 
         <main id="main">{children}</main>
+
+        <WaFloat />
       </body>
     </html>
   );

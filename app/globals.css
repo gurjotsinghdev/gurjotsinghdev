@@ -70,7 +70,11 @@ body {
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* clip, NOT hidden: overflow-x:hidden forces overflow-y to auto, which makes
+     body a scroll container and silently breaks every position:sticky inside
+     it — including the pinned work gallery. clip contains the same overflow
+     without establishing one. */
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1; letter-spacing: -0.03em; }
@@ -820,4 +824,126 @@ html.is-loading, html.is-loading body { overflow: hidden; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--body);
+}
+
+/* ==========================================================================
+   21. WhatsApp floater
+   ========================================================================== */
+
+.wa {
+  position: fixed;
+  right: clamp(14px, 2.4vw, 28px);
+  bottom: clamp(14px, 2.4vw, 28px);
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  /* Parked off-screen until you are past the hero. */
+  transform: translateY(140%);
+  opacity: 0;
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1), opacity 320ms ease;
+}
+
+.wa.is-in { transform: translateY(0); opacity: 1; }
+
+.wa__link {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--accent);
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.wa__link:hover { box-shadow: 7px 7px 0 var(--accent); transform: translate(-1px, -1px); }
+
+.wa__badge {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--accent);
+  color: #fff;
+}
+
+/* The online ring. */
+.wa__pulse {
+  position: absolute;
+  inset: -6px;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: waPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0%   { transform: scale(0.7); opacity: 0.65; }
+  70%  { transform: scale(1.15); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Collapsed by default; the label unfurls on hover or focus. */
+.wa__body {
+  display: grid;
+  gap: 2px;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 420ms cubic-bezier(0.16, 1, 0.3, 1), padding 420ms ease;
+}
+
+.wa.is-open .wa__body { max-width: 260px; padding: 0 14px 0 12px; }
+
+.wa__top { display: flex; align-items: center; gap: 9px; }
+.wa__name { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
+
+.wa__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7f8992;
+}
+
+.wa__status i { width: 6px; height: 6px; border-radius: 50%; background: #27c06b; }
+
+.wa__cta { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--accent-soft); }
+
+.wa__x {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.wa:hover .wa__x,
+.wa__x:focus-visible { opacity: 1; }
+
+/* On touch there is no hover, so show the label and the dismiss control. */
+@media (pointer: coarse) {
+  .wa__body { max-width: 200px; padding: 0 12px 0 10px; }
+  .wa__x { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa { transition: none; }
+  .wa__pulse { animation: none; opacity: 0; }
+  .wa__body { transition: none; }
 }
