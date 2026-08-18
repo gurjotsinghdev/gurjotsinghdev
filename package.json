@@ -1,36 +1,22 @@
 {
-  "name": "gurjotsinghdev",
-  "version": "0.1.0",
+  "name": "gurjotwebdesign",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "NPM_CONFIG_REGISTRY=https://registry.npmjs.org/ NEXT_DISABLE_SWC=1 next build",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@lottiefiles/lottie-interactivity": "^1.6.1",
-    "@lottiefiles/lottie-player": "^1.6.2",
-    "@mdx-js/loader": "^2.1.2",
-    "@mdx-js/react": "^2.1.2",
-    "@next/mdx": "^12.2.2",
-    "@next/swc-wasm-nodejs": "12.2.2",
-    "date-fns": "^2.28.0",
-    "gray-matter": "^4.0.3",
-    "next": "^12.2.2",
-    "next-pwa": "^5.5.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "reactjs-popup": "^2.0.5",
-    "remark": "^14.0.2",
-    "remark-html": "^15.0.1"
+    "motion": "^12.23.12",
+    "next": "^16.3.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "eslint": "8.19.0",
-    "eslint-config-next": "12.2.2"
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.3.1"
   },
-  "engines": {
-    "node": "24.x"
-  },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "engines": { "node": "24.x" }
 }
