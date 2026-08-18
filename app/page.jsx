@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { Rise, Fade, Marquee, Counter, Faq } from "../components/bits";
 import { ScrollRail, Magnetic, Scramble } from "../components/motion-bits";
 import Gallery from "../components/gallery";
@@ -9,8 +8,6 @@ import {
   testimonials, metrics, capabilities, process, pricing, faqs,
 } from "../lib/content";
 
-// Decoration only, and it pulls in Three — never let it block first paint.
-const Globe = dynamic(() => import("../components/globe"), { ssr: false });
 
 export default function Page() {
   return (
@@ -29,9 +26,7 @@ export default function Page() {
       </div>
 
       {/* ================= HERO ================= */}
-      <div className="hero-wrap">
-        <section className="wrap hero">
-          <div className="hero__copy">
+      <section className="wrap hero">
         <div className="hero__meta">
           <span className="label">{studio.role}</span>
           <span className="mono" style={{ color: "var(--body)" }}>
@@ -79,13 +74,7 @@ export default function Page() {
             </div>
           </Fade>
         </div>
-          </div>
-
-          <div className="hero__stage">
-            <Globe />
-          </div>
-        </section>
-      </div>
+      </section>
 
       {/* ================= CLIENT MARQUEE ================= */}
       <Marquee className="marquee" trackClass="marquee__track" duration={52}>

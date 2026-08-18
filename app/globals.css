@@ -341,27 +341,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
    8. Hero
    -------------------------------------------------------------------------- */
 
-.hero {
-  padding-block: clamp(48px, 8vw, 120px) clamp(40px, 6vw, 90px);
-  display: grid;
-  gap: clamp(24px, 4vw, 56px);
-  align-items: center;
-}
-
-/* Below the split the globe sits behind the copy at low opacity, so it is
-   atmosphere rather than something competing with the headline. */
-.hero__stage {
-  position: relative;
-  min-height: clamp(240px, 42vw, 380px);
-  order: -1;
-  opacity: 0.5;
-}
-
-@media (min-width: 940px) {
-  .hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
-  .hero__stage { order: 0; min-height: min(62vh, 560px); opacity: 1; }
-  .hero__copy { max-width: 46ch; }
-}
+.hero { padding-block: clamp(48px, 8vw, 120px) clamp(40px, 6vw, 90px); }
 
 .hero__line { display: block; overflow: hidden; }
 
@@ -699,28 +679,6 @@ html.is-loading, html.is-loading body { overflow: hidden; }
 @keyframes panelUp { to { transform: translateY(-101%); } }
 
 /* ==========================================================================
-   17. Hero field (WebGL backdrop)
-   ========================================================================== */
-
-/* The field deliberately bleeds past the hero on all sides; clip it here or
-   that bleed becomes 20px of horizontal page scroll. */
-.hero-wrap { position: relative; isolation: isolate; overflow: hidden; }
-
-.globe {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.4s ease;
-  /* Grabbable, unlike the rest of the decoration. */
-  pointer-events: auto;
-  /* Stands in for the canvas until (or unless) WebGL starts. */
-  background: radial-gradient(56% 56% at 50% 48%, rgba(90, 169, 255, 0.16) 0%, transparent 68%);
-}
-
-.globe.is-on { opacity: 1; }
-.globe canvas { width: 100% !important; height: 100% !important; display: block; }
-
-/* ==========================================================================
    18. Scroll rail and magnetic
    ========================================================================== */
 
@@ -824,8 +782,6 @@ html.is-loading, html.is-loading body { overflow: hidden; }
   .loader__ch,
   .loader.is-leaving .loader__wipe span,
   .loader.is-leaving .loader__inner { animation: none !important; }
-
-  .field { display: none; }
   .rail { display: none; }
   .gcard:hover { transform: none; }
   .gcard:hover .gcard__img,
