@@ -489,7 +489,7 @@
       .to('.hero__lede', { opacity: 1, y: 0, duration: .8, ease: 'power3.out' }, '-=.7')
       .to('.hero__actions', { opacity: 1, y: 0, duration: .8, ease: 'power3.out' }, '-=.65')
       .fromTo('.hero__rotator', { opacity: 0 }, { opacity: 1, duration: .6 }, '-=.5')
-      .fromTo('.hero__scroll', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .6 }, '-=.4');
+      .fromTo('.hero__rotator', { opacity: 0 }, { opacity: 1, duration: .3 }, '-=.4');
 
     /* --- hero parallax out --- */
     if (!reduce) {
@@ -718,22 +718,15 @@
 
     try { if (sessionStorage.getItem(DISMISS)) { wa.classList.add('gone'); return; } } catch (e) {}
 
-    var said = false;
-    /* Held back until the hero is behind you: it shares the bottom-right
-       corner with the scroll cue, and a sales prompt should not cover the
-       headline on first paint. */
-    function sync() {
-      var show = window.pageYOffset > window.innerHeight * 0.55;
-      wa.classList.toggle('on', show);
-      if (show && !said) {
-        said = true;
-        /* let the dots run briefly so it reads as a message being typed */
-        setTimeout(function () { wa.classList.add('said'); }, reduce ? 0 : 1150);
-      }
-    }
-    sync();
-    window.addEventListener('scroll', sync, { passive: true });
-    window.addEventListener('resize', sync);
+    /* Present from the start and never hidden again by scrolling. It used to
+       wait for the hero to pass, because it shared the bottom-right corner
+       with the hero's scroll cue; that cue is gone, so the card can hold the
+       corner permanently. The short delay only lets the curtain finish. */
+    setTimeout(function () {
+      wa.classList.add('on');
+      /* let the dots run briefly so it reads as a message being typed */
+      setTimeout(function () { wa.classList.add('said'); }, reduce ? 0 : 1000);
+    }, reduce ? 0 : 500);
 
     var x = $('#waClose');
     if (x) x.addEventListener('click', function (e) {
@@ -767,34 +760,34 @@
       var tl = gsap.timeline({
         onComplete: function () { loader.style.display = 'none'; }
       });
-      tl.to('.loader__tag', { opacity: 1, duration: .3 }, 0)
+      tl.to('.loader__tag', { opacity: 1, duration: .15 }, 0)
         .fromTo('#loaderName .ln', { yPercent: LOADER_HIDDEN, y: 0 },
-                { yPercent: 0, y: 0, duration: .9, stagger: .035, ease: 'expo.out' }, 0)
-        .to('.loader__inner', { opacity: 0, duration: .4, ease: 'power2.in' }, '+=.35')
-        .to('.loader__panels i', { scaleY: 0, transformOrigin: 'top', duration: .85, stagger: .07, ease: 'power4.inOut' }, '-=.2')
+                { yPercent: 0, y: 0, duration: .45, stagger: .018, ease: 'expo.out' }, 0)
+        .to('.loader__inner', { opacity: 0, duration: .2, ease: 'power2.in' }, '+=.18')
+        .to('.loader__panels i', { scaleY: 0, transformOrigin: 'top', duration: .42, stagger: .035, ease: 'power4.inOut' }, '-=.1')
         /* start the page while the curtain is still lifting */
-        .call(bootAnimations, null, '-=.55');
+        .call(bootAnimations, null, '-=.28');
 
       /* same reasoning as the timeout above: the curtain timeline is itself
          rAF-driven, so jump it to the end if it has not run. */
-      setTimeout(function () { if (tl.progress() < 1) tl.progress(1); }, 4000);
+      setTimeout(function () { if (tl.progress() < 1) tl.progress(1); }, 2000);
     }
 
     if (reduce) { finish(); return; }
 
     /* Safety net: rAF is throttled to a standstill in a hidden or
        non-compositing tab, which would strand the visitor behind the
-       curtain. Never let the intro hold the page for more than 3.5s. */
-    setTimeout(finish, 3500);
+       curtain. Never let the intro hold the page for more than 1.8s. */
+    setTimeout(finish, 1800);
 
     var start = performance.now();
     (function step(now) {
       var elapsed = (now || performance.now()) - start;
       var cap = pageLoaded ? 100 : 92;
-      pct = Math.min(cap, elapsed / 11);
+      pct = Math.min(cap, elapsed / 22);
       if (countEl) countEl.textContent = String(Math.floor(pct));
       if (barEl) barEl.style.width = pct + '%';
-      if (pct >= 100) { setTimeout(finish, 120); return; }
+      if (pct >= 100) { setTimeout(finish, 60); return; }
       requestAnimationFrame(step);
     })();
   })();
