@@ -423,15 +423,23 @@
     var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
     var nodes = [], n;
     while ((n = walker.nextNode())) nodes.push(n);
+    /* Each word becomes an inline-block, and a browser may break between
+       two adjacent atomic inline boxes even with no whitespace between
+       them. A token of pure punctuation would therefore be free to start
+       its own line, which is how the full stop after an italic phrase ended
+       up alone. Punctuation joins the word before it instead. */
+    var prev = null;
     nodes.forEach(function (node) {
       var parts = node.nodeValue.split(/(\s+)/);
       var frag = document.createDocumentFragment();
       parts.forEach(function (p) {
         if (!p) return;
         if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+        if (prev && !/[a-z0-9]/i.test(p)) { prev.textContent += p; return; }
         var s = document.createElement('span');
         s.className = 'w'; s.textContent = p;
         frag.appendChild(s);
+        prev = s;
       });
       node.parentNode.replaceChild(frag, node);
     });
@@ -624,31 +632,21 @@
       var mm = gsap.matchMedia();
 
       mm.add('(min-width: 901px)', function () {
-        var head = $('.work__stage > .wrap');
-        /* Measure the real distance from the heading to the gallery, not the
-           heading's own height. The section title's bottom margin collapses
-           out of .wrap, so offsetHeight understated the gap and the pin
-           engaged that many pixels after the sticky heading locked -- the
-           page kept creeping down before it caught. */
-        var headOffset = function () {
-          if (!head) return 120;
-          /* height plus the title's escaped bottom margin. Deliberately not
-             measured from the gallery's offsetTop: once pinned, the spacer
-             makes that value negative, so a refresh would collapse the
-             offset to zero and the lock point would jump. */
-          var title = $('.secTitle', head);
-          var mb = title ? (parseFloat(getComputedStyle(title).marginBottom) || 0) : 0;
-          return Math.round(head.offsetHeight + mb);
-        };
+        /* Pin the heading and the gallery as one block. They used to be
+           separate: the heading was CSS sticky over the whole section while
+           only the gallery was pinned, so once the pan finished the gallery
+           scrolled up behind an opaque heading. Pinned together they arrive
+           and leave as one and can never overlap. */
+        var stage = $('.work__stage');
         var getDist = function () { return Math.max(0, track.scrollWidth - window.innerWidth + 40); };
         var tween = gsap.to(track, {
           x: function () { return -getDist(); },
           ease: 'none',
           scrollTrigger: {
-            trigger: hz,
-            start: function () { return 'top ' + headOffset() + 'px'; },
+            trigger: stage,
+            start: 'top top',
             end: function () { return '+=' + getDist(); },
-            pin: true,
+            pin: stage,
             scrub: true,
             invalidateOnRefresh: true,
             anticipatePin: 1
@@ -769,21 +767,21 @@
 
       /* same reasoning as the timeout above: the curtain timeline is itself
          rAF-driven, so jump it to the end if it has not run. */
-      setTimeout(function () { if (tl.progress() < 1) tl.progress(1); }, 2000);
+      setTimeout(function () { if (tl.progress() < 1) tl.progress(1); }, 1500);
     }
 
     if (reduce) { finish(); return; }
 
     /* Safety net: rAF is throttled to a standstill in a hidden or
        non-compositing tab, which would strand the visitor behind the
-       curtain. Never let the intro hold the page for more than 1.8s. */
-    setTimeout(finish, 1800);
+       curtain. Never let the intro hold the page for more than 1.2s. */
+    setTimeout(finish, 1200);
 
     var start = performance.now();
     (function step(now) {
       var elapsed = (now || performance.now()) - start;
       var cap = pageLoaded ? 100 : 92;
-      pct = Math.min(cap, elapsed / 10);
+      pct = Math.min(cap, elapsed / 5);
       if (countEl) countEl.textContent = String(Math.floor(pct));
       if (barEl) barEl.style.width = pct + '%';
       if (pct >= 100) { setTimeout(finish, 60); return; }

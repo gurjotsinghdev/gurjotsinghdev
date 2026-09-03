@@ -587,11 +587,23 @@ body.menu-open .menu{ pointer-events:auto; }
    pin offset below is measured from this block, so the two stay aligned. */
 .work__stage{ position:relative; }
 @media (min-width:901px){
-  /* sticky inside the stage, not the whole section, so the heading leaves
-     with the gallery instead of hanging over what follows it */
-  .work__stage > .wrap{
-    position:sticky; top:0; z-index:2;
-    background:var(--ink); padding-top:26px;
+  .work__stage > .wrap{ padding-top:26px; }
+
+  /* The stage is pinned whole, so it has to fit the window or its lower edge
+     is cut. On a short screen the heading and the card artwork both give way
+     rather than letting the cards run off the bottom. */
+  @media (max-height:900px){
+    .work__stage .secTitle{ font-size:clamp(30px,4.6vw,68px); margin-bottom:clamp(18px,3vh,36px); }
+    .work__stage .proj__art{ aspect-ratio:auto; height:clamp(150px,26vh,300px); }
+  }
+  @media (max-height:760px){
+    .work__stage .secHead{ margin-bottom:14px; }
+    /* trimmed rather than dropped: losing the description entirely on a
+       short window costs real content */
+    .work__stage .proj__desc{
+      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
   }
 }
 .hz__track{ display:flex; gap:clamp(18px,2vw,32px); padding-inline:var(--pad); will-change:transform; }
