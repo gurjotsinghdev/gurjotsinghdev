@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gurjot Singh (Gary) — Digital Consultant</title>
-<meta name="description" content="Gurjot Singh (Gary) — web design, digital marketing and IT consulting. Custom WordPress and Next.js builds, technical SEO, security and automation. Available for projects and full-time roles.">
+<meta name="description" content="Gurjot Singh (Gary). Web design, digital marketing and IT consulting. Custom WordPress and Next.js builds, technical SEO, security and automation. Available for projects and full-time roles.">
 <meta name="author" content="Gurjot Singh">
 <meta name="theme-color" content="#EDF0F5">
 
@@ -30,7 +30,7 @@
   "alternateName": "Gary",
   "email": "mailto:gurjotangad97@gmail.com",
   "jobTitle": "Web Designer, Digital Marketer & IT Consultant",
-  "description": "Web design, digital marketing and IT consulting — custom WordPress and Next.js builds, technical SEO, security and automation.",
+  "description": "Web design, digital marketing and IT consulting. Custom WordPress and Next.js builds, technical SEO, security and automation.",
   "knowsAbout": [
     "Web Design","Web Development","WordPress","Elementor","Next.js","React","TypeScript","PHP",
     "Digital Marketing","Technical SEO","Structured Data","Google Analytics","Conversion Optimisation",
@@ -434,13 +434,12 @@ body.menu-open .menu{ pointer-events:auto; }
    different register from body copy, so they read as an aside rather than
    as another paragraph of pitch. */
 .quip{
-  display:flex; gap:14px; align-items:flex-start;
+  display:block;
   font-family:var(--f-serif); font-style:italic; font-weight:400;
   font-size:clamp(18px,1.9vw,28px); line-height:1.35; letter-spacing:-.01em;
   color:var(--muted); max-inline-size:40ch;
   margin-top:clamp(30px,5vh,58px);
 }
-.quip::before{ content:'\2014'; flex:none; font-style:normal; color:var(--acid-ink); }
 .work .quip, .services .quip{ margin-inline:auto; }
 
 
@@ -588,6 +587,17 @@ body.menu-open .menu{ pointer-events:auto; }
    ========================================================= */
 .work{ position:relative; padding-block:clamp(80px,12vh,180px) 0; }
 .hz{ position:relative; overflow:hidden; }
+
+/* The heading holds its place for the whole horizontal run. It has to be
+   sticky rather than pinned: ScrollTrigger's pin fixes only the element it
+   is handed, and everything above that element keeps scrolling away. The
+   pin offset below is measured from this block, so the two stay aligned. */
+@media (min-width:901px){
+  .work > .wrap{
+    position:sticky; top:0; z-index:2;
+    background:var(--ink); padding-top:26px;
+  }
+}
 .hz__track{ display:flex; gap:clamp(18px,2vw,32px); padding-inline:var(--pad); will-change:transform; }
 .proj{
   flex:none; width:clamp(280px,32vw,460px);
@@ -643,6 +653,14 @@ body.menu-open .menu{ pointer-events:auto; }
 .hz__end p{ font-size:clamp(28px,3.4vw,52px); }
 .hz__end em{ color:var(--acid-ink); }
 .hz__end .btn{ align-self:flex-start; }
+/* touch carousel: momentum, no scrollbar chrome, and the snap padding that
+   lets the first and last card sit centred like the others */
+@media (max-width:900px){
+  .hz{ -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-padding-inline:var(--pad); }
+  .hz::-webkit-scrollbar{ display:none; }
+  .hz__track{ padding-right:var(--pad); }
+  .proj{ scroll-snap-align:center; }
+}
 .hz__hint{
   display:flex; align-items:center; justify-content:center; gap:12px;
   color:var(--muted-2); padding-block:clamp(28px,5vh,56px);
@@ -786,6 +804,7 @@ a.cRow__v:hover{ color:var(--acid-ink); }
 @media (max-width:720px){
   /* the name stays on mobile; it is the whole point of a personal site */
   .nav__brandtext{ font-size:13px; }
+  .bigtext{ font-size:clamp(34px,10.6vw,46px); line-height:1.14; max-inline-size:none; }
   .hero{ min-height:92svh; padding-top:120px; }
   .hero__scroll{ display:none; }
   .stackList li{ grid-template-columns:38px minmax(0,1fr); gap:12px; }
@@ -934,7 +953,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
   <div class="hero__inner">
     <div class="hero__eyebrow reveal-up">
       <span class="pill"><i class="dot"></i>Available for work</span>
-      <span class="mono hero__loc">Vancouver, BC &mdash; working worldwide</span>
+      <span class="mono hero__loc">Vancouver, BC &middot; working worldwide</span>
     </div>
 
     <h1 class="hero__title display">
@@ -945,7 +964,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
     <div class="hero__bottom">
       <p class="hero__lede reveal-up">
-        <span class="mono hero__kicker">Gurjot Singh &mdash; &ldquo;Gary&rdquo;</span>
+        <span class="mono hero__kicker">Gurjot Singh &ldquo;Gary&rdquo;</span>
         Web design, digital marketing and IT consulting, end&nbsp;to&nbsp;end.
         One person who designs it, builds it, ships it and keeps it fast.
       </p>
@@ -987,13 +1006,13 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     </div>
 
     <h2 class="bigtext display" data-words>
-      Most sites look fine and do nothing. I care about the other kind &mdash; the ones that load fast, rank, convert, and still feel like <em class="serif">someone made them</em>. Strategy, design, code and the boring infrastructure underneath: same person, start to finish.
+      Most sites look fine and do nothing. I care about the other kind. The ones that load fast, rank, convert, and still feel like <em class="serif">someone made them</em>. Strategy, design, code and the boring infrastructure underneath: same person, start to finish.
     </h2>
 
     <div class="about__grid">
       <div class="about__col reveal-up">
         <h3 class="mono about__h">What I actually do</h3>
-        <p>I design and build websites and web products &mdash; WordPress and Next.js &mdash; then handle the parts most designers hand off: SEO and structured data, analytics, lead capture, performance, security and long-term maintenance.</p>
+        <p>I design and build websites and web products in WordPress and Next.js, then handle the parts most designers hand off: SEO and structured data, analytics, lead capture, performance, security and long-term maintenance.</p>
       </div>
       <div class="about__col reveal-up">
         <h3 class="mono about__h">How I work</h3>
@@ -1001,17 +1020,17 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       </div>
       <div class="about__col reveal-up">
         <h3 class="mono about__h">Who I work with</h3>
-        <p>Founders, small teams and agencies in Canada and India &mdash; real estate, news publishing, healthcare, procurement, home services and SaaS. From one landing page to a fleet of sites.</p>
+        <p>Founders, small teams and agencies in Canada and India. Real estate, news publishing, healthcare, procurement, home services and SaaS. From one landing page to a fleet of sites.</p>
       </div>
     </div>
 
     <p class="quip">I want to build something that ends up in a museum. Until then I&rsquo;ll settle for building something that ends up making you money.</p>
 
     <div class="stats" id="stats">
-      <div class="stat"><span class="stat__num" data-count="12" data-suffix="+">0</span><span class="mono stat__lab">Projects shipped</span></div>
+      <div class="stat"><span class="stat__num" data-count="65" data-suffix="+">0</span><span class="mono stat__lab">Projects shipped</span></div>
       <div class="stat"><span class="stat__num" data-count="3">0</span><span class="mono stat__lab">Disciplines, one person</span></div>
-      <div class="stat"><span class="stat__num" data-count="2">0</span><span class="mono stat__lab">Countries served</span></div>
-      <div class="stat"><span class="stat__num" data-count="100" data-suffix="%">0</span><span class="mono stat__lab">Built &amp; shipped end to end</span></div>
+      <div class="stat"><span class="stat__num" data-count="90" data-suffix="+">0</span><span class="mono stat__lab">PageSpeed target, every build</span></div>
+      <div class="stat"><span class="stat__num" data-count="100" data-suffix="%">0</span><span class="mono stat__lab">SEO and analytics wired in</span></div>
     </div>
   </div>
 </section>
@@ -1123,7 +1142,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
         <div class="proj__art"><span class="proj__glyph">&#10035;</span><span class="proj__idx mono">02</span></div>
         <div class="proj__meta">
           <h3 class="proj__name">PromptProMax</h3>
-          <p class="proj__desc">My own product &mdash; an AI prompt &amp; tools directory. Next.js 16 on Turbopack, React 19, hand-written CSS, four lead-capture surfaces behind a single validated API route.</p>
+          <p class="proj__desc">My own product, an AI prompt and tools directory. Next.js 16 on Turbopack, React 19, hand-written CSS, four lead-capture surfaces behind a single validated API route.</p>
           <div class="proj__tags mono"><span>Product</span><span>Next.js</span><span>TypeScript</span><span>Growth</span></div>
         </div>
       </article>
@@ -1132,7 +1151,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
         <div class="proj__art"><span class="proj__glyph">&#9636;</span><span class="proj__idx mono">03</span></div>
         <div class="proj__meta">
           <h3 class="proj__name">Sharan Forms</h3>
-          <p class="proj__desc">A WordPress form builder written from scratch to compete with Gravity Forms &mdash; fields, entries, notifications, save-and-continue drafts, scheduling, GDPR export and erase.</p>
+          <p class="proj__desc">A WordPress form builder written from scratch to compete with Gravity Forms. Fields, entries, notifications, save-and-continue drafts, scheduling, GDPR export and erase.</p>
           <div class="proj__tags mono"><span>PHP</span><span>Plugin Architecture</span><span>Product</span></div>
         </div>
       </article>
@@ -1186,9 +1205,9 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       <div class="proc__line"><i id="procFill"></i></div>
       <div class="proc__steps">
         <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 01</span><h3 class="step__t">Discover</h3></span><p>A call, your goals, your competitors and the constraints nobody mentions until week three. You get a written scope and a fixed price before anything starts.</p></div>
-        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 02</span><h3 class="step__t">Design</h3></span><p>Direction first, then real screens &mdash; not a mood board and a promise. You see the actual homepage early and we iterate until it is right.</p></div>
+        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 02</span><h3 class="step__t">Design</h3></span><p>Direction first, then real screens, not a mood board and a promise. You see the actual homepage early and we iterate until it is right.</p></div>
         <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 03</span><h3 class="step__t">Build</h3></span><p>Clean, editable, fast. Built on the stack that fits your team, with SEO, analytics and lead capture wired in from the first commit rather than the last week.</p></div>
-        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 04</span><h3 class="step__t">Launch</h3></span><p>Staging, QA across devices, redirects, schema, Search Console, backups and a rollback plan. Launch day should be boring &mdash; that is the whole point.</p></div>
+        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 04</span><h3 class="step__t">Launch</h3></span><p>Staging, QA across devices, redirects, schema, Search Console, backups and a rollback plan. Launch day should be boring. That is the whole point.</p></div>
         <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 05</span><h3 class="step__t">Grow</h3></span><p>Updates, monitoring, security and the ongoing optimisation that turns a launched site into a compounding asset. Or a clean handover, if you would rather run it yourself.</p></div>
       </div>
     </div>
@@ -1525,7 +1544,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
   /* ---------------------------------------------------------
      3. Scramble text on hover
      --------------------------------------------------------- */
-  var GLYPHS = '!<>-_\\/[]{}—=+*^?#________';
+  var GLYPHS = '!<>-_\\/[]{}=+*^?#________';
   $$('[data-scramble]').forEach(function (el) {
     var original = el.textContent, raf = null, frame = 0;
     function run() {
@@ -1849,13 +1868,15 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       var mm = gsap.matchMedia();
 
       mm.add('(min-width: 901px)', function () {
+        var head = $('.work > .wrap');
+        var headOffset = function () { return head ? Math.round(head.offsetHeight) : 120; };
         var getDist = function () { return Math.max(0, track.scrollWidth - window.innerWidth + 40); };
         var tween = gsap.to(track, {
           x: function () { return -getDist(); },
           ease: 'none',
           scrollTrigger: {
             trigger: hz,
-            start: 'top top',
+            start: function () { return 'top ' + headOffset() + 'px'; },
             end: function () { return '+=' + getDist(); },
             pin: true,
             scrub: true,
@@ -1876,8 +1897,13 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       mm.add('(max-width: 900px)', function () {
         hz.style.overflowX = 'auto';
         hz.style.scrollSnapType = 'x mandatory';
+        hz.setAttribute('data-lenis-prevent', '');
         $$('.proj', track).forEach(function (p) { p.style.scrollSnapAlign = 'center'; });
-        return function () { hz.style.overflowX = ''; hz.style.scrollSnapType = ''; };
+        return function () {
+          hz.style.overflowX = '';
+          hz.style.scrollSnapType = '';
+          hz.removeAttribute('data-lenis-prevent');
+        };
       });
     }
 

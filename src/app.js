@@ -265,7 +265,7 @@
   /* ---------------------------------------------------------
      3. Scramble text on hover
      --------------------------------------------------------- */
-  var GLYPHS = '!<>-_\\/[]{}—=+*^?#________';
+  var GLYPHS = '!<>-_\\/[]{}=+*^?#________';
   $$('[data-scramble]').forEach(function (el) {
     var original = el.textContent, raf = null, frame = 0;
     function run() {
@@ -589,13 +589,15 @@
       var mm = gsap.matchMedia();
 
       mm.add('(min-width: 901px)', function () {
+        var head = $('.work > .wrap');
+        var headOffset = function () { return head ? Math.round(head.offsetHeight) : 120; };
         var getDist = function () { return Math.max(0, track.scrollWidth - window.innerWidth + 40); };
         var tween = gsap.to(track, {
           x: function () { return -getDist(); },
           ease: 'none',
           scrollTrigger: {
             trigger: hz,
-            start: 'top top',
+            start: function () { return 'top ' + headOffset() + 'px'; },
             end: function () { return '+=' + getDist(); },
             pin: true,
             scrub: true,
@@ -616,8 +618,13 @@
       mm.add('(max-width: 900px)', function () {
         hz.style.overflowX = 'auto';
         hz.style.scrollSnapType = 'x mandatory';
+        hz.setAttribute('data-lenis-prevent', '');
         $$('.proj', track).forEach(function (p) { p.style.scrollSnapAlign = 'center'; });
-        return function () { hz.style.overflowX = ''; hz.style.scrollSnapType = ''; };
+        return function () {
+          hz.style.overflowX = '';
+          hz.style.scrollSnapType = '';
+          hz.removeAttribute('data-lenis-prevent');
+        };
       });
     }
 
