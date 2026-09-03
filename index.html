@@ -126,6 +126,7 @@
   --grain-o:  .045;
   --art-base: #0A0A0C;
 }
+:root[data-theme="dark"] .globe__land{ fill:#D8E7FB; }
 
 *,*::before,*::after{ box-sizing:border-box; }
 
@@ -242,13 +243,20 @@ canvas{ display:block; }
 .nav.hidden{ transform:translateY(-102%); }
 
 .nav__brand{ display:flex; align-items:center; gap:12px; }
-.nav__mark{
-  display:grid; grid-template-columns:1fr 1fr; place-items:center;
-  width:38px; height:38px; border:1px solid var(--line); border-radius:50%;
-  font-family:var(--f-display); font-weight:700; font-size:13px; letter-spacing:-.03em;
-  transition:background-color .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease);
-}
-.nav__brand:hover .nav__mark{ background:var(--acid); color:var(--on-acid); border-color:var(--acid); }
+/* A rotating globe instead of a monogram. Two copies of the same landmass
+   tile scroll behind a circular clip, so translating by exactly one tile
+   width (40 units) loops with no visible seam. */
+.globe{ display:block; width:38px; height:38px; flex:none; }
+.globe svg{ display:block; width:100%; height:100%; overflow:visible; }
+.globe__ocean{ fill:var(--acid); }
+.globe__land{ fill:#F2F7FF; }
+.globe__grid{ fill:none; stroke:#FFFFFF; stroke-width:.55; opacity:.32; }
+.globe__rim{ fill:none; stroke:var(--line); stroke-width:1; transition:stroke .4s var(--ease); }
+.globe__spin{ animation:globeSpin 18s linear infinite; }
+@keyframes globeSpin{ to{ transform:translateX(-40px); } }
+.nav__brand:hover .globe__spin{ animation-duration:5s; }
+.nav__brand:hover .globe__rim{ stroke:var(--acid); }
+@media (prefers-reduced-motion: reduce){ .globe__spin{ animation:none; } }
 .nav__brandtext{ font-size:14px; font-weight:500; letter-spacing:-.02em; }
 .nav__brandtext em{ font-family:var(--f-serif); font-style:italic; color:var(--muted); }
 
@@ -769,8 +777,15 @@ a.cRow__v:hover{ color:var(--acid-ink); }
   .step{ grid-template-columns:1fr; gap:10px; }
   .contact__grid{ grid-template-columns:1fr; }
 }
+/* Below this the row cannot hold brand + name + toggle + CTA + burger, so
+   the CTA goes: it is duplicated in the menu and in the chat card. */
+@media (max-width:520px){
+  .nav__cta, .nav__right .btn--sm{ display:none; }
+  .nav__brandtext{ font-size:12px; }
+}
 @media (max-width:720px){
-  .nav__brandtext{ display:none; }
+  /* the name stays on mobile; it is the whole point of a personal site */
+  .nav__brandtext{ font-size:13px; }
   .hero{ min-height:92svh; padding-top:120px; }
   .hero__scroll{ display:none; }
   .stackList li{ grid-template-columns:38px minmax(0,1fr); gap:12px; }
@@ -816,7 +831,34 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
 <header class="nav" id="nav">
   <a class="nav__brand" href="#top" data-cursor="link" data-magnetic>
-    <span class="nav__mark"><span>G</span><span>S</span></span>
+    <span class="globe" aria-hidden="true">
+      <svg viewBox="0 0 40 40" role="presentation">
+        <defs><clipPath id="globeClip"><circle cx="20" cy="20" r="19"/></clipPath></defs>
+        <circle class="globe__ocean" cx="20" cy="20" r="19"/>
+        <g clip-path="url(#globeClip)">
+          <g class="globe__spin">
+            <g class="globe__land">
+            <path d="M6 12 C 9 13, 10 17, 8 20 C 7 23, 9 26, 7 29 C 5 31, 3 29, 3 25 C 3 20, 3 15, 4 13 C 4.5 12, 5.3 11.8, 6 12 Z"/>
+            <path d="M14 11 C 19 10, 24 12, 25 15 C 26 18, 22 18, 20 20 C 19 24, 20 28, 17 29 C 14 30, 13 26, 13 22 C 13 17, 12 13, 14 11 Z"/>
+            <path d="M28 13 C 32 11, 37 14, 36 17 C 35 20, 30 19, 28 17 C 27 15.5, 27 14, 28 13 Z"/>
+            <path d="M31 24 C 34 23, 36 25, 35 27 C 33 29, 30 28, 30 26 C 30 25, 30.4 24.3, 31 24 Z"/>
+            </g>
+            <g class="globe__land" transform="translate(40,0)">
+            <path d="M6 12 C 9 13, 10 17, 8 20 C 7 23, 9 26, 7 29 C 5 31, 3 29, 3 25 C 3 20, 3 15, 4 13 C 4.5 12, 5.3 11.8, 6 12 Z"/>
+            <path d="M14 11 C 19 10, 24 12, 25 15 C 26 18, 22 18, 20 20 C 19 24, 20 28, 17 29 C 14 30, 13 26, 13 22 C 13 17, 12 13, 14 11 Z"/>
+            <path d="M28 13 C 32 11, 37 14, 36 17 C 35 20, 30 19, 28 17 C 27 15.5, 27 14, 28 13 Z"/>
+            <path d="M31 24 C 34 23, 36 25, 35 27 C 33 29, 30 28, 30 26 C 30 25, 30.4 24.3, 31 24 Z"/>
+            </g>
+          </g>
+          <g class="globe__grid">
+            <ellipse cx="20" cy="20" rx="19" ry="6.5"/>
+            <ellipse cx="20" cy="20" rx="19" ry="13"/>
+            <ellipse cx="20" cy="20" rx="6.5" ry="19"/>
+          </g>
+        </g>
+        <circle class="globe__rim" cx="20" cy="20" r="19"/>
+      </svg>
+    </span>
     <span class="nav__brandtext">Gurjot Singh <em>&ldquo;Gary&rdquo;</em></span>
   </a>
 
@@ -1068,44 +1110,17 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
   <div class="hz" id="hz" data-cursor="drag">
     <div class="hz__track" id="hzTrack">
 
-      <article class="proj" data-cursor="view" style="--p1:#7CFF3F;--p2:#0B7A4B">
-        <div class="proj__art"><span class="proj__glyph">&#10052;</span><span class="proj__idx mono">01</span></div>
+      <article class="proj" style="--p1:#F0A73C;--p2:#5C2410">
+        <div class="proj__art"><span class="proj__glyph">&#9673;</span><span class="proj__idx mono">01</span></div>
         <div class="proj__meta">
-          <h3 class="proj__name">Kolkata Cooling Solution</h3>
-          <p class="proj__desc">HVAC &amp; home-services company. Five service pages, plus a custom toolkit plugin holding the design system, self-hosted fonts, a WhatsApp lead flow and Service schema.</p>
-          <div class="proj__tags mono"><span>WordPress</span><span>Elementor</span><span>Design System</span><span>SEO</span></div>
+          <h3 class="proj__name">Nero Tondo</h3>
+          <p class="proj__desc">Farm-to-table restaurant on Powell Street in East Vancouver. WordPress and Elementor build with a Tock reservation flow, a seasonal menu, and an Our Farmers section crediting the local growers behind the kitchen.</p>
+          <div class="proj__tags mono"><span>WordPress</span><span>Elementor</span><span>Hospitality</span><span>Reservations</span></div>
         </div>
       </article>
 
-      <article class="proj" data-cursor="view" style="--p1:#FF6B4A;--p2:#7A1B0B">
-        <div class="proj__art"><span class="proj__glyph">&#9707;</span><span class="proj__idx mono">02</span></div>
-        <div class="proj__meta">
-          <h3 class="proj__name">Prabh News</h3>
-          <p class="proj__desc">Full design revamp of a news portal &mdash; 128 posts, 12 categories. Built a custom ad-slot system and a trending-score engine that ranks the homepage without killing the query.</p>
-          <div class="proj__tags mono"><span>WordPress FSE</span><span>Editorial UX</span><span>Plugin Dev</span><span>Performance</span></div>
-        </div>
-      </article>
-
-      <article class="proj" data-cursor="view" style="--p1:#8FB8FF;--p2:#12275C">
-        <div class="proj__art"><span class="proj__glyph">&#9650;</span><span class="proj__idx mono">03</span></div>
-        <div class="proj__meta">
-          <h3 class="proj__name">Bridgestar Group</h3>
-          <p class="proj__desc">Property group site &mdash; 13 pages from an approved design system. Custom theme, property &amp; news post types, and a scripted build pipeline so layouts stay reproducible.</p>
-          <div class="proj__tags mono"><span>Custom Theme</span><span>Elementor</span><span>CPT / ACF</span><span>Real Estate</span></div>
-        </div>
-      </article>
-
-      <article class="proj" data-cursor="view" style="--p1:#F5C242;--p2:#5C3A05">
-        <div class="proj__art"><span class="proj__glyph">&#9672;</span><span class="proj__idx mono">04</span></div>
-        <div class="proj__meta">
-          <h3 class="proj__name">Pillar Sourcing</h3>
-          <p class="proj__desc">Sourcing &amp; procurement firm in Kelowna, BC. Six-page Next.js site, 13 shared components, content driven from a single constants layer, deployed continuously to Vercel.</p>
-          <div class="proj__tags mono"><span>Next.js 16</span><span>React 19</span><span>Tailwind v4</span><span>Vercel</span></div>
-        </div>
-      </article>
-
-      <article class="proj" data-cursor="view" style="--p1:#C77DFF;--p2:#33116B">
-        <div class="proj__art"><span class="proj__glyph">&#10035;</span><span class="proj__idx mono">05</span></div>
+      <article class="proj" style="--p1:#C77DFF;--p2:#33116B">
+        <div class="proj__art"><span class="proj__glyph">&#10035;</span><span class="proj__idx mono">02</span></div>
         <div class="proj__meta">
           <h3 class="proj__name">PromptProMax</h3>
           <p class="proj__desc">My own product &mdash; an AI prompt &amp; tools directory. Next.js 16 on Turbopack, React 19, hand-written CSS, four lead-capture surfaces behind a single validated API route.</p>
@@ -1113,48 +1128,12 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
         </div>
       </article>
 
-      <article class="proj" data-cursor="view" style="--p1:#FF7AC8;--p2:#6B0F42">
-        <div class="proj__art"><span class="proj__glyph">&#9680;</span><span class="proj__idx mono">06</span></div>
-        <div class="proj__meta">
-          <h3 class="proj__name">Purple Pig &mdash; Homepage</h3>
-          <p class="proj__desc">Agency homepage rebuilt from a design prototype: 11 sections, 174 widgets, plus a standalone motion kit for the letter-drop hero, parallax, marquees and scroll reveals.</p>
-          <div class="proj__tags mono"><span>Motion Design</span><span>Elementor</span><span>JS Plugin</span><span>Prototype to Live</span></div>
-        </div>
-      </article>
-
-      <article class="proj" data-cursor="view" style="--p1:#5EE9D4;--p2:#0A4A44">
-        <div class="proj__art"><span class="proj__glyph">&#9636;</span><span class="proj__idx mono">07</span></div>
+      <article class="proj" style="--p1:#5EE9D4;--p2:#0A4A44">
+        <div class="proj__art"><span class="proj__glyph">&#9636;</span><span class="proj__idx mono">03</span></div>
         <div class="proj__meta">
           <h3 class="proj__name">Sharan Forms</h3>
           <p class="proj__desc">A WordPress form builder written from scratch to compete with Gravity Forms &mdash; fields, entries, notifications, save-and-continue drafts, scheduling, GDPR export and erase.</p>
           <div class="proj__tags mono"><span>PHP</span><span>Plugin Architecture</span><span>Product</span></div>
-        </div>
-      </article>
-
-      <article class="proj" data-cursor="view" style="--p1:#FF4D4D;--p2:#5A0A0A">
-        <div class="proj__art"><span class="proj__glyph">&#9884;</span><span class="proj__idx mono">08</span></div>
-        <div class="proj__meta">
-          <h3 class="proj__name">Incident Response &amp; Cleanup</h3>
-          <p class="proj__desc">A compromised WordPress storefront. Traced the injection to the REST batch endpoint, removed the rogue admin accounts and injected spam, verified core checksums, patched and hardened.</p>
-          <div class="proj__tags mono"><span>Security</span><span>Forensics</span><span>Hardening</span><span>Confidential</span></div>
-        </div>
-      </article>
-
-      <article class="proj" data-cursor="view" style="--p1:#9DFF6B;--p2:#1E5410">
-        <div class="proj__art"><span class="proj__glyph">&#10010;</span><span class="proj__idx mono">09</span></div>
-        <div class="proj__meta">
-          <h3 class="proj__name">Healthcare Member Directories</h3>
-          <p class="proj__desc">Two clinician directories, 600+ members each, sharing a data model but nothing else &mdash; one on WPBakery, one on Divi. Scoped and quoted a change that had to be built twice.</p>
-          <div class="proj__tags mono"><span>IT Consulting</span><span>ACF</span><span>Legacy Stacks</span><span>Scoping</span></div>
-        </div>
-      </article>
-
-      <article class="proj" data-cursor="view" style="--p1:#B8B8B8;--p2:#2A2A2A">
-        <div class="proj__art"><span class="proj__glyph">&#9671;</span><span class="proj__idx mono">10</span></div>
-        <div class="proj__meta">
-          <h3 class="proj__name">Multi-site Fleet Automation</h3>
-          <p class="proj__desc">Tooling to deploy, verify and maintain a fleet of client WordPress sites from one place &mdash; scripted builds, byte-exact deploy verification and repeatable, reversible releases.</p>
-          <div class="proj__tags mono"><span>Automation</span><span>DevOps</span><span>Tooling</span></div>
         </div>
       </article>
 
@@ -1165,7 +1144,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
     </div>
   </div>
-  <div class="wrap"><p class="quip">Ten projects, zero templates, and one laptop that has thoroughly earned its retirement.</p></div>
+  <div class="wrap"><p class="quip">Three projects here. Zero templates in any of them.</p></div>
   <div class="hz__hint mono"><i></i><span>drag or scroll</span><i></i></div>
 </section>
 

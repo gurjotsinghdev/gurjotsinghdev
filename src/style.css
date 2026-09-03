@@ -85,6 +85,7 @@
   --grain-o:  .045;
   --art-base: #0A0A0C;
 }
+:root[data-theme="dark"] .globe__land{ fill:#D8E7FB; }
 
 *,*::before,*::after{ box-sizing:border-box; }
 
@@ -201,13 +202,20 @@ canvas{ display:block; }
 .nav.hidden{ transform:translateY(-102%); }
 
 .nav__brand{ display:flex; align-items:center; gap:12px; }
-.nav__mark{
-  display:grid; grid-template-columns:1fr 1fr; place-items:center;
-  width:38px; height:38px; border:1px solid var(--line); border-radius:50%;
-  font-family:var(--f-display); font-weight:700; font-size:13px; letter-spacing:-.03em;
-  transition:background-color .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease);
-}
-.nav__brand:hover .nav__mark{ background:var(--acid); color:var(--on-acid); border-color:var(--acid); }
+/* A rotating globe instead of a monogram. Two copies of the same landmass
+   tile scroll behind a circular clip, so translating by exactly one tile
+   width (40 units) loops with no visible seam. */
+.globe{ display:block; width:38px; height:38px; flex:none; }
+.globe svg{ display:block; width:100%; height:100%; overflow:visible; }
+.globe__ocean{ fill:var(--acid); }
+.globe__land{ fill:#F2F7FF; }
+.globe__grid{ fill:none; stroke:#FFFFFF; stroke-width:.55; opacity:.32; }
+.globe__rim{ fill:none; stroke:var(--line); stroke-width:1; transition:stroke .4s var(--ease); }
+.globe__spin{ animation:globeSpin 18s linear infinite; }
+@keyframes globeSpin{ to{ transform:translateX(-40px); } }
+.nav__brand:hover .globe__spin{ animation-duration:5s; }
+.nav__brand:hover .globe__rim{ stroke:var(--acid); }
+@media (prefers-reduced-motion: reduce){ .globe__spin{ animation:none; } }
 .nav__brandtext{ font-size:14px; font-weight:500; letter-spacing:-.02em; }
 .nav__brandtext em{ font-family:var(--f-serif); font-style:italic; color:var(--muted); }
 
@@ -728,8 +736,15 @@ a.cRow__v:hover{ color:var(--acid-ink); }
   .step{ grid-template-columns:1fr; gap:10px; }
   .contact__grid{ grid-template-columns:1fr; }
 }
+/* Below this the row cannot hold brand + name + toggle + CTA + burger, so
+   the CTA goes: it is duplicated in the menu and in the chat card. */
+@media (max-width:520px){
+  .nav__cta, .nav__right .btn--sm{ display:none; }
+  .nav__brandtext{ font-size:12px; }
+}
 @media (max-width:720px){
-  .nav__brandtext{ display:none; }
+  /* the name stays on mobile; it is the whole point of a personal site */
+  .nav__brandtext{ font-size:13px; }
   .hero{ min-height:92svh; padding-top:120px; }
   .hero__scroll{ display:none; }
   .stackList li{ grid-template-columns:38px minmax(0,1fr); gap:12px; }
