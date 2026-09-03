@@ -208,39 +208,6 @@ canvas{ display:block; }
 /* =========================================================
    CURSOR / GRAIN / PROGRESS
    ========================================================= */
-/* A presence cursor: pointer plus a name tag, the way a collaborative
-   canvas shows someone else in the room. The tag trails the arrow slightly
-   and renames itself to whatever the thing under it actually does. */
-.cursor{
-  position:fixed; top:0; left:0; z-index:190; pointer-events:none;
-  opacity:0; transition:opacity .3s ease;
-}
-.cursor.ready{ opacity:1; }
-.cursor__arrow{
-  position:absolute; width:21px; height:23px;
-  transform-origin:2px 2px;
-  fill:var(--acid); stroke:#fff; stroke-width:1.6; stroke-linejoin:round;
-  filter:drop-shadow(0 2px 5px rgba(0,0,0,.3));
-}
-.cursor__tag{
-  position:absolute; white-space:nowrap;
-  padding:4px 9px; border-radius:7px 7px 7px 2px;
-  background:var(--acid); color:var(--on-acid);
-  font-family:var(--f-mono); font-size:10px; font-weight:500;
-  letter-spacing:.09em; text-transform:uppercase;
-  box-shadow:0 5px 14px -3px rgba(0,0,0,.35);
-}
-/* a small pop whenever the tag renames itself */
-.cursor__tag.pop{ animation:tagPop .32s var(--ease); }
-@keyframes tagPop{ 0%{ transform:scale(.82); } 55%{ transform:scale(1.06); } 100%{ transform:scale(1); } }
-
-.cursor.is-view .cursor__arrow,
-.cursor.is-mail .cursor__arrow{ transform-box:fill-box; }
-.cursor.is-mail .cursor__tag{ background:#25D366; color:#04331A; }
-
-@media (prefers-reduced-motion: reduce){ .cursor__tag.pop{ animation:none; } }
-@media (hover:none),(pointer:coarse){ .cursor{ display:none; } }
-
 .grain{
   position:fixed; inset:-120%; z-index:180; pointer-events:none; opacity:var(--grain-o);
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
@@ -731,7 +698,11 @@ body.menu-open .menu{ pointer-events:auto; }
    uncapped vw size would overflow the container on wide screens. */
 .huge__line{
   display:block; white-space:nowrap;
-  font-size:clamp(36px,16.5vw,245px); line-height:.9; letter-spacing:-.05em;
+  /* Measured: this face sets "LET'S TALK" at ~4.73x the font size, so
+     19vw fills 97-99% of the measure at every width, and the 272px cap is
+     what .wrap's own 1440px ceiling allows. .contact clips overflow, so a
+     failed webfont can never push the page sideways. */
+  font-size:clamp(34px,18.4vw,268px); line-height:.9; letter-spacing:-.05em;
   color:transparent; -webkit-text-stroke:1px var(--stroke);
   transition:color .5s var(--ease), -webkit-text-stroke-color .5s var(--ease), transform .6s var(--ease);
 }
@@ -839,12 +810,6 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 </div>
 
 <!-- ============ FIXED CHROME ============ -->
-<div class="cursor" id="cursor" aria-hidden="true">
-  <svg class="cursor__arrow" viewBox="0 0 20 22" aria-hidden="true">
-    <path d="M2 2 L2 19 L6.2 15.3 L8.9 21 L11.9 19.6 L9.2 14 L14.8 14 Z"/>
-  </svg>
-  <span class="cursor__tag" id="cursorLabel">You</span>
-</div>
 <div class="grain" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
 <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
@@ -1561,66 +1526,6 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
      2. Custom cursor + magnetic
      --------------------------------------------------------- */
   if (!coarse && hasGSAP) {
-    var cur = $('#cursor'), tag = $('#cursorLabel');
-    var arrow = $('.cursor__arrow');
-    var mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    var ax = mx, ay = my, tx = mx, ty = my, prev = mx, rot = 0;
-    var ready = false;
-
-    window.addEventListener('mousemove', function (e) {
-      mx = e.clientX; my = e.clientY;
-      if (!ready) {
-        ready = true; ax = tx = mx; ay = ty = my;
-        /* place it before the first ticker frame, so it can never flash
-           at the top-left corner on the way in */
-        if (arrow) arrow.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-        if (tag) tag.style.transform = 'translate(' + (mx + 16) + 'px,' + (my + 20) + 'px)';
-        cur.classList.add('ready');
-      }
-    }, { passive: true });
-    window.addEventListener('mouseout', function (e) {
-      if (!e.relatedTarget) cur.classList.remove('ready');
-    });
-
-    window.gsap.ticker.add(function () {
-      /* the arrow tracks tightly, the tag lags a little -- that small
-         difference is what makes it read as one object being dragged
-         rather than two things pinned to the pointer */
-      ax += (mx - ax) * 0.58; ay += (my - ay) * 0.58;
-      tx += (mx - tx) * 0.26; ty += (my - ty) * 0.26;
-
-      /* lean into the direction of travel, damped so it settles */
-      var vx = mx - prev; prev = mx;
-      rot += (Math.max(-15, Math.min(15, vx * 0.9)) - rot) * 0.12;
-
-      if (arrow) arrow.style.transform = 'translate(' + ax + 'px,' + ay + 'px) rotate(' + rot.toFixed(2) + 'deg)';
-      if (tag) tag.style.transform = 'translate(' + (tx + 16) + 'px,' + (ty + 20) + 'px)';
-    });
-
-    var LABELS = { view: 'View', mail: 'WhatsApp', drag: 'Drag', link: 'Click' };
-    var current = 'You';
-    function setState(state) {
-      if (!cur) return;
-      cur.className = 'cursor ready' + (state ? ' is-' + state : '');
-      var next = LABELS[state] || 'You';
-      if (next !== current && tag) {
-        current = next;
-        tag.textContent = next;
-        tag.classList.remove('pop');
-        void tag.offsetWidth;          /* restart the animation */
-        tag.classList.add('pop');
-      }
-    }
-    $$('[data-cursor]').forEach(function (el) {
-      var s = el.getAttribute('data-cursor');
-      el.addEventListener('mouseenter', function () { setState(s); });
-      el.addEventListener('mouseleave', function () { setState(''); });
-    });
-    $$('a:not([data-cursor]), button:not([data-cursor])').forEach(function (el) {
-      el.addEventListener('mouseenter', function () { setState('link'); });
-      el.addEventListener('mouseleave', function () { setState(''); });
-    });
-
     /* magnetic */
     $$('[data-magnetic]').forEach(function (el) {
       var strength = 0.32;
