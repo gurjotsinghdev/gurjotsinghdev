@@ -564,7 +564,23 @@
       var x = dir === -1 ? 0 : -base;
       var speed = 1.8, extra = 0, skew = 0;
 
+      /* The footer band holds still on the opening line so it can actually be
+         read, then starts two seconds after it scrolls into view. The header
+         ticker sits just under the hero and keeps running as before. */
+      var running = true;
+      var band = track.closest('.foot__marquee');
+      if (band) {
+        running = false;
+        if (!reduce) {
+          ST.create({
+            trigger: band, start: 'top 92%', once: true,
+            onEnter: function () { setTimeout(function () { running = true; }, 2000); }
+          });
+        }
+      }
+
       gsap.ticker.add(function () {
+        if (!running) return;
         x += dir * (speed + Math.abs(extra) * 0.9);
         if (x <= -base) x += base;
         if (x >= 0) x -= base;

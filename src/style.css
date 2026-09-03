@@ -553,7 +553,7 @@ body.menu-open .menu{ pointer-events:auto; }
 /* =========================================================
    SERVICES CARD STACK
    ========================================================= */
-.services{ padding-bottom:clamp(24px,4vh,56px); }
+.services{ padding-bottom:clamp(12px,2vh,28px); }
 .cards{ position:relative; }
 .card{ position:sticky; top:0; height:100svh; display:grid; place-items:center; padding:90px var(--pad) 40px; }
 .card__in{
@@ -583,7 +583,7 @@ body.menu-open .menu{ pointer-events:auto; }
 /* =========================================================
    WORK — horizontal
    ========================================================= */
-.work{ position:relative; padding-block:clamp(48px,6vh,96px) 0; }
+.work{ position:relative; padding-block:clamp(28px,3.5vh,56px) 0; }
 .hz{ position:relative; overflow:hidden; }
 
 /* The heading holds its place for the whole horizontal run. It has to be

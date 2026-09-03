@@ -594,7 +594,7 @@ body.menu-open .menu{ pointer-events:auto; }
 /* =========================================================
    SERVICES CARD STACK
    ========================================================= */
-.services{ padding-bottom:clamp(24px,4vh,56px); }
+.services{ padding-bottom:clamp(12px,2vh,28px); }
 .cards{ position:relative; }
 .card{ position:sticky; top:0; height:100svh; display:grid; place-items:center; padding:90px var(--pad) 40px; }
 .card__in{
@@ -624,7 +624,7 @@ body.menu-open .menu{ pointer-events:auto; }
 /* =========================================================
    WORK — horizontal
    ========================================================= */
-.work{ position:relative; padding-block:clamp(48px,6vh,96px) 0; }
+.work{ position:relative; padding-block:clamp(28px,3.5vh,56px) 0; }
 .hz{ position:relative; overflow:hidden; }
 
 /* The heading holds its place for the whole horizontal run. It has to be
@@ -1129,12 +1129,6 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
         </div>
       </div>
     </article>
-  </div>
-
-  <div class="wrap ctaRow">
-    <a class="btn btn--fill" href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat." target="_blank" rel="noopener noreferrer" data-magnetic>
-      <span>Let&rsquo;s talk</span><i class="arr">&nearr;</i>
-    </a>
   </div>
 </section>
 
@@ -2023,7 +2017,23 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       var x = dir === -1 ? 0 : -base;
       var speed = 1.8, extra = 0, skew = 0;
 
+      /* The footer band holds still on the opening line so it can actually be
+         read, then starts two seconds after it scrolls into view. The header
+         ticker sits just under the hero and keeps running as before. */
+      var running = true;
+      var band = track.closest('.foot__marquee');
+      if (band) {
+        running = false;
+        if (!reduce) {
+          ST.create({
+            trigger: band, start: 'top 92%', once: true,
+            onEnter: function () { setTimeout(function () { running = true; }, 2000); }
+          });
+        }
+      }
+
       gsap.ticker.add(function () {
+        if (!running) return;
         x += dir * (speed + Math.abs(extra) * 0.9);
         if (x <= -base) x += base;
         if (x >= 0) x -= base;
