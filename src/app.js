@@ -714,9 +714,10 @@
   (function () {
     var wa = $('#wa');
     if (!wa) return;
-    var DISMISS = 'gs-wa-dismissed';
-
-    try { if (sessionStorage.getItem(DISMISS)) { wa.classList.add('gone'); return; } } catch (e) {}
+    /* No persisted dismissal. The card has to be in the corner on every
+       page load, so a click on the close button hides it for that view only.
+       The old key is cleared for anyone still carrying one. */
+    try { sessionStorage.removeItem('gs-wa-dismissed'); } catch (e) {}
 
     /* Present from the start and never hidden again by scrolling. It used to
        wait for the hero to pass, because it shared the bottom-right corner
@@ -732,8 +733,6 @@
     if (x) x.addEventListener('click', function (e) {
       e.preventDefault();
       wa.classList.add('gone');
-      /* session only -- dismissing today should not hide it forever */
-      try { sessionStorage.setItem(DISMISS, '1'); } catch (err) {}
     });
   })();
 
@@ -784,7 +783,7 @@
     (function step(now) {
       var elapsed = (now || performance.now()) - start;
       var cap = pageLoaded ? 100 : 92;
-      pct = Math.min(cap, elapsed / 22);
+      pct = Math.min(cap, elapsed / 10);
       if (countEl) countEl.textContent = String(Math.floor(pct));
       if (barEl) barEl.style.width = pct + '%';
       if (pct >= 100) { setTimeout(finish, 60); return; }
