@@ -1,0 +1,493 @@
+<!-- Light is the default. This restores a saved dark choice before first
+     paint so that visitor never sees a light flash. Storage can throw
+     (private mode, blocked site data). -->
+<script>
+(function(){try{if(localStorage.getItem('gs-theme-2')==='dark')
+document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+
+<!-- ============ PRELOADER ============ -->
+<div class="loader" id="loader">
+  <div class="loader__panels"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="loader__inner">
+    <div class="loader__name" id="loaderName">
+      <span class="ln">G</span><span class="ln">U</span><span class="ln">R</span><span class="ln">J</span><span class="ln">O</span><span class="ln">T</span><span class="ln sp">&nbsp;</span><span class="ln">S</span><span class="ln">I</span><span class="ln">N</span><span class="ln">G</span><span class="ln">H</span>
+    </div>
+    <div class="loader__row">
+      <span class="mono loader__tag">web design &middot; digital marketing &middot; it consulting</span>
+      <span class="mono loader__count"><i id="loadCount">0</i><em>%</em></span>
+    </div>
+    <div class="loader__bar"><i id="loadBar"></i></div>
+  </div>
+</div>
+
+<!-- ============ FIXED CHROME ============ -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"><span class="cursor__label" id="cursorLabel"></span></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" data-cursor="link" data-magnetic>
+    <span class="nav__mark"><span>G</span><span>S</span></span>
+    <span class="nav__brandtext">Gurjot Singh <em>&ldquo;Gary&rdquo;</em></span>
+  </a>
+
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#about"    data-scramble>About</a>
+    <a href="#services" data-scramble>Services</a>
+    <a href="#work"     data-scramble>Work</a>
+    <a href="#stack"    data-scramble>Stack</a>
+    <a href="#process"  data-scramble>Process</a>
+  </nav>
+
+  <div class="nav__right">
+    <button class="themeBtn" id="themeBtn" type="button" aria-label="Switch colour theme" data-cursor="link">
+      <span class="themeBtn__g themeBtn__g--dark">&#9788;</span>
+      <span class="themeBtn__g themeBtn__g--light">&#9790;</span>
+    </button>
+    <a class="btn btn--sm" href="#contact" data-cursor="link" data-magnetic><span>Hire me</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu__bg"></div>
+  <div class="menu__inner">
+    <ul class="menu__list">
+      <li><a href="#about"><span class="menu__num mono">01</span><span class="menu__word">About</span></a></li>
+      <li><a href="#services"><span class="menu__num mono">02</span><span class="menu__word">Services</span></a></li>
+      <li><a href="#work"><span class="menu__num mono">03</span><span class="menu__word">Work</span></a></li>
+      <li><a href="#stack"><span class="menu__num mono">04</span><span class="menu__word">Stack</span></a></li>
+      <li><a href="#process"><span class="menu__num mono">05</span><span class="menu__word">Process</span></a></li>
+      <li><a href="#contact"><span class="menu__num mono">06</span><span class="menu__word">Contact</span></a></li>
+    </ul>
+    <div class="menu__foot mono">
+      <span>gurjotangad97@gmail.com</span>
+      <span id="menuClock">--:--:--</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ WHATSAPP CTA ============ -->
+<div class="wa" id="wa" aria-label="Chat with Gurjot on WhatsApp">
+  <button class="wa__x" id="waClose" type="button" aria-label="Dismiss chat prompt">&times;</button>
+
+  <a class="wa__card"
+     href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat."
+     target="_blank" rel="noopener noreferrer" data-cursor="link">
+    <span class="wa__av">
+      <span class="wa__mono">GS</span>
+      <span class="wa__dot" aria-hidden="true"></span>
+    </span>
+
+    <span class="wa__body">
+      <span class="wa__top">
+        <b class="wa__name">Gurjot Singh</b>
+        <i class="wa__badge" id="waBadge">Online</i>
+      </span>
+      <span class="wa__msg">
+        <span class="wa__typing" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="wa__text" id="waText">Why wait? <em>Let&rsquo;s chat <span class="wa__arr">&rarr;</span></em></span>
+      </span>
+    </span>
+  </a>
+</div>
+
+<main id="smooth-content">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <canvas class="hero__canvas" id="aurora" aria-hidden="true"></canvas>
+  <div class="hero__grid" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <div class="hero__eyebrow reveal-up">
+      <span class="pill"><i class="dot"></i>Available for work</span>
+      <span class="mono hero__loc">Vancouver, BC &mdash; working worldwide</span>
+    </div>
+
+    <h1 class="hero__title display">
+      <span class="line"><span class="lineIn">I build brands</span></span>
+      <span class="line"><span class="lineIn">that are <em class="serif">impossible</em></span></span>
+      <span class="line"><span class="lineIn">to scroll past.</span></span>
+    </h1>
+
+    <div class="hero__bottom">
+      <p class="hero__lede reveal-up">
+        <span class="mono hero__kicker">Gurjot Singh &mdash; &ldquo;Gary&rdquo;</span>
+        Web design, digital marketing and IT consulting, end&nbsp;to&nbsp;end.
+        One person who designs it, builds it, ships it and keeps it fast.
+      </p>
+      <div class="hero__actions reveal-up">
+        <a class="btn btn--fill" href="#work" data-cursor="link" data-magnetic><span>See the work</span><i class="arr">&darr;</i></a>
+        <a class="btn" href="mailto:gurjotangad97@gmail.com?subject=Let%27s%20work%20together" data-cursor="link" data-magnetic><span>Start a project</span><i class="arr">&nearr;</i></a>
+      </div>
+    </div>
+
+    <div class="hero__rotator mono">
+      <span class="hero__rotLabel">currently building in</span>
+      <span class="rotator" id="rotator">
+        <b>WordPress</b><b>Next.js</b><b>Elementor</b><b>React</b><b>Tailwind</b><b>PHP</b>
+      </span>
+    </div>
+  </div>
+
+  <div class="hero__scroll mono" aria-hidden="true"><span>scroll</span><i></i></div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" id="ticker" aria-hidden="true">
+  <div class="ticker__row">
+    <div class="ticker__track">
+      <span>WEB DESIGN <i>&#10038;</i></span><span>DIGITAL MARKETING <i>&#10038;</i></span><span>IT CONSULTING <i>&#10038;</i></span>
+      <span>WEB DESIGN <i>&#10038;</i></span><span>DIGITAL MARKETING <i>&#10038;</i></span><span>IT CONSULTING <i>&#10038;</i></span>
+      <span>WEB DESIGN <i>&#10038;</i></span><span>DIGITAL MARKETING <i>&#10038;</i></span><span>IT CONSULTING <i>&#10038;</i></span>
+      <span>WEB DESIGN <i>&#10038;</i></span><span>DIGITAL MARKETING <i>&#10038;</i></span><span>IT CONSULTING <i>&#10038;</i></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT / STATEMENT ============ -->
+<section class="section statement" id="about">
+  <div class="wrap">
+    <div class="secHead">
+      <span class="mono secHead__num">01</span>
+      <span class="mono secHead__label">About</span>
+    </div>
+
+    <h2 class="bigtext display" data-words>
+      Most sites look fine and do nothing. I care about the other kind &mdash; the ones that load fast, rank, convert, and still feel like <em class="serif">someone made them</em>. Strategy, design, code and the boring infrastructure underneath: same person, start to finish.
+    </h2>
+
+    <div class="about__grid">
+      <div class="about__col reveal-up">
+        <h3 class="mono about__h">What I actually do</h3>
+        <p>I design and build websites and web products &mdash; WordPress and Next.js &mdash; then handle the parts most designers hand off: SEO and structured data, analytics, lead capture, performance, security and long-term maintenance.</p>
+      </div>
+      <div class="about__col reveal-up">
+        <h3 class="mono about__h">How I work</h3>
+        <p>Direct. You talk to the person doing the work. Fixed scope, real timelines, no account-manager telephone game. Everything I build is documented and editable by your team afterwards.</p>
+      </div>
+      <div class="about__col reveal-up">
+        <h3 class="mono about__h">Who I work with</h3>
+        <p>Founders, small teams and agencies in Canada and India &mdash; real estate, news publishing, healthcare, procurement, home services and SaaS. From one landing page to a fleet of sites.</p>
+      </div>
+    </div>
+
+    <p class="quip">I want to build something that ends up in a museum. Until then I&rsquo;ll settle for building something that ends up making you money.</p>
+
+    <div class="stats" id="stats">
+      <div class="stat"><span class="stat__num" data-count="12" data-suffix="+">0</span><span class="mono stat__lab">Projects shipped</span></div>
+      <div class="stat"><span class="stat__num" data-count="3">0</span><span class="mono stat__lab">Disciplines, one person</span></div>
+      <div class="stat"><span class="stat__num" data-count="2">0</span><span class="mono stat__lab">Countries served</span></div>
+      <div class="stat"><span class="stat__num" data-count="100" data-suffix="%">0</span><span class="mono stat__lab">Built &amp; shipped end to end</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES (pinned stack) ============ -->
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="secHead">
+      <span class="mono secHead__num">02</span>
+      <span class="mono secHead__label">Services</span>
+    </div>
+    <h2 class="secTitle display"><span class="line"><span class="lineIn">Three disciplines.</span></span><span class="line"><span class="lineIn">One <em class="serif">accountable</em> person.</span></span></h2>
+  </div>
+
+  <div class="cards" id="cards">
+    <article class="card" data-i="0">
+      <div class="card__in">
+        <div class="card__head">
+          <span class="mono card__num">01</span>
+          <h3 class="card__title display">Web Design<br>&amp; Development</h3>
+        </div>
+        <div class="card__body">
+          <p class="card__lede">Custom sites that look designed, not assembled. WordPress when the team needs to edit it, Next.js when it needs to fly.</p>
+          <ul class="card__list">
+            <li>Custom WordPress themes &amp; plugins</li>
+            <li>Elementor builds &amp; design systems</li>
+            <li>Next.js / React / TypeScript</li>
+            <li>Motion &amp; scroll interaction</li>
+            <li>Figma to production, pixel-exact</li>
+            <li>CMS, ACF &amp; custom post types</li>
+            <li>Responsive &amp; accessible by default</li>
+            <li>Handover docs your team can use</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-i="1">
+      <div class="card__in">
+        <div class="card__head">
+          <span class="mono card__num">02</span>
+          <h3 class="card__title display">Digital<br>Marketing</h3>
+        </div>
+        <div class="card__body">
+          <p class="card__lede">Traffic that arrives and actually does something. Technical SEO, measurement and conversion built into the build, not bolted on after.</p>
+          <ul class="card__list">
+            <li>Technical &amp; on-page SEO</li>
+            <li>Schema / structured data</li>
+            <li>GA4 &amp; Search Console setup</li>
+            <li>Conversion rate optimisation</li>
+            <li>Lead capture &amp; routing</li>
+            <li>Landing pages &amp; A/B testing</li>
+            <li>Content &amp; editorial systems</li>
+            <li>Core Web Vitals &amp; page speed</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-i="2">
+      <div class="card__in">
+        <div class="card__head">
+          <span class="mono card__num">03</span>
+          <h3 class="card__title display">IT<br>Consulting</h3>
+        </div>
+        <div class="card__body">
+          <p class="card__lede">The unglamorous work that keeps a business online. Migrations, hardening, incident response and the automation that stops it happening twice.</p>
+          <ul class="card__list">
+            <li>Security audits &amp; hardening</li>
+            <li>Malware &amp; incident response</li>
+            <li>Hosting &amp; site migrations</li>
+            <li>Performance engineering</li>
+            <li>Deploy tooling &amp; automation</li>
+            <li>Third-party integrations &amp; APIs</li>
+            <li>Multi-site fleet management</li>
+            <li>Ongoing care &amp; monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="wrap"><p class="quip">No template underneath any of it. There won&rsquo;t be one underneath yours either.</p></div>
+</section>
+
+<!-- ============ WORK (horizontal) ============ -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="secHead">
+      <span class="mono secHead__num">03</span>
+      <span class="mono secHead__label">Selected work</span>
+    </div>
+    <h2 class="secTitle display"><span class="line"><span class="lineIn">Real clients.</span></span><span class="line"><span class="lineIn">Real <em class="serif">shipped</em> work.</span></span></h2>
+  </div>
+
+  <div class="hz" id="hz">
+    <div class="hz__track" id="hzTrack">
+
+      <article class="proj" data-cursor="view" style="--p1:#7CFF3F;--p2:#0B7A4B">
+        <div class="proj__art"><span class="proj__glyph">&#10052;</span><span class="proj__idx mono">01</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Kolkata Cooling Solution</h3>
+          <p class="proj__desc">HVAC &amp; home-services company. Five service pages, plus a custom toolkit plugin holding the design system, self-hosted fonts, a WhatsApp lead flow and Service schema.</p>
+          <div class="proj__tags mono"><span>WordPress</span><span>Elementor</span><span>Design System</span><span>SEO</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#FF6B4A;--p2:#7A1B0B">
+        <div class="proj__art"><span class="proj__glyph">&#9707;</span><span class="proj__idx mono">02</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Prabh News</h3>
+          <p class="proj__desc">Full design revamp of a news portal &mdash; 128 posts, 12 categories. Built a custom ad-slot system and a trending-score engine that ranks the homepage without killing the query.</p>
+          <div class="proj__tags mono"><span>WordPress FSE</span><span>Editorial UX</span><span>Plugin Dev</span><span>Performance</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#8FB8FF;--p2:#12275C">
+        <div class="proj__art"><span class="proj__glyph">&#9650;</span><span class="proj__idx mono">03</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Bridgestar Group</h3>
+          <p class="proj__desc">Property group site &mdash; 13 pages from an approved design system. Custom theme, property &amp; news post types, and a scripted build pipeline so layouts stay reproducible.</p>
+          <div class="proj__tags mono"><span>Custom Theme</span><span>Elementor</span><span>CPT / ACF</span><span>Real Estate</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#F5C242;--p2:#5C3A05">
+        <div class="proj__art"><span class="proj__glyph">&#9672;</span><span class="proj__idx mono">04</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Pillar Sourcing</h3>
+          <p class="proj__desc">Sourcing &amp; procurement firm in Kelowna, BC. Six-page Next.js site, 13 shared components, content driven from a single constants layer, deployed continuously to Vercel.</p>
+          <div class="proj__tags mono"><span>Next.js 16</span><span>React 19</span><span>Tailwind v4</span><span>Vercel</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#C77DFF;--p2:#33116B">
+        <div class="proj__art"><span class="proj__glyph">&#10035;</span><span class="proj__idx mono">05</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">PromptProMax</h3>
+          <p class="proj__desc">My own product &mdash; an AI prompt &amp; tools directory. Next.js 16 on Turbopack, React 19, hand-written CSS, four lead-capture surfaces behind a single validated API route.</p>
+          <div class="proj__tags mono"><span>Product</span><span>Next.js</span><span>TypeScript</span><span>Growth</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#FF7AC8;--p2:#6B0F42">
+        <div class="proj__art"><span class="proj__glyph">&#9680;</span><span class="proj__idx mono">06</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Purple Pig &mdash; Homepage</h3>
+          <p class="proj__desc">Agency homepage rebuilt from a design prototype: 11 sections, 174 widgets, plus a standalone motion kit for the letter-drop hero, parallax, marquees and scroll reveals.</p>
+          <div class="proj__tags mono"><span>Motion Design</span><span>Elementor</span><span>JS Plugin</span><span>Prototype to Live</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#5EE9D4;--p2:#0A4A44">
+        <div class="proj__art"><span class="proj__glyph">&#9636;</span><span class="proj__idx mono">07</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Sharan Forms</h3>
+          <p class="proj__desc">A WordPress form builder written from scratch to compete with Gravity Forms &mdash; fields, entries, notifications, save-and-continue drafts, scheduling, GDPR export and erase.</p>
+          <div class="proj__tags mono"><span>PHP</span><span>Plugin Architecture</span><span>Product</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#FF4D4D;--p2:#5A0A0A">
+        <div class="proj__art"><span class="proj__glyph">&#9884;</span><span class="proj__idx mono">08</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Incident Response &amp; Cleanup</h3>
+          <p class="proj__desc">A compromised WordPress storefront. Traced the injection to the REST batch endpoint, removed the rogue admin accounts and injected spam, verified core checksums, patched and hardened.</p>
+          <div class="proj__tags mono"><span>Security</span><span>Forensics</span><span>Hardening</span><span>Confidential</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#9DFF6B;--p2:#1E5410">
+        <div class="proj__art"><span class="proj__glyph">&#10010;</span><span class="proj__idx mono">09</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Healthcare Member Directories</h3>
+          <p class="proj__desc">Two clinician directories, 600+ members each, sharing a data model but nothing else &mdash; one on WPBakery, one on Divi. Scoped and quoted a change that had to be built twice.</p>
+          <div class="proj__tags mono"><span>IT Consulting</span><span>ACF</span><span>Legacy Stacks</span><span>Scoping</span></div>
+        </div>
+      </article>
+
+      <article class="proj" data-cursor="view" style="--p1:#B8B8B8;--p2:#2A2A2A">
+        <div class="proj__art"><span class="proj__glyph">&#9671;</span><span class="proj__idx mono">10</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Multi-site Fleet Automation</h3>
+          <p class="proj__desc">Tooling to deploy, verify and maintain a fleet of client WordPress sites from one place &mdash; scripted builds, byte-exact deploy verification and repeatable, reversible releases.</p>
+          <div class="proj__tags mono"><span>Automation</span><span>DevOps</span><span>Tooling</span></div>
+        </div>
+      </article>
+
+      <div class="hz__end">
+        <p class="display">Your project<br>could be <em class="serif">next.</em></p>
+        <a class="btn btn--fill" href="#contact" data-cursor="link" data-magnetic><span>Let&rsquo;s talk</span><i class="arr">&nearr;</i></a>
+      </div>
+
+    </div>
+  </div>
+  <div class="wrap"><p class="quip">Ten projects, zero templates, and one laptop that has thoroughly earned its retirement.</p></div>
+  <div class="hz__hint mono"><i></i><span>drag or scroll</span><i></i></div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section class="section stack" id="stack">
+  <div class="wrap">
+    <div class="secHead">
+      <span class="mono secHead__num">04</span>
+      <span class="mono secHead__label">Capabilities</span>
+    </div>
+    <h2 class="secTitle display"><span class="line"><span class="lineIn">The toolkit.</span></span></h2>
+
+    <ul class="stackList" id="stackList">
+      <li><span class="mono sl__n">01</span><span class="sl__t display">WordPress &amp; Elementor</span><span class="mono sl__d">Themes &middot; Plugins &middot; Design systems &middot; FSE</span></li>
+      <li><span class="mono sl__n">02</span><span class="sl__t display">Next.js &amp; React</span><span class="mono sl__d">App Router &middot; TypeScript &middot; Tailwind &middot; Vercel</span></li>
+      <li><span class="mono sl__n">03</span><span class="sl__t display">PHP &amp; Custom Backends</span><span class="mono sl__d">Plugin architecture &middot; REST &middot; ACF &middot; WP-CLI</span></li>
+      <li><span class="mono sl__n">04</span><span class="sl__t display">Motion &amp; Interaction</span><span class="mono sl__d">GSAP &middot; ScrollTrigger &middot; Canvas &middot; Micro-interaction</span></li>
+      <li><span class="mono sl__n">05</span><span class="sl__t display">SEO &amp; Analytics</span><span class="mono sl__d">Technical SEO &middot; Schema &middot; GA4 &middot; Search Console</span></li>
+      <li><span class="mono sl__n">06</span><span class="sl__t display">Performance</span><span class="mono sl__d">Core Web Vitals &middot; Caching &middot; Asset strategy</span></li>
+      <li><span class="mono sl__n">07</span><span class="sl__t display">Security &amp; Hardening</span><span class="mono sl__d">Audits &middot; Malware removal &middot; Access control</span></li>
+      <li><span class="mono sl__n">08</span><span class="sl__t display">Automation &amp; DevOps</span><span class="mono sl__d">Scripted deploys &middot; Migrations &middot; Fleet tooling</span></li>
+      <li><span class="mono sl__n">09</span><span class="sl__t display">Design &amp; Figma</span><span class="mono sl__d">UI systems &middot; Prototypes &middot; Brand application</span></li>
+    </ul>
+
+    <p class="quip">If it runs on the web I have probably broken it at 2am and fixed it by 3.</p>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="secHead">
+      <span class="mono secHead__num">05</span>
+      <span class="mono secHead__label">Process</span>
+    </div>
+    <h2 class="secTitle display"><span class="line"><span class="lineIn">Five steps.</span></span><span class="line"><span class="lineIn">No <em class="serif">mystery.</em></span></span></h2>
+
+    <div class="proc">
+      <div class="proc__line"><i id="procFill"></i></div>
+      <div class="proc__steps">
+        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 01</span><h3 class="step__t">Discover</h3></span><p>A call, your goals, your competitors and the constraints nobody mentions until week three. You get a written scope and a fixed price before anything starts.</p></div>
+        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 02</span><h3 class="step__t">Design</h3></span><p>Direction first, then real screens &mdash; not a mood board and a promise. You see the actual homepage early and we iterate until it is right.</p></div>
+        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 03</span><h3 class="step__t">Build</h3></span><p>Clean, editable, fast. Built on the stack that fits your team, with SEO, analytics and lead capture wired in from the first commit rather than the last week.</p></div>
+        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 04</span><h3 class="step__t">Launch</h3></span><p>Staging, QA across devices, redirects, schema, Search Console, backups and a rollback plan. Launch day should be boring &mdash; that is the whole point.</p></div>
+        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 05</span><h3 class="step__t">Grow</h3></span><p>Updates, monitoring, security and the ongoing optimisation that turns a launched site into a compounding asset. Or a clean handover, if you would rather run it yourself.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <canvas class="contact__canvas" id="aurora2" aria-hidden="true"></canvas>
+  <div class="wrap contact__wrap">
+    <div class="secHead">
+      <span class="mono secHead__num">06</span>
+      <span class="mono secHead__label">Contact</span>
+    </div>
+
+    <!-- Same destination and prefilled text as the floating chat card.
+         If you change the number or the message, change it in both. -->
+    <a class="huge display" id="huge" data-cursor="mail"
+       href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat."
+       target="_blank" rel="noopener noreferrer">
+      <span class="huge__line">LET&rsquo;S TALK</span>
+    </a>
+
+    <div class="contact__grid">
+      <div class="cRow reveal-up">
+        <span class="mono cRow__k">Email</span>
+        <a class="cRow__v" href="mailto:gurjotangad97@gmail.com" data-cursor="link" data-scramble>gurjotangad97@gmail.com</a>
+      </div>
+      <div class="cRow reveal-up">
+        <span class="mono cRow__k">Availability</span>
+        <span class="cRow__v"><i class="dot"></i>Open for projects &amp; full-time roles</span>
+      </div>
+      <div class="cRow reveal-up">
+        <span class="mono cRow__k">My time &middot; Vancouver</span>
+        <span class="cRow__v" id="clock">--:--:--</span>
+      </div>
+      <div class="cRow reveal-up">
+        <span class="mono cRow__k">Response time</span>
+        <span class="cRow__v">Usually within one working day</span>
+      </div>
+    </div>
+
+    <p class="quip" id="statusQuip">Working out what time it is in Vancouver&hellip;</p>
+  </div>
+
+  <footer class="foot">
+    <div class="foot__marquee" aria-hidden="true">
+      <div class="ticker__track">
+        <span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span><span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span>
+        <span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span><span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span>
+        <span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span><span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span>
+      </div>
+    </div>
+    <div class="wrap foot__bar mono">
+      <span>&copy; <i id="year">2026</i> Gurjot Singh (Gary). All rights reserved.</span>
+      <span class="foot__mid">Web design &middot; Digital marketing &middot; IT consulting</span>
+      <a href="#top" data-cursor="link" data-magnetic>Back to top &uarr;</a>
+    </div>
+    <div class="wrap foot__made mono">
+      Made with <b aria-hidden="true">&hearts;</b><span class="sr">love</span> in the Himalayas and the Rocky Mountains
+    </div>
+  </footer>
+</section>
+
+</main>
