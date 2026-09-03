@@ -676,25 +676,6 @@
       });
     }
 
-    /* --- process line + dots --- */
-    var fill = $('#procFill'), proc = $('.proc');
-    if (fill && proc) {
-      gsap.to(fill, {
-        height: '100%', ease: 'none',
-        scrollTrigger: { trigger: proc, start: 'top 65%', end: 'bottom 75%', scrub: .5 }
-      });
-      $$('.step').forEach(function (step) {
-        ST.create({
-          trigger: step, start: 'top 70%', end: 'bottom 55%',
-          onToggle: function (self) { step.classList.toggle('on', self.isActive); }
-        });
-      });
-      gsap.from($$('.step'), {
-        y: 40, opacity: 0, duration: .85, stagger: .12, ease: 'power3.out',
-        scrollTrigger: { trigger: proc, start: 'top 78%' }
-      });
-    }
-
     /* --- stack list rows --- */
     gsap.from($$('.stackList li'), {
       y: 30, opacity: 0, duration: .7, stagger: .06, ease: 'power3.out',

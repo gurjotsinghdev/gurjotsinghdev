@@ -733,26 +733,7 @@ body.menu-open .menu{ pointer-events:auto; }
 .stackList li:hover .sl__n{ color:rgba(255,255,255,.62); }
 .stackList li:hover .sl__d{ color:rgba(255,255,255,.80); }
 
-/* =========================================================
-   PROCESS
-   ========================================================= */
-.proc{ position:relative; padding-left:clamp(28px,5vw,80px); }
-.proc__line{ position:absolute; left:0; top:8px; bottom:8px; width:1px; background:var(--line); }
-.proc__line i{ position:absolute; top:0; left:-1px; width:3px; height:0%; background:var(--acid); border-radius:2px; }
-.proc__steps{ display:grid; gap:clamp(32px,6vh,74px); }
-.step{ position:relative; display:grid; grid-template-columns:minmax(0,240px) minmax(0,1fr); gap:clamp(16px,3vw,52px); align-items:start; }
-.step__dot{
-  position:absolute; left:calc(clamp(28px,5vw,80px) * -1); top:12px;
-  width:9px; height:9px; border-radius:50%; background:var(--ink-3);
-  border:1px solid var(--line); transform:translateX(-4px);
-  transition:background-color .4s ease, border-color .4s ease, box-shadow .4s ease;
-}
-.step.on .step__dot{ background:var(--acid); border-color:var(--acid); box-shadow:0 0 0 6px var(--ring); }
-/* number + title share the first grid column; the dot is out of flow */
-.step__head{ display:block; }
-.step__n{ color:var(--muted-2); display:block; margin-bottom:10px; }
-.step__t{ font-family:var(--f-display); font-weight:600; letter-spacing:-.04em; font-size:clamp(28px,3.6vw,54px); line-height:1; }
-.step p{ color:var(--body); font-size:clamp(14px,1.15vw,17px); line-height:1.65; max-width:52ch; padding-top:6px; }
+.ctaRow{ display:flex; justify-content:center; padding-top:clamp(26px,4vh,52px); }
 
 /* =========================================================
    CONTACT / FOOTER
@@ -926,7 +907,6 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     <a href="#services" data-scramble>Services</a>
     <a href="#work"     data-scramble>Work</a>
     <a href="#skills"   data-scramble>Skills</a>
-    <a href="#process"  data-scramble>Process</a>
   </nav>
 
   <div class="nav__right">
@@ -947,8 +927,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       <li><a href="#services"><span class="menu__num mono">02</span><span class="menu__word">Services</span></a></li>
       <li><a href="#work"><span class="menu__num mono">03</span><span class="menu__word">Work</span></a></li>
       <li><a href="#skills"><span class="menu__num mono">04</span><span class="menu__word">Skills</span></a></li>
-      <li><a href="#process"><span class="menu__num mono">05</span><span class="menu__word">Process</span></a></li>
-      <li><a href="#contact"><span class="menu__num mono">06</span><span class="menu__word">Contact</span></a></li>
+      <li><a href="#contact"><span class="menu__num mono">05</span><span class="menu__word">Contact</span></a></li>
     </ul>
     <div class="menu__foot mono">
       <span>gurjotangad97@gmail.com</span>
@@ -1009,7 +988,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       </p>
       <div class="hero__actions reveal-up">
         <a class="btn btn--fill" href="#work" data-cursor="link" data-magnetic><span>See the work</span><i class="arr">&darr;</i></a>
-        <a class="btn" href="mailto:gurjotangad97@gmail.com?subject=Let%27s%20work%20together" data-cursor="link" data-magnetic><span>Start a project</span><i class="arr">&nearr;</i></a>
+        <a class="btn" href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat." target="_blank" rel="noopener noreferrer" data-magnetic><span>Message me on WhatsApp</span><i class="arr">&nearr;</i></a>
       </div>
     </div>
 
@@ -1151,6 +1130,12 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       </div>
     </article>
   </div>
+
+  <div class="wrap ctaRow">
+    <a class="btn btn--fill" href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat." target="_blank" rel="noopener noreferrer" data-magnetic>
+      <span>Talk through your project</span><i class="arr">&nearr;</i>
+    </a>
+  </div>
 </section>
 
 <!-- ============ WORK (horizontal) ============ -->
@@ -1196,7 +1181,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
       <div class="hz__end">
         <p class="display">Your project<br>could be <em class="serif">next.</em></p>
-        <a class="btn btn--fill" href="#contact" data-cursor="link" data-magnetic><span>Let&rsquo;s talk</span><i class="arr">&nearr;</i></a>
+        <a class="btn btn--fill" href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat." target="_blank" rel="noopener noreferrer" data-magnetic><span>Start a project</span><i class="arr">&nearr;</i></a>
       </div>
 
     </div>
@@ -1229,27 +1214,11 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       <li><span class="mono sl__n">10</span><span class="sl__t display">IT &amp; AI Automation</span><span class="mono sl__d">Workflow automation &middot; AI integrations &middot; APIs &middot; Internal tooling</span></li>
     </ul>
   </div>
-</section>
 
-<!-- ============ PROCESS ============ -->
-<section class="section process" id="process">
-  <div class="wrap">
-    <div class="secHead">
-      <span class="mono secHead__num">05</span>
-      <span class="mono secHead__label">Process</span>
-    </div>
-    <h2 class="secTitle display"><span class="line"><span class="lineIn">Five steps.</span></span><span class="line"><span class="lineIn">No <em class="serif">mystery.</em></span></span></h2>
-
-    <div class="proc">
-      <div class="proc__line"><i id="procFill"></i></div>
-      <div class="proc__steps">
-        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 01</span><h3 class="step__t">Discover</h3></span><p>A call, your goals, your competitors and the constraints nobody mentions until week three. You get a written scope and a fixed price before anything starts.</p></div>
-        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 02</span><h3 class="step__t">Design</h3></span><p>Direction first, then real screens, not a mood board and a promise. You see the actual homepage early and we iterate until it is right.</p></div>
-        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 03</span><h3 class="step__t">Build</h3></span><p>Clean, editable, fast. Built on the stack that fits your team, with SEO, analytics and lead capture wired in from the first commit rather than the last week.</p></div>
-        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 04</span><h3 class="step__t">Launch</h3></span><p>Staging, QA across devices, redirects, schema, Search Console, backups and a rollback plan. Launch day should be boring. That is the whole point.</p></div>
-        <div class="step"><span class="step__dot"></span><span class="step__head"><span class="mono step__n">Step 05</span><h3 class="step__t">Grow</h3></span><p>Updates, monitoring, security and the ongoing optimisation that turns a launched site into a compounding asset. Or a clean handover, if you would rather run it yourself.</p></div>
-      </div>
-    </div>
+  <div class="wrap ctaRow">
+    <a class="btn btn--fill" href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat." target="_blank" rel="noopener noreferrer" data-magnetic>
+      <span>Let&rsquo;s talk on WhatsApp</span><i class="arr">&nearr;</i>
+    </a>
   </div>
 </section>
 
@@ -1258,7 +1227,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
   <canvas class="contact__canvas" id="aurora2" aria-hidden="true"></canvas>
   <div class="wrap contact__wrap">
     <div class="secHead">
-      <span class="mono secHead__num">06</span>
+      <span class="mono secHead__num">05</span>
       <span class="mono secHead__label">Contact</span>
     </div>
 
@@ -2173,25 +2142,6 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
         card.addEventListener('mouseleave', function () {
           gsap.to(card, { rotateY: 0, rotateX: 0, duration: .8, ease: 'power3.out' });
         });
-      });
-    }
-
-    /* --- process line + dots --- */
-    var fill = $('#procFill'), proc = $('.proc');
-    if (fill && proc) {
-      gsap.to(fill, {
-        height: '100%', ease: 'none',
-        scrollTrigger: { trigger: proc, start: 'top 65%', end: 'bottom 75%', scrub: .5 }
-      });
-      $$('.step').forEach(function (step) {
-        ST.create({
-          trigger: step, start: 'top 70%', end: 'bottom 55%',
-          onToggle: function (self) { step.classList.toggle('on', self.isActive); }
-        });
-      });
-      gsap.from($$('.step'), {
-        y: 40, opacity: 0, duration: .85, stagger: .12, ease: 'power3.out',
-        scrollTrigger: { trigger: proc, start: 'top 78%' }
       });
     }
 
