@@ -559,8 +559,11 @@ body.menu-open .menu{ pointer-events:auto; }
    sticky rather than pinned: ScrollTrigger's pin fixes only the element it
    is handed, and everything above that element keeps scrolling away. The
    pin offset below is measured from this block, so the two stay aligned. */
+.work__stage{ position:relative; }
 @media (min-width:901px){
-  .work > .wrap{
+  /* sticky inside the stage, not the whole section, so the heading leaves
+     with the gallery instead of hanging over what follows it */
+  .work__stage > .wrap{
     position:sticky; top:0; z-index:2;
     background:var(--ink); padding-top:26px;
   }

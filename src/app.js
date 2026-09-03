@@ -509,7 +509,11 @@
       if (!ins.length) return;
       gsap.fromTo(ins, { yPercent: LINE_HIDDEN, y: 0 }, {
         yPercent: 0, y: 0, duration: 1.05, stagger: .08, ease: 'expo.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' }
+        /* immediateRender:false stops GSAP re-applying the hidden state on a
+           refresh, which is how a line ended up stranded half-revealed and
+           clipped by .line's mask. The CSS already supplies that state. */
+        immediateRender: false,
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true }
       });
     });
 
@@ -604,7 +608,7 @@
       var mm = gsap.matchMedia();
 
       mm.add('(min-width: 901px)', function () {
-        var head = $('.work > .wrap');
+        var head = $('.work__stage > .wrap');
         /* Measure the real distance from the heading to the gallery, not the
            heading's own height. The section title's bottom margin collapses
            out of .wrap, so offsetHeight understated the gap and the pin

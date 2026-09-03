@@ -600,8 +600,11 @@ body.menu-open .menu{ pointer-events:auto; }
    sticky rather than pinned: ScrollTrigger's pin fixes only the element it
    is handed, and everything above that element keeps scrolling away. The
    pin offset below is measured from this block, so the two stay aligned. */
+.work__stage{ position:relative; }
 @media (min-width:901px){
-  .work > .wrap{
+  /* sticky inside the stage, not the whole section, so the heading leaves
+     with the gallery instead of hanging over what follows it */
+  .work__stage > .wrap{
     position:sticky; top:0; z-index:2;
     background:var(--ink); padding-top:26px;
   }
@@ -1138,6 +1141,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
 <!-- ============ WORK (horizontal) ============ -->
 <section class="work" id="work">
+  <div class="work__stage">
   <div class="wrap">
     <div class="secHead">
       <span class="mono secHead__num">03</span>
@@ -1183,6 +1187,8 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
     </div>
   </div>
+  </div>
+
   <div class="wrap"><p class="quip">Three projects here. Zero templates in any of them.</p></div>
   <div class="hz__hint mono"><i></i><span>drag or scroll</span><i></i></div>
 </section>
@@ -1198,14 +1204,14 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
     <ul class="stackList" id="stackList">
       <li><span class="mono sl__n">01</span><span class="sl__t display">WordPress &amp; Elementor</span><span class="mono sl__d">Themes &middot; Plugins &middot; Design systems &middot; FSE</span></li>
-      <li><span class="mono sl__n">02</span><span class="sl__t display">UI/UX</span><span class="mono sl__d">Wireframes &middot; User flows &middot; Prototypes &middot; Handoff</span></li>
+      <li><span class="mono sl__n">02</span><span class="sl__t display">UI/UX Design</span><span class="mono sl__d">Wireframes &middot; User flows &middot; Prototypes &middot; Handoff</span></li>
       <li><span class="mono sl__n">03</span><span class="sl__t display">Next.js &amp; React</span><span class="mono sl__d">App Router &middot; TypeScript &middot; Tailwind &middot; Vercel</span></li>
       <li><span class="mono sl__n">04</span><span class="sl__t display">PHP &amp; Custom Backends</span><span class="mono sl__d">Plugin architecture &middot; REST &middot; ACF &middot; WP-CLI</span></li>
       <li><span class="mono sl__n">05</span><span class="sl__t display">Motion &amp; Interaction</span><span class="mono sl__d">GSAP &middot; ScrollTrigger &middot; Canvas &middot; Micro-interaction</span></li>
       <li><span class="mono sl__n">06</span><span class="sl__t display">SEO &amp; Paid Ads</span><span class="mono sl__d">Technical SEO &middot; Schema &middot; Google Ads &middot; Conversion tracking</span></li>
       <li><span class="mono sl__n">07</span><span class="sl__t display">Performance Optimisation</span><span class="mono sl__d">Core Web Vitals &middot; Caching &middot; Asset strategy</span></li>
       <li><span class="mono sl__n">08</span><span class="sl__t display">Security &amp; Malware Removal</span><span class="mono sl__d">Audits &middot; Cleanups &middot; Hardening &middot; Access control</span></li>
-      <li><span class="mono sl__n">09</span><span class="sl__t display">Automation &amp; Server Management</span><span class="mono sl__d">Scripted deploys &middot; Migrations &middot; Hosting &middot; Backups</span></li>
+      <li><span class="mono sl__n">09</span><span class="sl__t display">Cloud &amp; Server Admin</span><span class="mono sl__d">Hosting &middot; Migrations &middot; Deploys &middot; Backups</span></li>
       <li><span class="mono sl__n">10</span><span class="sl__t display">IT &amp; AI Automation</span><span class="mono sl__d">Workflow automation &middot; AI integrations &middot; APIs &middot; Internal tooling</span></li>
     </ul>
   </div>
@@ -1807,7 +1813,11 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       if (!ins.length) return;
       gsap.fromTo(ins, { yPercent: LINE_HIDDEN, y: 0 }, {
         yPercent: 0, y: 0, duration: 1.05, stagger: .08, ease: 'expo.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' }
+        /* immediateRender:false stops GSAP re-applying the hidden state on a
+           refresh, which is how a line ended up stranded half-revealed and
+           clipped by .line's mask. The CSS already supplies that state. */
+        immediateRender: false,
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true }
       });
     });
 
@@ -1902,7 +1912,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       var mm = gsap.matchMedia();
 
       mm.add('(min-width: 901px)', function () {
-        var head = $('.work > .wrap');
+        var head = $('.work__stage > .wrap');
         /* Measure the real distance from the heading to the gallery, not the
            heading's own height. The section title's bottom margin collapses
            out of .wrap, so offsetHeight understated the gap and the pin
