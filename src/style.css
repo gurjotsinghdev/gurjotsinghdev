@@ -155,7 +155,6 @@ canvas{ display:block; }
   padding-block:.2em;
 }
 .loader__name .ln{ display:block; transform:translateY(175%); }
-.loader__name .alt{ color:var(--acid-ink); }
 .loader__row{
   display:flex; justify-content:space-between; align-items:flex-end;
   gap:28px; color:var(--muted); margin-bottom:22px;
