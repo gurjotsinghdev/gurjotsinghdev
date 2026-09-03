@@ -209,7 +209,7 @@ canvas{ display:block; }
 .globe svg{ display:block; width:100%; height:100%; overflow:visible; }
 .globe__ocean{ fill:var(--acid); }
 .globe__land{ fill:#F2F7FF; }
-.globe__grid{ fill:none; stroke:#FFFFFF; stroke-width:.55; opacity:.32; }
+.globe__grid{ fill:none; stroke:#FFFFFF; stroke-width:.45; opacity:.22; }
 .globe__rim{ fill:none; stroke:var(--line); stroke-width:1; transition:stroke .4s var(--ease); }
 .globe__spin{ animation:globeSpin 18s linear infinite; }
 @keyframes globeSpin{ to{ transform:translateX(-40px); } }
@@ -349,7 +349,15 @@ body.menu-open .menu{ pointer-events:auto; }
 .hero__actions{ display:flex; gap:12px; flex-wrap:wrap; }
 
 .hero__rotator{ display:flex; align-items:center; gap:12px; padding-top:18px; color:var(--muted); }
-.rotator{ position:relative; display:inline-block; height:1.4em; overflow:hidden; min-width:120px; }
+.rotator{
+  display:grid; height:1.4em; overflow:hidden;
+  /* Every entry shares one grid cell, so the track is as wide as the longest
+     word with no measurement in JS. width:max-content and flex:0 0 auto are
+     both needed: as a flex item with overflow:hidden its base size otherwise
+     collapses to zero and the words get clipped away entirely. */
+  width:max-content; flex:0 0 auto;
+}
+.rotator b{ grid-area:1 / 1; }
 .rotator b{
   display:block; color:var(--paper); font-weight:500;
   font-family:var(--f-mono); letter-spacing:.1em;

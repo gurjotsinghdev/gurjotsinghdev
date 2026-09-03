@@ -387,18 +387,33 @@
     if (!rot) return;
     var items = $$('b', rot);
     if (!items.length) return;
+
+    /* No GSAP, or motion turned down: just show the first entry. */
+    if (!hasGSAP || reduce) {
+      items.forEach(function (b, i) { b.style.opacity = i === 0 ? 1 : 0; });
+      return;
+    }
+
+    var gsap = window.gsap;
+    /* GSAP must own the transform outright. Setting the hidden state in
+       inline CSS makes GSAP read the computed matrix, store it as a pixel
+       `y`, and leave `yPercent` at 0 -- so animating yPercent moved nothing
+       and the word vanished after the first swap. */
+    gsap.set(items, { yPercent: 110, y: 0, opacity: 0 });
+    gsap.set(items[0], { yPercent: 0, opacity: 1 });
+
     var idx = 0;
-    items.forEach(function (b, i) { b.style.transform = i === 0 ? 'translateY(0)' : 'translateY(100%)'; b.style.position = i === 0 ? 'relative' : 'absolute'; b.style.top = 0; b.style.left = 0; });
-    if (reduce) return;
     setInterval(function () {
+      /* a backgrounded tab throttles the ticker but not this timer, so
+         without the guard the queued swaps all snap through on return */
+      if (document.hidden) return;
       var cur = items[idx];
       idx = (idx + 1) % items.length;
       var nxt = items[idx];
-      if (hasGSAP) {
-        window.gsap.to(cur, { yPercent: -110, opacity: 0, duration: .5, ease: 'power3.in' });
-        window.gsap.fromTo(nxt, { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: .6, ease: 'power3.out' });
-      }
-    }, 2200);
+      gsap.to(cur, { yPercent: -110, y: 0, opacity: 0, duration: .45, ease: 'power3.in' });
+      gsap.fromTo(nxt, { yPercent: 110, y: 0, opacity: 0 },
+                       { yPercent: 0, y: 0, opacity: 1, duration: .55, ease: 'power3.out' });
+    }, 2000);
   })();
 
   /* ---------------------------------------------------------
