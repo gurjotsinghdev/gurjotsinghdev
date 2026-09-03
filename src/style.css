@@ -492,37 +492,6 @@ body.menu-open .menu{ pointer-events:auto; }
   .wa__text{ display:inline; }
 }
 
-/* =========================================================
-   SERVICE AREAS
-   Location landing pages, grouped by province then city.
-   Deliberately quiet: this is a directory, not a pitch.
-   ========================================================= */
-.seo{
-  position:relative; z-index:2;
-  border-top:1px solid var(--line-2);
-  padding-block:clamp(36px,5vh,64px);
-}
-.seo__h{ color:var(--muted-2); margin-bottom:clamp(18px,2.6vh,28px); }
-.seo__provs{
-  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:clamp(20px,2.4vw,40px);
-}
-.seo__provName{
-  font-family:var(--f-display); font-weight:600; letter-spacing:-.02em;
-  font-size:clamp(15px,1.3vw,18px); margin-bottom:14px; color:var(--paper);
-  padding-bottom:10px; border-bottom:1px solid var(--line-2);
-}
-.seo__cities{ display:grid; gap:22px; }
-@media (max-width:1000px){ .seo__provs{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media (max-width:600px){ .seo__provs{ grid-template-columns:1fr; } }
-.seo__cityName{ color:var(--acid-ink); margin-bottom:9px; }
-.seo__list{ display:grid; gap:5px; }
-.seo__list a{
-  display:block; font-size:12.5px; line-height:1.45; color:var(--muted);
-  transition:color .25s ease;
-}
-.seo__list a:hover, .seo__list a:focus-visible{ color:var(--acid-ink); }
-
 /* statement */
 .bigtext{
   font-size:clamp(22px,3.4vw,52px); line-height:1.18; letter-spacing:-.03em; font-weight:500;
@@ -757,6 +726,23 @@ a.cRow__v:hover{ color:var(--acid-ink); }
 .foot__marquee .ticker__track{ font-size:clamp(22px,3.6vw,54px); color:var(--ghost); }
 .foot__bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:24px; color:var(--muted-2); }
 .foot__bar i{ font-style:normal; }
+.foot__made{
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  padding-bottom:26px; color:var(--muted-2); text-align:center;
+}
+.foot__made b{
+  display:inline-block; font-weight:400; color:var(--coral);
+  animation:beat 2.8s ease-in-out infinite;
+}
+@keyframes beat{
+  0%,100%{ transform:scale(1); } 12%{ transform:scale(1.26); }
+  24%{ transform:scale(1); } 36%{ transform:scale(1.16); } 48%{ transform:scale(1); }
+}
+/* the heart is decorative, so screen readers get the word instead */
+.sr{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
 .foot__bar a{ transition:color .3s ease; }
 .foot__bar a:hover{ color:var(--acid-ink); }
 

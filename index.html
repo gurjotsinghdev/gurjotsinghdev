@@ -533,37 +533,6 @@ body.menu-open .menu{ pointer-events:auto; }
   .wa__text{ display:inline; }
 }
 
-/* =========================================================
-   SERVICE AREAS
-   Location landing pages, grouped by province then city.
-   Deliberately quiet: this is a directory, not a pitch.
-   ========================================================= */
-.seo{
-  position:relative; z-index:2;
-  border-top:1px solid var(--line-2);
-  padding-block:clamp(36px,5vh,64px);
-}
-.seo__h{ color:var(--muted-2); margin-bottom:clamp(18px,2.6vh,28px); }
-.seo__provs{
-  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:clamp(20px,2.4vw,40px);
-}
-.seo__provName{
-  font-family:var(--f-display); font-weight:600; letter-spacing:-.02em;
-  font-size:clamp(15px,1.3vw,18px); margin-bottom:14px; color:var(--paper);
-  padding-bottom:10px; border-bottom:1px solid var(--line-2);
-}
-.seo__cities{ display:grid; gap:22px; }
-@media (max-width:1000px){ .seo__provs{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media (max-width:600px){ .seo__provs{ grid-template-columns:1fr; } }
-.seo__cityName{ color:var(--acid-ink); margin-bottom:9px; }
-.seo__list{ display:grid; gap:5px; }
-.seo__list a{
-  display:block; font-size:12.5px; line-height:1.45; color:var(--muted);
-  transition:color .25s ease;
-}
-.seo__list a:hover, .seo__list a:focus-visible{ color:var(--acid-ink); }
-
 /* statement */
 .bigtext{
   font-size:clamp(22px,3.4vw,52px); line-height:1.18; letter-spacing:-.03em; font-weight:500;
@@ -798,6 +767,23 @@ a.cRow__v:hover{ color:var(--acid-ink); }
 .foot__marquee .ticker__track{ font-size:clamp(22px,3.6vw,54px); color:var(--ghost); }
 .foot__bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:24px; color:var(--muted-2); }
 .foot__bar i{ font-style:normal; }
+.foot__made{
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  padding-bottom:26px; color:var(--muted-2); text-align:center;
+}
+.foot__made b{
+  display:inline-block; font-weight:400; color:var(--coral);
+  animation:beat 2.8s ease-in-out infinite;
+}
+@keyframes beat{
+  0%,100%{ transform:scale(1); } 12%{ transform:scale(1.26); }
+  24%{ transform:scale(1); } 36%{ transform:scale(1.16); } 48%{ transform:scale(1); }
+}
+/* the heart is decorative, so screen readers get the word instead */
+.sr{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
 .foot__bar a{ transition:color .3s ease; }
 .foot__bar a:hover{ color:var(--acid-ink); }
 
@@ -1292,221 +1278,21 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     <p class="quip" id="statusQuip">Working out what time it is in Vancouver&hellip;</p>
   </div>
 
-<!-- ============ SERVICE AREAS ============ -->
-<nav class="seo" aria-label="Service areas">
-  <div class="wrap">
-    <h2 class="mono seo__h">Service areas</h2>
-
-    <div class="seo__provs">
-    <div class="seo__prov">
-      <h3 class="seo__provName">British Columbia</h3>
-      <div class="seo__cities">
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Vancouver</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-vancouver">Freelance Web Design Vancouver</a></li>
-            <li><a href="/small-business-web-design-vancouver">Small Business Web Design Vancouver</a></li>
-            <li><a href="/wordpress-developer-vancouver">WordPress Developer Vancouver</a></li>
-            <li><a href="/local-seo-expert-vancouver">Local SEO Expert Vancouver</a></li>
-            <li><a href="/technical-seo-consultant-vancouver">Technical SEO Consultant Vancouver</a></li>
-            <li><a href="/google-ads-consultant-vancouver">Google Ads Consultant Vancouver</a></li>
-            <li><a href="/ppc-consultant-vancouver">PPC Consultant Vancouver</a></li>
-            <li><a href="/hubspot-consultant-vancouver">HubSpot Consultant Vancouver</a></li>
-            <li><a href="/wordpress-malware-removal-vancouver">WordPress Malware Removal Vancouver</a></li>
-            <li><a href="/wordpress-website-speed-optimization-vancouver">WordPress Website Speed Optimization Vancouver</a></li>
-            <li><a href="/it-consultant-vancouver">IT Consultant Vancouver</a></li>
-            <li><a href="/it-services-vancouver">IT Services Vancouver</a></li>
-          </ul>
-        </div>
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Kelowna</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-kelowna">Freelance Web Design Kelowna</a></li>
-            <li><a href="/small-business-web-design-kelowna">Small Business Web Design Kelowna</a></li>
-            <li><a href="/wordpress-developer-kelowna">WordPress Developer Kelowna</a></li>
-            <li><a href="/local-seo-expert-kelowna">Local SEO Expert Kelowna</a></li>
-            <li><a href="/technical-seo-consultant-kelowna">Technical SEO Consultant Kelowna</a></li>
-            <li><a href="/google-ads-consultant-kelowna">Google Ads Consultant Kelowna</a></li>
-            <li><a href="/ppc-consultant-kelowna">PPC Consultant Kelowna</a></li>
-            <li><a href="/hubspot-consultant-kelowna">HubSpot Consultant Kelowna</a></li>
-            <li><a href="/wordpress-malware-removal-kelowna">WordPress Malware Removal Kelowna</a></li>
-            <li><a href="/wordpress-website-speed-optimization-kelowna">WordPress Website Speed Optimization Kelowna</a></li>
-            <li><a href="/it-consultant-kelowna">IT Consultant Kelowna</a></li>
-            <li><a href="/it-services-kelowna">IT Services Kelowna</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="seo__prov">
-      <h3 class="seo__provName">Alberta</h3>
-      <div class="seo__cities">
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Edmonton</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-edmonton">Freelance Web Design Edmonton</a></li>
-            <li><a href="/small-business-web-design-edmonton">Small Business Web Design Edmonton</a></li>
-            <li><a href="/wordpress-developer-edmonton">WordPress Developer Edmonton</a></li>
-            <li><a href="/local-seo-expert-edmonton">Local SEO Expert Edmonton</a></li>
-            <li><a href="/technical-seo-consultant-edmonton">Technical SEO Consultant Edmonton</a></li>
-            <li><a href="/google-ads-consultant-edmonton">Google Ads Consultant Edmonton</a></li>
-            <li><a href="/ppc-consultant-edmonton">PPC Consultant Edmonton</a></li>
-            <li><a href="/hubspot-consultant-edmonton">HubSpot Consultant Edmonton</a></li>
-            <li><a href="/wordpress-malware-removal-edmonton">WordPress Malware Removal Edmonton</a></li>
-            <li><a href="/wordpress-website-speed-optimization-edmonton">WordPress Website Speed Optimization Edmonton</a></li>
-            <li><a href="/it-consultant-edmonton">IT Consultant Edmonton</a></li>
-            <li><a href="/it-services-edmonton">IT Services Edmonton</a></li>
-          </ul>
-        </div>
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Calgary</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-calgary">Freelance Web Design Calgary</a></li>
-            <li><a href="/small-business-web-design-calgary">Small Business Web Design Calgary</a></li>
-            <li><a href="/wordpress-developer-calgary">WordPress Developer Calgary</a></li>
-            <li><a href="/local-seo-expert-calgary">Local SEO Expert Calgary</a></li>
-            <li><a href="/technical-seo-consultant-calgary">Technical SEO Consultant Calgary</a></li>
-            <li><a href="/google-ads-consultant-calgary">Google Ads Consultant Calgary</a></li>
-            <li><a href="/ppc-consultant-calgary">PPC Consultant Calgary</a></li>
-            <li><a href="/hubspot-consultant-calgary">HubSpot Consultant Calgary</a></li>
-            <li><a href="/wordpress-malware-removal-calgary">WordPress Malware Removal Calgary</a></li>
-            <li><a href="/wordpress-website-speed-optimization-calgary">WordPress Website Speed Optimization Calgary</a></li>
-            <li><a href="/it-consultant-calgary">IT Consultant Calgary</a></li>
-            <li><a href="/it-services-calgary">IT Services Calgary</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="seo__prov">
-      <h3 class="seo__provName">Ontario</h3>
-      <div class="seo__cities">
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Toronto</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-toronto">Freelance Web Design Toronto</a></li>
-            <li><a href="/small-business-web-design-toronto">Small Business Web Design Toronto</a></li>
-            <li><a href="/wordpress-developer-toronto">WordPress Developer Toronto</a></li>
-            <li><a href="/local-seo-expert-toronto">Local SEO Expert Toronto</a></li>
-            <li><a href="/technical-seo-consultant-toronto">Technical SEO Consultant Toronto</a></li>
-            <li><a href="/google-ads-consultant-toronto">Google Ads Consultant Toronto</a></li>
-            <li><a href="/ppc-consultant-toronto">PPC Consultant Toronto</a></li>
-            <li><a href="/hubspot-consultant-toronto">HubSpot Consultant Toronto</a></li>
-            <li><a href="/wordpress-malware-removal-toronto">WordPress Malware Removal Toronto</a></li>
-            <li><a href="/wordpress-website-speed-optimization-toronto">WordPress Website Speed Optimization Toronto</a></li>
-            <li><a href="/it-consultant-toronto">IT Consultant Toronto</a></li>
-            <li><a href="/it-services-toronto">IT Services Toronto</a></li>
-          </ul>
-        </div>
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Ottawa</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-ottawa">Freelance Web Design Ottawa</a></li>
-            <li><a href="/small-business-web-design-ottawa">Small Business Web Design Ottawa</a></li>
-            <li><a href="/wordpress-developer-ottawa">WordPress Developer Ottawa</a></li>
-            <li><a href="/local-seo-expert-ottawa">Local SEO Expert Ottawa</a></li>
-            <li><a href="/technical-seo-consultant-ottawa">Technical SEO Consultant Ottawa</a></li>
-            <li><a href="/google-ads-consultant-ottawa">Google Ads Consultant Ottawa</a></li>
-            <li><a href="/ppc-consultant-ottawa">PPC Consultant Ottawa</a></li>
-            <li><a href="/hubspot-consultant-ottawa">HubSpot Consultant Ottawa</a></li>
-            <li><a href="/wordpress-malware-removal-ottawa">WordPress Malware Removal Ottawa</a></li>
-            <li><a href="/wordpress-website-speed-optimization-ottawa">WordPress Website Speed Optimization Ottawa</a></li>
-            <li><a href="/it-consultant-ottawa">IT Consultant Ottawa</a></li>
-            <li><a href="/it-services-ottawa">IT Services Ottawa</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="seo__prov">
-      <h3 class="seo__provName">Manitoba &amp; Saskatchewan</h3>
-      <div class="seo__cities">
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Winnipeg</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-winnipeg">Freelance Web Design Winnipeg</a></li>
-            <li><a href="/small-business-web-design-winnipeg">Small Business Web Design Winnipeg</a></li>
-            <li><a href="/wordpress-developer-winnipeg">WordPress Developer Winnipeg</a></li>
-            <li><a href="/local-seo-expert-winnipeg">Local SEO Expert Winnipeg</a></li>
-            <li><a href="/technical-seo-consultant-winnipeg">Technical SEO Consultant Winnipeg</a></li>
-            <li><a href="/google-ads-consultant-winnipeg">Google Ads Consultant Winnipeg</a></li>
-            <li><a href="/ppc-consultant-winnipeg">PPC Consultant Winnipeg</a></li>
-            <li><a href="/hubspot-consultant-winnipeg">HubSpot Consultant Winnipeg</a></li>
-            <li><a href="/wordpress-malware-removal-winnipeg">WordPress Malware Removal Winnipeg</a></li>
-            <li><a href="/wordpress-website-speed-optimization-winnipeg">WordPress Website Speed Optimization Winnipeg</a></li>
-            <li><a href="/it-consultant-winnipeg">IT Consultant Winnipeg</a></li>
-            <li><a href="/it-services-winnipeg">IT Services Winnipeg</a></li>
-          </ul>
-        </div>
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Saskatoon</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-saskatoon">Freelance Web Design Saskatoon</a></li>
-            <li><a href="/small-business-web-design-saskatoon">Small Business Web Design Saskatoon</a></li>
-            <li><a href="/wordpress-developer-saskatoon">WordPress Developer Saskatoon</a></li>
-            <li><a href="/local-seo-expert-saskatoon">Local SEO Expert Saskatoon</a></li>
-            <li><a href="/technical-seo-consultant-saskatoon">Technical SEO Consultant Saskatoon</a></li>
-            <li><a href="/google-ads-consultant-saskatoon">Google Ads Consultant Saskatoon</a></li>
-            <li><a href="/ppc-consultant-saskatoon">PPC Consultant Saskatoon</a></li>
-            <li><a href="/hubspot-consultant-saskatoon">HubSpot Consultant Saskatoon</a></li>
-            <li><a href="/wordpress-malware-removal-saskatoon">WordPress Malware Removal Saskatoon</a></li>
-            <li><a href="/wordpress-website-speed-optimization-saskatoon">WordPress Website Speed Optimization Saskatoon</a></li>
-            <li><a href="/it-consultant-saskatoon">IT Consultant Saskatoon</a></li>
-            <li><a href="/it-services-saskatoon">IT Services Saskatoon</a></li>
-          </ul>
-        </div>
-        <div class="seo__city">
-          <h4 class="mono seo__cityName">Regina</h4>
-          <ul class="seo__list">
-            <li><a href="/freelance-web-design-regina">Freelance Web Design Regina</a></li>
-            <li><a href="/small-business-web-design-regina">Small Business Web Design Regina</a></li>
-            <li><a href="/wordpress-developer-regina">WordPress Developer Regina</a></li>
-            <li><a href="/local-seo-expert-regina">Local SEO Expert Regina</a></li>
-            <li><a href="/technical-seo-consultant-regina">Technical SEO Consultant Regina</a></li>
-            <li><a href="/google-ads-consultant-regina">Google Ads Consultant Regina</a></li>
-            <li><a href="/ppc-consultant-regina">PPC Consultant Regina</a></li>
-            <li><a href="/hubspot-consultant-regina">HubSpot Consultant Regina</a></li>
-            <li><a href="/wordpress-malware-removal-regina">WordPress Malware Removal Regina</a></li>
-            <li><a href="/wordpress-website-speed-optimization-regina">WordPress Website Speed Optimization Regina</a></li>
-            <li><a href="/it-consultant-regina">IT Consultant Regina</a></li>
-            <li><a href="/it-services-regina">IT Services Regina</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-</nav>
-
   <footer class="foot">
     <div class="foot__marquee" aria-hidden="true">
       <div class="ticker__track">
-        <span>SERVING THE MANY BEAUTIFUL COMMUNITIES OF CANADA <i>&#10038;</i></span>
-        <span>VANCOUVER <i>&#10038;</i></span>
-        <span>KELOWNA <i>&#10038;</i></span>
-        <span>VICTORIA <i>&#10038;</i></span>
-        <span>SURREY <i>&#10038;</i></span>
-        <span>BURNABY <i>&#10038;</i></span>
-        <span>ABBOTSFORD <i>&#10038;</i></span>
-        <span>CALGARY <i>&#10038;</i></span>
-        <span>EDMONTON <i>&#10038;</i></span>
-        <span>RED DEER <i>&#10038;</i></span>
-        <span>TORONTO <i>&#10038;</i></span>
-        <span>OTTAWA <i>&#10038;</i></span>
-        <span>HAMILTON <i>&#10038;</i></span>
-        <span>MISSISSAUGA <i>&#10038;</i></span>
-        <span>WINNIPEG <i>&#10038;</i></span>
-        <span>SASKATOON <i>&#10038;</i></span>
-        <span>REGINA <i>&#10038;</i></span>
-        <span>MONTREAL <i>&#10038;</i></span>
-        <span>HALIFAX <i>&#10038;</i></span>
-        <span>ST. JOHN&rsquo;S <i>&#10038;</i></span>
+        <span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span><span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span>
+        <span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span><span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span>
+        <span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span><span>LET&rsquo;S BUILD SOMETHING <i>&#10038;</i></span>
       </div>
     </div>
     <div class="wrap foot__bar mono">
       <span>&copy; <i id="year">2026</i> Gurjot Singh (Gary). All rights reserved.</span>
       <span class="foot__mid">Web design &middot; Digital marketing &middot; IT consulting</span>
       <a href="#top" data-cursor="link" data-magnetic>Back to top &uarr;</a>
+    </div>
+    <div class="wrap foot__made mono">
+      Made with <b aria-hidden="true">&hearts;</b><span class="sr">love</span> in the Himalayas and the Rocky Mountains
     </div>
   </footer>
 </section>
