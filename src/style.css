@@ -167,30 +167,37 @@ canvas{ display:block; }
 /* =========================================================
    CURSOR / GRAIN / PROGRESS
    ========================================================= */
-.cursor{ position:fixed; top:0; left:0; z-index:190; pointer-events:none; mix-blend-mode:difference; }
-.cursor__dot{
-  position:absolute; width:6px; height:6px; border-radius:50%;
-  background:var(--paper); transform:translate(-50%,-50%);
+/* A presence cursor: pointer plus a name tag, the way a collaborative
+   canvas shows someone else in the room. The tag trails the arrow slightly
+   and renames itself to whatever the thing under it actually does. */
+.cursor{
+  position:fixed; top:0; left:0; z-index:190; pointer-events:none;
+  opacity:0; transition:opacity .3s ease;
 }
-.cursor__ring{
-  position:absolute; width:38px; height:38px; border-radius:50%;
-  border:1px solid var(--stroke);
-  transform:translate(-50%,-50%);
-  display:grid; place-items:center;
-  transition:width .38s var(--ease), height .38s var(--ease), background-color .38s var(--ease), border-color .38s var(--ease);
+.cursor.ready{ opacity:1; }
+.cursor__arrow{
+  position:absolute; width:21px; height:23px;
+  transform-origin:2px 2px;
+  fill:var(--acid); stroke:#fff; stroke-width:1.6; stroke-linejoin:round;
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.3));
 }
-.cursor__label{
-  font-family:var(--f-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink); opacity:0; transition:opacity .2s ease; white-space:nowrap;
+.cursor__tag{
+  position:absolute; white-space:nowrap;
+  padding:4px 9px; border-radius:7px 7px 7px 2px;
+  background:var(--acid); color:var(--on-acid);
+  font-family:var(--f-mono); font-size:10px; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase;
+  box-shadow:0 5px 14px -3px rgba(0,0,0,.35);
 }
-.cursor.is-link .cursor__ring{ width:64px; height:64px; background:var(--line); border-color:transparent; }
-.cursor.is-view .cursor__ring{ width:96px; height:96px; background:var(--paper); border-color:transparent; }
-.cursor.is-view .cursor__label,
-.cursor.is-mail .cursor__label{ opacity:1; }
-.cursor.is-mail{ mix-blend-mode:normal; }
-.cursor.is-mail .cursor__ring{ width:110px; height:110px; background:var(--acid); border-color:transparent; }
-.cursor.is-mail .cursor__label{ color:var(--on-acid); }
-.cursor.is-view .cursor__dot, .cursor.is-mail .cursor__dot{ opacity:0; }
+/* a small pop whenever the tag renames itself */
+.cursor__tag.pop{ animation:tagPop .32s var(--ease); }
+@keyframes tagPop{ 0%{ transform:scale(.82); } 55%{ transform:scale(1.06); } 100%{ transform:scale(1); } }
+
+.cursor.is-view .cursor__arrow,
+.cursor.is-mail .cursor__arrow{ transform-box:fill-box; }
+.cursor.is-mail .cursor__tag{ background:#25D366; color:#04331A; }
+
+@media (prefers-reduced-motion: reduce){ .cursor__tag.pop{ animation:none; } }
 @media (hover:none),(pointer:coarse){ .cursor{ display:none; } }
 
 .grain{

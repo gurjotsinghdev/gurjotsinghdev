@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gurjot Singh — Gary</title>
+<title>Gurjot Singh (Gary) — Digital Consultant</title>
 <meta name="description" content="Gurjot Singh (Gary) — web design, digital marketing and IT consulting. Custom WordPress and Next.js builds, technical SEO, security and automation. Available for projects and full-time roles.">
 <meta name="author" content="Gurjot Singh">
 <meta name="theme-color" content="#EDF0F5">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Gurjot Singh — Gary">
+<meta property="og:title" content="Gurjot Singh (Gary) — Digital Consultant">
 <meta property="og:description" content="Web design, digital marketing and IT consulting. One person who designs it, builds it, ships it and keeps it fast.">
 <meta property="og:site_name" content="Gurjot Singh">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gurjot Singh — Gary">
+<meta name="twitter:title" content="Gurjot Singh (Gary) — Digital Consultant">
 <meta name="twitter:description" content="Web design, digital marketing and IT consulting.">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230066CC'/%3E%3Ctext x='50' y='69' font-family='Helvetica,Arial,sans-serif' font-size='56' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
@@ -208,30 +208,37 @@ canvas{ display:block; }
 /* =========================================================
    CURSOR / GRAIN / PROGRESS
    ========================================================= */
-.cursor{ position:fixed; top:0; left:0; z-index:190; pointer-events:none; mix-blend-mode:difference; }
-.cursor__dot{
-  position:absolute; width:6px; height:6px; border-radius:50%;
-  background:var(--paper); transform:translate(-50%,-50%);
+/* A presence cursor: pointer plus a name tag, the way a collaborative
+   canvas shows someone else in the room. The tag trails the arrow slightly
+   and renames itself to whatever the thing under it actually does. */
+.cursor{
+  position:fixed; top:0; left:0; z-index:190; pointer-events:none;
+  opacity:0; transition:opacity .3s ease;
 }
-.cursor__ring{
-  position:absolute; width:38px; height:38px; border-radius:50%;
-  border:1px solid var(--stroke);
-  transform:translate(-50%,-50%);
-  display:grid; place-items:center;
-  transition:width .38s var(--ease), height .38s var(--ease), background-color .38s var(--ease), border-color .38s var(--ease);
+.cursor.ready{ opacity:1; }
+.cursor__arrow{
+  position:absolute; width:21px; height:23px;
+  transform-origin:2px 2px;
+  fill:var(--acid); stroke:#fff; stroke-width:1.6; stroke-linejoin:round;
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.3));
 }
-.cursor__label{
-  font-family:var(--f-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink); opacity:0; transition:opacity .2s ease; white-space:nowrap;
+.cursor__tag{
+  position:absolute; white-space:nowrap;
+  padding:4px 9px; border-radius:7px 7px 7px 2px;
+  background:var(--acid); color:var(--on-acid);
+  font-family:var(--f-mono); font-size:10px; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase;
+  box-shadow:0 5px 14px -3px rgba(0,0,0,.35);
 }
-.cursor.is-link .cursor__ring{ width:64px; height:64px; background:var(--line); border-color:transparent; }
-.cursor.is-view .cursor__ring{ width:96px; height:96px; background:var(--paper); border-color:transparent; }
-.cursor.is-view .cursor__label,
-.cursor.is-mail .cursor__label{ opacity:1; }
-.cursor.is-mail{ mix-blend-mode:normal; }
-.cursor.is-mail .cursor__ring{ width:110px; height:110px; background:var(--acid); border-color:transparent; }
-.cursor.is-mail .cursor__label{ color:var(--on-acid); }
-.cursor.is-view .cursor__dot, .cursor.is-mail .cursor__dot{ opacity:0; }
+/* a small pop whenever the tag renames itself */
+.cursor__tag.pop{ animation:tagPop .32s var(--ease); }
+@keyframes tagPop{ 0%{ transform:scale(.82); } 55%{ transform:scale(1.06); } 100%{ transform:scale(1); } }
+
+.cursor.is-view .cursor__arrow,
+.cursor.is-mail .cursor__arrow{ transform-box:fill-box; }
+.cursor.is-mail .cursor__tag{ background:#25D366; color:#04331A; }
+
+@media (prefers-reduced-motion: reduce){ .cursor__tag.pop{ animation:none; } }
 @media (hover:none),(pointer:coarse){ .cursor{ display:none; } }
 
 .grain{
@@ -833,8 +840,10 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
 <!-- ============ FIXED CHROME ============ -->
 <div class="cursor" id="cursor" aria-hidden="true">
-  <div class="cursor__dot"></div>
-  <div class="cursor__ring"><span class="cursor__label" id="cursorLabel"></span></div>
+  <svg class="cursor__arrow" viewBox="0 0 20 22" aria-hidden="true">
+    <path d="M2 2 L2 19 L6.2 15.3 L8.9 21 L11.9 19.6 L9.2 14 L14.8 14 Z"/>
+  </svg>
+  <span class="cursor__tag" id="cursorLabel">You</span>
 </div>
 <div class="grain" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
@@ -1091,7 +1100,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     <h2 class="secTitle display"><span class="line"><span class="lineIn">Real clients.</span></span><span class="line"><span class="lineIn">Real <em class="serif">shipped</em> work.</span></span></h2>
   </div>
 
-  <div class="hz" id="hz">
+  <div class="hz" id="hz" data-cursor="drag">
     <div class="hz__track" id="hzTrack">
 
       <article class="proj" data-cursor="view" style="--p1:#7CFF3F;--p2:#0B7A4B">
@@ -1552,32 +1561,62 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
      2. Custom cursor + magnetic
      --------------------------------------------------------- */
   if (!coarse && hasGSAP) {
-    var cur = $('#cursor'), label = $('#cursorLabel');
-    var dot = $('.cursor__dot'), ring = $('.cursor__ring');
+    var cur = $('#cursor'), tag = $('#cursorLabel');
+    var arrow = $('.cursor__arrow');
     var mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    var dx = mx, dy = my, rx = mx, ry = my;
+    var ax = mx, ay = my, tx = mx, ty = my, prev = mx, rot = 0;
+    var ready = false;
 
-    window.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; }, { passive: true });
-
-    window.gsap.ticker.add(function () {
-      dx += (mx - dx) * 0.55; dy += (my - dy) * 0.55;
-      rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
-      if (dot) dot.style.transform = 'translate(' + dx + 'px,' + dy + 'px) translate(-50%,-50%)';
-      if (ring) ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+    window.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      if (!ready) {
+        ready = true; ax = tx = mx; ay = ty = my;
+        /* place it before the first ticker frame, so it can never flash
+           at the top-left corner on the way in */
+        if (arrow) arrow.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+        if (tag) tag.style.transform = 'translate(' + (mx + 16) + 'px,' + (my + 20) + 'px)';
+        cur.classList.add('ready');
+      }
+    }, { passive: true });
+    window.addEventListener('mouseout', function (e) {
+      if (!e.relatedTarget) cur.classList.remove('ready');
     });
 
-    var LABELS = { view: 'View', mail: 'WhatsApp', link: '' };
+    window.gsap.ticker.add(function () {
+      /* the arrow tracks tightly, the tag lags a little -- that small
+         difference is what makes it read as one object being dragged
+         rather than two things pinned to the pointer */
+      ax += (mx - ax) * 0.58; ay += (my - ay) * 0.58;
+      tx += (mx - tx) * 0.26; ty += (my - ty) * 0.26;
+
+      /* lean into the direction of travel, damped so it settles */
+      var vx = mx - prev; prev = mx;
+      rot += (Math.max(-15, Math.min(15, vx * 0.9)) - rot) * 0.12;
+
+      if (arrow) arrow.style.transform = 'translate(' + ax + 'px,' + ay + 'px) rotate(' + rot.toFixed(2) + 'deg)';
+      if (tag) tag.style.transform = 'translate(' + (tx + 16) + 'px,' + (ty + 20) + 'px)';
+    });
+
+    var LABELS = { view: 'View', mail: 'WhatsApp', drag: 'Drag', link: 'Click' };
+    var current = 'You';
     function setState(state) {
       if (!cur) return;
-      cur.className = 'cursor' + (state ? ' is-' + state : '');
-      if (label) label.textContent = LABELS[state] || '';
+      cur.className = 'cursor ready' + (state ? ' is-' + state : '');
+      var next = LABELS[state] || 'You';
+      if (next !== current && tag) {
+        current = next;
+        tag.textContent = next;
+        tag.classList.remove('pop');
+        void tag.offsetWidth;          /* restart the animation */
+        tag.classList.add('pop');
+      }
     }
     $$('[data-cursor]').forEach(function (el) {
       var s = el.getAttribute('data-cursor');
       el.addEventListener('mouseenter', function () { setState(s); });
       el.addEventListener('mouseleave', function () { setState(''); });
     });
-    $$('a:not([data-cursor]), button').forEach(function (el) {
+    $$('a:not([data-cursor]), button:not([data-cursor])').forEach(function (el) {
       el.addEventListener('mouseenter', function () { setState('link'); });
       el.addEventListener('mouseleave', function () { setState(''); });
     });

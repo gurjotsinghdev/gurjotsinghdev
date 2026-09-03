@@ -23,8 +23,10 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
 
 <!-- ============ FIXED CHROME ============ -->
 <div class="cursor" id="cursor" aria-hidden="true">
-  <div class="cursor__dot"></div>
-  <div class="cursor__ring"><span class="cursor__label" id="cursorLabel"></span></div>
+  <svg class="cursor__arrow" viewBox="0 0 20 22" aria-hidden="true">
+    <path d="M2 2 L2 19 L6.2 15.3 L8.9 21 L11.9 19.6 L9.2 14 L14.8 14 Z"/>
+  </svg>
+  <span class="cursor__tag" id="cursorLabel">You</span>
 </div>
 <div class="grain" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
@@ -281,7 +283,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     <h2 class="secTitle display"><span class="line"><span class="lineIn">Real clients.</span></span><span class="line"><span class="lineIn">Real <em class="serif">shipped</em> work.</span></span></h2>
   </div>
 
-  <div class="hz" id="hz">
+  <div class="hz" id="hz" data-cursor="drag">
     <div class="hz__track" id="hzTrack">
 
       <article class="proj" data-cursor="view" style="--p1:#7CFF3F;--p2:#0B7A4B">
