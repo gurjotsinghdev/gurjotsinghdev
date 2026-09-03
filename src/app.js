@@ -562,7 +562,7 @@
 
       var dir = i % 2 === 0 ? -1 : 1;
       var x = dir === -1 ? 0 : -base;
-      var speed = 0.9, extra = 0, skew = 0;
+      var speed = 1.8, extra = 0, skew = 0;
 
       gsap.ticker.add(function () {
         x += dir * (speed + Math.abs(extra) * 0.9);
@@ -693,7 +693,7 @@
   }
 
   /* ---------------------------------------------------------
-     8. WhatsApp chat card
+     8. Floating chat card
      --------------------------------------------------------- */
   (function () {
     var wa = $('#wa');
