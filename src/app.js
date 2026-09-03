@@ -605,7 +605,21 @@
 
       mm.add('(min-width: 901px)', function () {
         var head = $('.work > .wrap');
-        var headOffset = function () { return head ? Math.round(head.offsetHeight) : 120; };
+        /* Measure the real distance from the heading to the gallery, not the
+           heading's own height. The section title's bottom margin collapses
+           out of .wrap, so offsetHeight understated the gap and the pin
+           engaged that many pixels after the sticky heading locked -- the
+           page kept creeping down before it caught. */
+        var headOffset = function () {
+          if (!head) return 120;
+          /* height plus the title's escaped bottom margin. Deliberately not
+             measured from the gallery's offsetTop: once pinned, the spacer
+             makes that value negative, so a refresh would collapse the
+             offset to zero and the lock point would jump. */
+          var title = $('.secTitle', head);
+          var mb = title ? (parseFloat(getComputedStyle(title).marginBottom) || 0) : 0;
+          return Math.round(head.offsetHeight + mb);
+        };
         var getDist = function () { return Math.max(0, track.scrollWidth - window.innerWidth + 40); };
         var tween = gsap.to(track, {
           x: function () { return -getDist(); },

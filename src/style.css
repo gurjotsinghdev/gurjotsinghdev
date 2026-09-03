@@ -387,7 +387,7 @@ body.menu-open .menu{ pointer-events:auto; }
 /* =========================================================
    SECTION SHELL
    ========================================================= */
-.section{ position:relative; padding-block:clamp(80px,12vh,180px); }
+.section{ position:relative; padding-block:clamp(64px,9vh,128px); }
 .secHead{
   display:flex; align-items:center; gap:14px; margin-bottom:clamp(26px,5vh,52px);
   color:var(--muted);
@@ -405,7 +405,7 @@ body.menu-open .menu{ pointer-events:auto; }
   font-family:var(--f-serif); font-style:italic; font-weight:400;
   font-size:clamp(18px,1.9vw,28px); line-height:1.35; letter-spacing:-.01em;
   color:var(--muted); max-inline-size:40ch;
-  margin-top:clamp(30px,5vh,58px);
+  margin-top:clamp(22px,3.5vh,44px);
 }
 .work .quip, .services .quip{ margin-inline:auto; }
 
@@ -522,7 +522,7 @@ body.menu-open .menu{ pointer-events:auto; }
 /* =========================================================
    SERVICES CARD STACK
    ========================================================= */
-.services{ padding-bottom:clamp(60px,10vh,140px); }
+.services{ padding-bottom:clamp(24px,4vh,56px); }
 .cards{ position:relative; }
 .card{ position:sticky; top:0; height:100svh; display:grid; place-items:center; padding:90px var(--pad) 40px; }
 .card__in{
@@ -552,7 +552,7 @@ body.menu-open .menu{ pointer-events:auto; }
 /* =========================================================
    WORK — horizontal
    ========================================================= */
-.work{ position:relative; padding-block:clamp(80px,12vh,180px) 0; }
+.work{ position:relative; padding-block:clamp(48px,6vh,96px) 0; }
 .hz{ position:relative; overflow:hidden; }
 
 /* The heading holds its place for the whole horizontal run. It has to be
