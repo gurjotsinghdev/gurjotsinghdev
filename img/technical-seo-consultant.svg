@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Technical SEO Consultant">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#B8B8B8"/><stop offset="1" stop-color="#2A2A2A"/>
+    </linearGradient>
+    <radialGradient id="v" cx="30%" cy="18%" r="85%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".38"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#v)"/>
+  
+  <rect x="352" y="180" width="360" height="270" rx="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+  <rect x="384" y="214" width="120" height="12" rx="5" fill="rgba(255,255,255,.7)"/>
+  <rect x="408" y="248" width="180" height="9" rx="4" fill="rgba(255,255,255,.3)"/>
+  <rect x="408" y="276" width="150" height="9" rx="4" fill="rgba(255,255,255,.3)"/>
+  <rect x="432" y="304" width="120" height="9" rx="4" fill="rgba(255,255,255,.22)"/>
+  <rect x="408" y="332" width="196" height="9" rx="4" fill="rgba(255,255,255,.3)"/>
+  <rect x="432" y="360" width="104" height="9" rx="4" fill="rgba(255,255,255,.22)"/>
+  <path d="M384 232h16M384 266h16M384 322h16" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+  <circle cx="742" cy="316" r="96" fill="none" stroke="rgba(255,255,255,.92)" stroke-width="12"/>
+  <path d="M812 386l64 64" stroke="rgba(255,255,255,.92)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M700 316l30 30 56-62" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

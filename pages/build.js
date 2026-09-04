@@ -105,7 +105,11 @@ function page(svc, city) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/img/${svc.slug}.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${ORIGIN}/img/${svc.slug}.svg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230066CC'/%3E%3Ctext x='50' y='69' font-family='Helvetica,Arial,sans-serif' font-size='56' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,14 +123,10 @@ function page(svc, city) {
 .lp h1{ font-family:var(--f-display); font-weight:600; letter-spacing:-.04em; line-height:.98;
   font-size:clamp(34px,5.6vw,74px); max-inline-size:18ch; margin-bottom:clamp(16px,2.4vh,26px); }
 .lp__lede{ font-size:clamp(17px,1.5vw,22px); line-height:1.55; color:var(--body); max-inline-size:60ch; }
-.lp__art{ position:relative; height:clamp(150px,22vw,260px); border-radius:20px; overflow:hidden;
-  margin:clamp(28px,4vh,52px) 0; display:grid; place-items:center;
-  background:linear-gradient(150deg, var(--p2), var(--art-base) 78%);
-  background:radial-gradient(120% 120% at 20% 10%, color-mix(in srgb, var(--p1) 55%, transparent), transparent 60%), linear-gradient(150deg, var(--p2), var(--art-base) 78%); }
-.lp__art::before{ content:""; position:absolute; inset:0;
-  background-image:linear-gradient(rgba(0,0,0,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.22) 1px,transparent 1px);
-  background-size:34px 34px; opacity:.5; }
-.lp__art span{ position:relative; font-size:clamp(44px,6vw,86px); color:rgba(255,255,255,.94); }
+/* width and height are on the element so the space is reserved before the
+   file arrives and the page does not jump while it loads */
+.lp__art{ display:block; width:100%; height:auto; aspect-ratio:1200/630;
+  border-radius:20px; margin:clamp(28px,4vh,52px) 0; background:var(--ink-2); }
 .lp__block{ padding-block:clamp(22px,3vh,34px); border-top:1px solid var(--line-2); }
 .lp__block h2{ font-family:var(--f-display); font-weight:600; letter-spacing:-.03em;
   font-size:clamp(22px,2.6vw,34px); margin-bottom:14px; max-inline-size:26ch; }
@@ -182,9 +182,8 @@ function page(svc, city) {
     <h1>${esc(h1)}</h1>
     <p class="lp__lede">${esc(svc.lede)}</p>
 
-    <div class="lp__art" style="--p1:${svc.p1};--p2:${svc.p2}" role="img" aria-label="${esc(svc.name)}">
-      <span>${svc.glyph}</span>
-    </div>
+    <img class="lp__art" src="/img/${svc.slug}.svg" width="1200" height="630" decoding="async"
+         alt="${esc(svc.name)} in ${esc(city.name)}, ${esc(city.province)}">
 
 ${body}
 

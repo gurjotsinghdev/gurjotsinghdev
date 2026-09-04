@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Local SEO Expert">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7CFF3F"/><stop offset="1" stop-color="#0B7A4B"/>
+    </linearGradient>
+    <radialGradient id="v" cx="30%" cy="18%" r="85%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".38"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#v)"/>
+  
+  <circle cx="600" cy="330" r="176" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
+  <circle cx="600" cy="330" r="122" fill="none" stroke="rgba(255,255,255,.24)" stroke-width="2"/>
+  <circle cx="600" cy="330" r="68" fill="none" stroke="rgba(255,255,255,.32)" stroke-width="2"/>
+  <path d="M600 168c-42 0-76 34-76 76 0 57 76 138 76 138s76-81 76-138c0-42-34-76-76-76z" fill="rgba(255,255,255,.92)"/>
+  <circle cx="600" cy="244" r="27" fill="rgba(0,0,0,.55)"/>
+  <circle cx="420" cy="430" r="9" fill="rgba(255,255,255,.5)"/><circle cx="792" cy="404" r="9" fill="rgba(255,255,255,.5)"/>
+  <circle cx="486" cy="228" r="7" fill="rgba(255,255,255,.35)"/><circle cx="742" cy="238" r="7" fill="rgba(255,255,255,.35)"/>
+</svg>
