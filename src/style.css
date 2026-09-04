@@ -248,24 +248,23 @@ canvas{ display:block; }
 .btn--fill{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
 .btn--fill::before{ background:var(--acid); }
 
-/* theme toggle: one glyph per theme, only the relevant one is shown */
-.themeBtn{
-  display:grid; place-items:center; width:38px; height:38px; flex:none;
-  border:1px solid var(--line); border-radius:50%; cursor:pointer;
-  transition:background-color .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease);
+/* Three bars that fold into a cross. The bars are absolutely positioned so
+   each one owns the same centre point: the open state is then just a rotation
+   about that shared origin, with the middle bar fading out. */
+.burger{
+  display:none; position:relative; width:38px; height:38px;
+  border:1px solid var(--line); border-radius:50%;
 }
-.themeBtn:hover{ background:var(--acid); color:var(--on-acid); border-color:var(--acid); }
-.themeBtn__g{ grid-area:1/1; font-size:15px; line-height:1; transition:opacity .3s ease, transform .5s var(--ease); }
-.themeBtn__g--dark{ opacity:0; transform:rotate(90deg) scale(.6); }
-:root[data-theme="dark"] .themeBtn__g--light{ opacity:0; transform:rotate(-90deg) scale(.6); }
-:root[data-theme="dark"] .themeBtn__g--dark{ opacity:1; transform:none; }
-
-.burger{ display:none; width:38px; height:38px; border:1px solid var(--line); border-radius:50%; place-items:center; }
-.burger i{ display:block; width:15px; height:1.5px; background:var(--paper); transition:transform .4s var(--ease), opacity .3s ease; }
-.burger i:first-child{ transform:translateY(-3px); }
-.burger i:last-child{ transform:translateY(3px); }
-body.menu-open .burger i:first-child{ transform:translateY(0) rotate(45deg); }
-body.menu-open .burger i:last-child{ transform:translateY(-1.5px) rotate(-45deg); }
+.burger i{
+  position:absolute; left:50%; top:50%; width:15px; height:1.5px;
+  margin-left:-7.5px; margin-top:-.75px; background:var(--paper);
+  transition:transform .4s var(--ease), opacity .25s ease;
+}
+.burger i:nth-child(1){ transform:translateY(-5px); }
+.burger i:nth-child(3){ transform:translateY(5px); }
+body.menu-open .burger i:nth-child(1){ transform:rotate(45deg); }
+body.menu-open .burger i:nth-child(2){ opacity:0; }
+body.menu-open .burger i:nth-child(3){ transform:rotate(-45deg); }
 
 /* full-screen menu */
 .menu{ position:fixed; inset:0; z-index:155; pointer-events:none; }
@@ -758,7 +757,7 @@ a.cRow__v:hover{ color:var(--acid-ink); }
    ========================================================= */
 @media (max-width:1080px){
   .nav__links{ display:none; }
-  .burger{ display:grid; }
+  .burger{ display:block; }
   .card__in{ grid-template-columns:1fr; }
   .card{ height:auto; min-height:100svh; }
   .about__grid{ grid-template-columns:1fr; gap:28px; }

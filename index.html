@@ -289,24 +289,23 @@ canvas{ display:block; }
 .btn--fill{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
 .btn--fill::before{ background:var(--acid); }
 
-/* theme toggle: one glyph per theme, only the relevant one is shown */
-.themeBtn{
-  display:grid; place-items:center; width:38px; height:38px; flex:none;
-  border:1px solid var(--line); border-radius:50%; cursor:pointer;
-  transition:background-color .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease);
+/* Three bars that fold into a cross. The bars are absolutely positioned so
+   each one owns the same centre point: the open state is then just a rotation
+   about that shared origin, with the middle bar fading out. */
+.burger{
+  display:none; position:relative; width:38px; height:38px;
+  border:1px solid var(--line); border-radius:50%;
 }
-.themeBtn:hover{ background:var(--acid); color:var(--on-acid); border-color:var(--acid); }
-.themeBtn__g{ grid-area:1/1; font-size:15px; line-height:1; transition:opacity .3s ease, transform .5s var(--ease); }
-.themeBtn__g--dark{ opacity:0; transform:rotate(90deg) scale(.6); }
-:root[data-theme="dark"] .themeBtn__g--light{ opacity:0; transform:rotate(-90deg) scale(.6); }
-:root[data-theme="dark"] .themeBtn__g--dark{ opacity:1; transform:none; }
-
-.burger{ display:none; width:38px; height:38px; border:1px solid var(--line); border-radius:50%; place-items:center; }
-.burger i{ display:block; width:15px; height:1.5px; background:var(--paper); transition:transform .4s var(--ease), opacity .3s ease; }
-.burger i:first-child{ transform:translateY(-3px); }
-.burger i:last-child{ transform:translateY(3px); }
-body.menu-open .burger i:first-child{ transform:translateY(0) rotate(45deg); }
-body.menu-open .burger i:last-child{ transform:translateY(-1.5px) rotate(-45deg); }
+.burger i{
+  position:absolute; left:50%; top:50%; width:15px; height:1.5px;
+  margin-left:-7.5px; margin-top:-.75px; background:var(--paper);
+  transition:transform .4s var(--ease), opacity .25s ease;
+}
+.burger i:nth-child(1){ transform:translateY(-5px); }
+.burger i:nth-child(3){ transform:translateY(5px); }
+body.menu-open .burger i:nth-child(1){ transform:rotate(45deg); }
+body.menu-open .burger i:nth-child(2){ opacity:0; }
+body.menu-open .burger i:nth-child(3){ transform:rotate(-45deg); }
 
 /* full-screen menu */
 .menu{ position:fixed; inset:0; z-index:155; pointer-events:none; }
@@ -799,7 +798,7 @@ a.cRow__v:hover{ color:var(--acid-ink); }
    ========================================================= */
 @media (max-width:1080px){
   .nav__links{ display:none; }
-  .burger{ display:grid; }
+  .burger{ display:block; }
   .card__in{ grid-template-columns:1fr; }
   .card{ height:auto; min-height:100svh; }
   .about__grid{ grid-template-columns:1fr; gap:28px; }
@@ -832,14 +831,6 @@ a.cRow__v:hover{ color:var(--acid-ink); }
 </style>
 </head>
 <body>
-<!-- Light is the default. This restores a saved dark choice before first
-     paint so that visitor never sees a light flash. Storage can throw
-     (private mode, blocked site data). -->
-<script>
-(function(){try{if(localStorage.getItem('gs-theme-2')==='dark')
-document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
-</script>
-
 <!-- ============ PRELOADER ============ -->
 <div class="loader" id="loader">
   <div class="loader__panels"><i></i><i></i><i></i><i></i><i></i></div>
@@ -916,12 +907,8 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
   </nav>
 
   <div class="nav__right">
-    <button class="themeBtn" id="themeBtn" type="button" aria-label="Switch colour theme" data-cursor="link">
-      <span class="themeBtn__g themeBtn__g--dark">&#9788;</span>
-      <span class="themeBtn__g themeBtn__g--light">&#9790;</span>
-    </button>
     <a class="btn btn--sm" href="#contact" data-cursor="link" data-magnetic><span>Hire me</span></a>
-    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
   </div>
 </header>
 
@@ -1117,7 +1104,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       <div class="card__in">
         <div class="card__head">
           <span class="mono card__num">03</span>
-          <h3 class="card__title display">IT<br>Consulting</h3>
+          <h3 class="card__title display">IT Consulting</h3>
         </div>
         <div class="card__body">
           <p class="card__lede">The unglamorous work that keeps a business online. Migrations, hardening, incident response and the automation that stops it happening twice.</p>
@@ -1483,11 +1470,6 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
      .menu__list a each set translateY() to the matching value. */
   var LINE_HIDDEN = 175, LOADER_HIDDEN = 175, MENU_HIDDEN = 130;
 
-  /* Bumped from 'gs-theme': that key was auto-written by an earlier build, so
-     values under it are not real choices. Must match the pre-paint script in
-     the markup. */
-  var THEME_KEY = 'gs-theme-2';
-
   /* ---------------------------------------------------------
      0. Always-on basics (work even with no GSAP)
      --------------------------------------------------------- */
@@ -1563,37 +1545,6 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
   }
   tick();
   setInterval(tick, 1000);
-
-  /* ---------------------------------------------------------
-     0b. Theme toggle (no GSAP dependency)
-     --------------------------------------------------------- */
-  (function () {
-    var btn = $('#themeBtn');
-
-    function current() { return doc.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
-
-    /* `persist` matters. An earlier version wrote to storage on every load,
-       which meant merely visiting the page saved whatever the default
-       happened to be -- so changing the default later could not reach
-       anyone who had already loaded it once. Only a click is a choice. */
-    function apply(t, persist) {
-      if (t === 'dark') doc.setAttribute('data-theme', 'dark');
-      else doc.removeAttribute('data-theme');   /* light is the default */
-      if (btn) btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-      if (persist) {
-        try { localStorage.setItem(THEME_KEY, t); } catch (e) { /* private mode */ }
-      }
-    }
-
-    /* drop the key the old build auto-wrote, so a theme nobody picked
-       does not outlive it */
-    try { localStorage.removeItem('gs-theme'); } catch (e) {}
-
-    apply(current(), false);
-    if (btn) btn.addEventListener('click', function () {
-      apply(current() === 'dark' ? 'light' : 'dark', true);
-    });
-  })();
 
   /* ---------------------------------------------------------
      0c. Tab title — say something when they wander off

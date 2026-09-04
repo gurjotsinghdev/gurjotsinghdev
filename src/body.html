@@ -1,11 +1,3 @@
-<!-- Light is the default. This restores a saved dark choice before first
-     paint so that visitor never sees a light flash. Storage can throw
-     (private mode, blocked site data). -->
-<script>
-(function(){try{if(localStorage.getItem('gs-theme-2')==='dark')
-document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
-</script>
-
 <!-- ============ PRELOADER ============ -->
 <div class="loader" id="loader">
   <div class="loader__panels"><i></i><i></i><i></i><i></i><i></i></div>
@@ -82,12 +74,8 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
   </nav>
 
   <div class="nav__right">
-    <button class="themeBtn" id="themeBtn" type="button" aria-label="Switch colour theme" data-cursor="link">
-      <span class="themeBtn__g themeBtn__g--dark">&#9788;</span>
-      <span class="themeBtn__g themeBtn__g--light">&#9790;</span>
-    </button>
     <a class="btn btn--sm" href="#contact" data-cursor="link" data-magnetic><span>Hire me</span></a>
-    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
   </div>
 </header>
 
@@ -283,7 +271,7 @@ document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
       <div class="card__in">
         <div class="card__head">
           <span class="mono card__num">03</span>
-          <h3 class="card__title display">IT<br>Consulting</h3>
+          <h3 class="card__title display">IT Consulting</h3>
         </div>
         <div class="card__body">
           <p class="card__lede">The unglamorous work that keeps a business online. Migrations, hardening, incident response and the automation that stops it happening twice.</p>

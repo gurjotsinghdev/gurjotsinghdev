@@ -25,11 +25,6 @@
      .menu__list a each set translateY() to the matching value. */
   var LINE_HIDDEN = 175, LOADER_HIDDEN = 175, MENU_HIDDEN = 130;
 
-  /* Bumped from 'gs-theme': that key was auto-written by an earlier build, so
-     values under it are not real choices. Must match the pre-paint script in
-     the markup. */
-  var THEME_KEY = 'gs-theme-2';
-
   /* ---------------------------------------------------------
      0. Always-on basics (work even with no GSAP)
      --------------------------------------------------------- */
@@ -105,37 +100,6 @@
   }
   tick();
   setInterval(tick, 1000);
-
-  /* ---------------------------------------------------------
-     0b. Theme toggle (no GSAP dependency)
-     --------------------------------------------------------- */
-  (function () {
-    var btn = $('#themeBtn');
-
-    function current() { return doc.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
-
-    /* `persist` matters. An earlier version wrote to storage on every load,
-       which meant merely visiting the page saved whatever the default
-       happened to be -- so changing the default later could not reach
-       anyone who had already loaded it once. Only a click is a choice. */
-    function apply(t, persist) {
-      if (t === 'dark') doc.setAttribute('data-theme', 'dark');
-      else doc.removeAttribute('data-theme');   /* light is the default */
-      if (btn) btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-      if (persist) {
-        try { localStorage.setItem(THEME_KEY, t); } catch (e) { /* private mode */ }
-      }
-    }
-
-    /* drop the key the old build auto-wrote, so a theme nobody picked
-       does not outlive it */
-    try { localStorage.removeItem('gs-theme'); } catch (e) {}
-
-    apply(current(), false);
-    if (btn) btn.addEventListener('click', function () {
-      apply(current() === 'dark' ? 'light' : 'dark', true);
-    });
-  })();
 
   /* ---------------------------------------------------------
      0c. Tab title — say something when they wander off
