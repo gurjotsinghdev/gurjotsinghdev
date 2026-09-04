@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 
 {
   echo '<!doctype html>'
-  echo '<html lang="en">'
+  echo '<html lang="en-CA">'
   echo '<head>'
   echo '<meta charset="utf-8">'
   echo '<meta name="viewport" content="width=device-width, initial-scale=1">'

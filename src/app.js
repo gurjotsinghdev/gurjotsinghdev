@@ -167,7 +167,7 @@
     if (!hasGSAP || !menu) return null;
     var tl = window.gsap.timeline({ paused: true });
     tl.to($('.menu__bg'), { y: '0%', duration: .8, ease: 'power4.inOut' })
-      .fromTo($$('.menu__list a'), { yPercent: MENU_HIDDEN, y: 0 },
+      .fromTo($$('.menu__reveal'), { yPercent: MENU_HIDDEN, y: 0 },
               { yPercent: 0, y: 0, duration: .7, stagger: .055, ease: 'power4.out' }, '-=.35')
       .to($('.menu__inner'), { opacity: 1, duration: .3 }, '-=.7');
     return tl;
@@ -183,7 +183,7 @@
       var bg = $('.menu__bg'), inner = $('.menu__inner');
       if (bg) bg.style.transform = 'translateY(0)';
       if (inner) inner.style.opacity = 1;
-      $$('.menu__list a').forEach(function (a) { a.style.transform = 'translateY(0)'; });
+      $$('.menu__reveal').forEach(function (a) { a.style.transform = 'translateY(0)'; });
     }
     if (lenis) lenis.stop();
   }
@@ -198,12 +198,77 @@
       var bg2 = $('.menu__bg'), inner2 = $('.menu__inner');
       if (bg2) bg2.style.transform = 'translateY(-100%)';
       if (inner2) inner2.style.opacity = 0;
-      $$('.menu__list a').forEach(function (a) { a.style.transform = 'translateY(' + MENU_HIDDEN + '%)'; });
+      $$('.menu__reveal').forEach(function (a) { a.style.transform = 'translateY(' + MENU_HIDDEN + '%)'; });
     }
     if (lenis) lenis.start();
   }
   if (burger) burger.addEventListener('click', function () { menuOpen ? closeMenu() : openMenu(); });
+
+  /* Industries is a group heading rather than a destination, so its row in
+     the overlay toggles the sub-list open instead of navigating anywhere. */
+  var indGroup = $('#menuInd'), indBtn = indGroup && indGroup.querySelector('.menu__trigger');
+  if (indBtn) indBtn.addEventListener('click', function () {
+    var open = indGroup.classList.toggle('open');
+    indBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
+  /* ---------------------------------------------------------
+     1b. Work carousel controls (touch widths)
+     --------------------------------------------------------- */
+  (function () {
+    var hz = $('#hz'), dots = $('#hzDots'), prev = $('#hzPrev'), next = $('#hzNext');
+    if (!hz || !dots || !prev || !next) return;
+    var panels = [].slice.call(hz.querySelectorAll('.proj, .hz__end'));
+    if (panels.length < 2) return;
+    var idx = -1;
+
+    panels.forEach(function (p, i) {
+      var name = p.querySelector('.proj__name');
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'hzNav__dot';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', name ? name.textContent : 'Start a project');
+      d.addEventListener('click', function () { go(i); });
+      dots.appendChild(d);
+    });
+    var buttons = [].slice.call(dots.children);
+
+    function go(i) {
+      i = Math.max(0, Math.min(panels.length - 1, i));
+      panels[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      /* paint straight away rather than waiting for the scroll to settle, so
+         a tap on an arrow or a dot never looks like it did nothing */
+      paint(i);
+    }
+    /* whichever panel sits nearest the middle of the viewport is the one
+       the reader is looking at, which is also how scroll-snap centres them */
+    function nearest() {
+      var mid = hz.scrollLeft + hz.clientWidth / 2, best = 0, bestD = Infinity;
+      panels.forEach(function (p, i) {
+        var d = Math.abs(p.offsetLeft + p.offsetWidth / 2 - mid);
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      return best;
+    }
+    function paint(i) {
+      if (i === idx) return;
+      idx = i;
+      buttons.forEach(function (b, k) { b.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+      prev.disabled = i === 0;
+      next.disabled = i === panels.length - 1;
+    }
+    var t;
+    hz.addEventListener('scroll', function () {
+      clearTimeout(t);
+      t = setTimeout(function () { paint(nearest()); }, 70);
+    }, { passive: true });
+    prev.addEventListener('click', function () { go(idx - 1); });
+    next.addEventListener('click', function () { go(idx + 1); });
+    window.addEventListener('resize', function () { paint(nearest()); });
+    paint(0);
+  })();
 
   /* ---------------------------------------------------------
      2. Custom cursor + magnetic
@@ -690,6 +755,48 @@
       /* let the dots run briefly so it reads as a message being typed */
       setTimeout(function () { wa.classList.add('said'); }, reduce ? 0 : 1000);
     }, reduce ? 0 : 500);
+
+    /* Park the card above the footer. Without this it floats over the
+       copyright line and the service-areas directory at the end of the page. */
+    var foot = $('.foot');
+    if (foot) {
+      var GAP = 18, queued = false, restInset = null;
+
+      /* How far the card's bottom edge sits above the viewport bottom with no
+         lift applied. Measured rather than read from --waBase, which is a
+         clamp() and so comes back as an expression, not a length. Only valid
+         once the card has entered, since the entrance transform moves it. */
+      function measure() {
+        if (!wa.classList.contains('on')) return null;
+        var prev = wa.style.getPropertyValue('--waLift');
+        wa.style.setProperty('--waLift', '0px');
+        var inset = window.innerHeight - wa.getBoundingClientRect().bottom;
+        if (prev) wa.style.setProperty('--waLift', prev);
+        return inset;
+      }
+
+      function place() {
+        queued = false;
+        if (wa.classList.contains('gone')) return;
+        if (restInset === null) restInset = measure();
+        if (restInset === null) return;
+        var top = foot.getBoundingClientRect().top;
+        /* how far the card's bottom edge reaches past the footer's top edge */
+        var over = (window.innerHeight - restInset) - (top - GAP);
+        wa.style.setProperty('--waLift', Math.max(0, Math.round(over)) + 'px');
+      }
+      function schedule() {
+        if (queued) return;
+        queued = true;
+        window.requestAnimationFrame(place);
+      }
+      window.addEventListener('scroll', schedule, { passive: true });
+      window.addEventListener('resize', function () { restInset = null; schedule(); });
+      if (lenis && lenis.on) lenis.on('scroll', schedule);
+      /* the card enters on a timer, so take the first reading after it lands */
+      setTimeout(place, reduce ? 60 : 900);
+      schedule();
+    }
 
     var x = $('#waClose');
     if (x) x.addEventListener('click', function (e) {

@@ -71,6 +71,31 @@
     <a href="#services" data-scramble>Services</a>
     <a href="#work"     data-scramble>Work</a>
     <a href="#skills"   data-scramble>Skills</a>
+
+    <div class="nav__ind">
+      <button class="nav__indBtn" type="button" aria-expanded="false" aria-haspopup="true">
+        <span>Industries</span><i class="nav__caret" aria-hidden="true"></i>
+      </button>
+      <div class="nav__drop">
+        <div class="nav__dropIn">
+          <p class="nav__dropH mono">Sectors I work in across Canada</p>
+          <div class="nav__dropGrid">
+        <a href="/industries/restaurants">Restaurants</a>
+        <a href="/industries/real-estate">Real Estate</a>
+        <a href="/industries/trades-and-home-services">Trades &amp; Home Services</a>
+        <a href="/industries/healthcare-and-clinics">Healthcare &amp; Clinics</a>
+        <a href="/industries/professional-services">Professional Services</a>
+        <a href="/industries/construction">Construction</a>
+        <a href="/industries/ecommerce-and-retail">Ecommerce &amp; Retail</a>
+        <a href="/industries/publishing-and-media">Publishing &amp; Media</a>
+        <a href="/industries/nonprofits-and-associations">Nonprofits</a>
+        <a href="/industries/manufacturing-and-industrial">Manufacturing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="/faq" data-scramble>FAQ</a>
   </nav>
 
   <div class="nav__right">
@@ -81,13 +106,33 @@
 
 <div class="menu" id="menu" aria-hidden="true">
   <div class="menu__bg"></div>
-  <div class="menu__inner">
+  <div class="menu__inner" data-lenis-prevent>
     <ul class="menu__list">
-      <li><a href="#about"><span class="menu__num mono">01</span><span class="menu__word">About</span></a></li>
-      <li><a href="#services"><span class="menu__num mono">02</span><span class="menu__word">Services</span></a></li>
-      <li><a href="#work"><span class="menu__num mono">03</span><span class="menu__word">Work</span></a></li>
-      <li><a href="#skills"><span class="menu__num mono">04</span><span class="menu__word">Skills</span></a></li>
-      <li><a href="#contact"><span class="menu__num mono">05</span><span class="menu__word">Contact</span></a></li>
+      <li><a class="menu__reveal" href="#about"><span class="menu__num mono">01</span><span class="menu__word">About</span></a></li>
+      <li><a class="menu__reveal" href="#services"><span class="menu__num mono">02</span><span class="menu__word">Services</span></a></li>
+      <li><a class="menu__reveal" href="#work"><span class="menu__num mono">03</span><span class="menu__word">Work</span></a></li>
+      <li><a class="menu__reveal" href="#skills"><span class="menu__num mono">04</span><span class="menu__word">Skills</span></a></li>
+      <li class="menu__group" id="menuInd">
+        <button class="menu__reveal menu__trigger" type="button" aria-expanded="false" aria-controls="menuIndSub">
+          <span class="menu__num mono">05</span><span class="menu__word">Industries</span><i class="menu__caret" aria-hidden="true"></i>
+        </button>
+        <div class="menu__sub" id="menuIndSub">
+          <div class="menu__subGrid mono">
+          <a href="/industries/restaurants">Restaurants</a>
+          <a href="/industries/real-estate">Real Estate</a>
+          <a href="/industries/trades-and-home-services">Trades &amp; Home Services</a>
+          <a href="/industries/healthcare-and-clinics">Healthcare &amp; Clinics</a>
+          <a href="/industries/professional-services">Professional Services</a>
+          <a href="/industries/construction">Construction</a>
+          <a href="/industries/ecommerce-and-retail">Ecommerce &amp; Retail</a>
+          <a href="/industries/publishing-and-media">Publishing &amp; Media</a>
+          <a href="/industries/nonprofits-and-associations">Nonprofits</a>
+          <a href="/industries/manufacturing-and-industrial">Manufacturing</a>
+          </div>
+        </div>
+      </li>
+      <li><a class="menu__reveal" href="/faq"><span class="menu__num mono">06</span><span class="menu__word">FAQ</span></a></li>
+      <li><a class="menu__reveal" href="#contact"><span class="menu__num mono">07</span><span class="menu__word">Contact</span></a></li>
     </ul>
     <div class="menu__foot mono">
       <span>gurjotangad97@gmail.com</span>
@@ -174,6 +219,39 @@
   </div>
 </div>
 
+<!-- ============ CLIENTS ============
+     Logos pulled from somydigital.com, the user's agency site, where the same
+     five already run as a client carousel. Each is sized by its own rule in
+     the stylesheet rather than a single height, because the aspect ratios run
+     from 1.7:1 to 8.8:1 and one height would make the wordmarks enormous. -->
+<section class="clients" aria-label="Clients">
+  <div class="wrap clients__row">
+    <p class="clients__lead">Your Trusted<br>Growth Partner</p>
+    <ul class="clients__list">
+      <li class="clients__item" data-client="nero-tondo">
+        <img class="clients__logo" src="/img/clients/nero-tondo.png" width="346" height="200"
+             loading="lazy" decoding="async" alt="Nero Tondo">
+      </li>
+      <li class="clients__item" data-client="mouseback">
+        <img class="clients__logo" src="/img/clients/mouseback.png" width="335" height="150"
+             loading="lazy" decoding="async" alt="Mouseback">
+      </li>
+      <li class="clients__item" data-client="dhaliwals-lounge">
+        <img class="clients__logo" src="/img/clients/dhaliwals-lounge.png" width="640" height="73"
+             loading="lazy" decoding="async" alt="Dhaliwal&rsquo;s Lounge">
+      </li>
+      <li class="clients__item" data-client="hitech-advisors">
+        <img class="clients__logo" src="/img/clients/hitech-advisors.png" width="400" height="200"
+             loading="lazy" decoding="async" alt="Hitech Advisors">
+      </li>
+      <li class="clients__item" data-client="photography-academy">
+        <img class="clients__logo" src="/img/clients/photography-academy.png" width="1200" height="300"
+             loading="lazy" decoding="async" alt="Photography Academy">
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- ============ ABOUT / STATEMENT ============ -->
 <section class="section statement" id="about">
   <div class="wrap">
@@ -189,7 +267,7 @@
     <div class="about__grid">
       <div class="about__col reveal-up">
         <h3 class="mono about__h">What I actually do</h3>
-        <p>I design and build websites and web products in WordPress and Next.js, then handle the parts most designers hand off: SEO and structured data, analytics, lead capture, performance, security and long-term maintenance.</p>
+        <p>I work with companies to build websites and to run the marketing campaigns that bring people to them. Alongside that I provide IT consultancy and support of every kind: hosting and servers, security, integrations, automation and the day-to-day help that keeps a business running.</p>
       </div>
       <div class="about__col reveal-up">
         <h3 class="mono about__h">How I work</h3>
@@ -197,11 +275,11 @@
       </div>
       <div class="about__col reveal-up">
         <h3 class="mono about__h">Who I work with</h3>
-        <p>Founders, small teams and agencies in Canada and India. Real estate, news publishing, healthcare, procurement, home services and SaaS. From one landing page to a fleet of sites.</p>
+        <p>Founders, businesses and agencies across Canada. Restaurants, real estate, trades and home services, healthcare, professional services, construction, ecommerce, publishing, nonprofits and manufacturing. From one landing page to a fleet of sites.</p>
       </div>
     </div>
 
-    <p class="quip">I want to build something that ends up in a museum. Until then I&rsquo;ll settle for building something that ends up making you money.</p>
+    <p class="quip">I want to build something that ends up in a museum. Until then I&rsquo;ll settle for building something that helps your business grow.</p>
 
     <div class="stats" id="stats">
       <div class="stat"><span class="stat__num" data-count="65" data-suffix="+">0</span><span class="mono stat__lab">Projects shipped</span></div>
@@ -314,17 +392,44 @@
         </div>
       </article>
 
-      <article class="proj" style="--p1:#C77DFF;--p2:#33116B">
-        <div class="proj__art"><span class="proj__glyph">&#10035;</span><span class="proj__idx mono">02</span></div>
+      <article class="proj" style="--p1:#E5B45C;--p2:#4A1526">
+        <div class="proj__art"><span class="proj__glyph">&#9672;</span><span class="proj__idx mono">02</span></div>
         <div class="proj__meta">
-          <h3 class="proj__name">PromptProMax</h3>
-          <p class="proj__desc">My own product, an AI prompt and tools directory. Next.js 16 on Turbopack, React 19, hand-written CSS, four lead-capture surfaces behind a single validated API route.</p>
-          <div class="proj__tags mono"><span>Product</span><span>Next.js</span><span>TypeScript</span><span>Growth</span></div>
+          <h3 class="proj__name">Dhaliwal&rsquo;s Lounge</h3>
+          <p class="proj__desc">Upscale Punjabi restaurant and lounge in Surrey, BC. A WordPress build carrying the full menu, with the search work pointed straight at the terms people use when they are deciding where to eat tonight.</p>
+          <div class="proj__tags mono"><span>WordPress</span><span>Local SEO</span><span>Hospitality</span><span>Menu</span></div>
+        </div>
+      </article>
+
+      <article class="proj" style="--p1:#7DE38A;--p2:#0E3A1E">
+        <div class="proj__art"><span class="proj__glyph">&#9678;</span><span class="proj__idx mono">03</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Photography Academy</h3>
+          <p class="proj__desc">Online photography school with more than 900,000 students. A large course catalogue and store where the checkout, the funnel pages and raw page speed are what the business actually runs on.</p>
+          <div class="proj__tags mono"><span>Ecommerce</span><span>Funnels</span><span>Performance</span><span>Education</span></div>
+        </div>
+      </article>
+
+      <article class="proj" style="--p1:#FF4B4B;--p2:#3A0B0B">
+        <div class="proj__art"><span class="proj__glyph">&#9635;</span><span class="proj__idx mono">04</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Hitech Advisors</h3>
+          <p class="proj__desc">Technology consulting and AI leadership for enterprise clients. The buyers here are executives, so the site has to establish credibility before it does anything else, and every page is built around that.</p>
+          <div class="proj__tags mono"><span>WordPress</span><span>B2B</span><span>Consulting</span><span>Content</span></div>
+        </div>
+      </article>
+
+      <article class="proj" style="--p1:#FF6A3D;--p2:#3A1206">
+        <div class="proj__art"><span class="proj__glyph">&#10035;</span><span class="proj__idx mono">05</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Mouseback</h3>
+          <p class="proj__desc">Web design and build for Mouseback. The same arrangement as everything else on this list: design, build and the technical work underneath all handled by one person.</p>
+          <div class="proj__tags mono"><span>Web Design</span><span>Brand</span></div>
         </div>
       </article>
 
       <article class="proj" style="--p1:#5EE9D4;--p2:#0A4A44">
-        <div class="proj__art"><span class="proj__glyph">&#9636;</span><span class="proj__idx mono">03</span></div>
+        <div class="proj__art"><span class="proj__glyph">&#9636;</span><span class="proj__idx mono">06</span></div>
         <div class="proj__meta">
           <h3 class="proj__name">Sharan Forms</h3>
           <p class="proj__desc">A WordPress form builder written from scratch to compete with Gravity Forms. Fields, entries, notifications, save-and-continue drafts, scheduling, GDPR export and erase.</p>
@@ -341,8 +446,14 @@
   </div>
   </div>
 
-  <div class="wrap"><p class="quip">Three projects here. Zero templates in any of them.</p></div>
-  <div class="hz__hint mono"><i></i><span>drag or scroll</span><i></i></div>
+  <div class="wrap"><p class="quip">Six projects here. Zero templates in any of them.</p></div>
+  <div class="hzNav" id="hzNav">
+    <button class="hzNav__btn" id="hzPrev" type="button" aria-label="Previous project"><i class="hzNav__arr hzNav__arr--l"></i></button>
+    <div class="hzNav__dots" id="hzDots" role="tablist" aria-label="Projects"></div>
+    <button class="hzNav__btn" id="hzNext" type="button" aria-label="Next project"><i class="hzNav__arr"></i></button>
+  </div>
+
+  <div class="hz__hint mono"><i></i><span class="hz__hintWide">drag or scroll</span><span class="hz__hintTouch">swipe to see more</span><i></i></div>
 </section>
 
 <!-- ============ STACK ============ -->
@@ -579,6 +690,23 @@
         </div>
       </div>
     </div>
+    </div>
+
+    <div class="seo__ind">
+      <h3 class="seo__provName">Industries</h3>
+      <ul class="seo__list seo__indList">
+        <li><a href="/industries/restaurants">Restaurant Web Design Canada</a></li>
+        <li><a href="/industries/real-estate">Real Estate Web Design Canada</a></li>
+        <li><a href="/industries/trades-and-home-services">Web Design for Trades Canada</a></li>
+        <li><a href="/industries/healthcare-and-clinics">Healthcare Web Design Canada</a></li>
+        <li><a href="/industries/professional-services">Professional Services Web Design Canada</a></li>
+        <li><a href="/industries/construction">Construction Web Design Canada</a></li>
+        <li><a href="/industries/ecommerce-and-retail">Ecommerce Web Design Canada</a></li>
+        <li><a href="/industries/publishing-and-media">News Website Design Canada</a></li>
+        <li><a href="/industries/nonprofits-and-associations">Nonprofit Web Design Canada</a></li>
+        <li><a href="/industries/manufacturing-and-industrial">Manufacturing Web Design Canada</a></li>
+        <li><a href="/faq">Frequently Asked Questions</a></li>
+      </ul>
     </div>
   </div>
 </nav>

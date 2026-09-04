@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Construction">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F0C23C"/><stop offset="1" stop-color="#38290A"/>
+    </linearGradient>
+    <radialGradient id="v" cx="30%" cy="18%" r="85%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".38"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#v)"/>
+
+  <path d="M330 500V196" stroke="rgba(255,255,255,.9)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M330 196h330" stroke="rgba(255,255,255,.9)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M330 196L250 240h80" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M362 196l40 40M402 196l-40 40M430 196l40 40M470 196l-40 40M498 196l40 40M538 196l-40 40M566 196l40 40M606 196l-40 40"
+        stroke="rgba(255,255,255,.42)" stroke-width="5"/>
+  <path d="M596 196v70" stroke="rgba(255,255,255,.7)" stroke-width="5"/>
+  <rect x="556" y="266" width="80" height="60" rx="8" fill="rgba(255,255,255,.85)"/>
+  <path d="M296 500h84l-42-92z" fill="rgba(255,255,255,.5)"/>
+  <rect x="690" y="252" width="256" height="248" rx="12" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.55)" stroke-width="3"/>
+  <path d="M690 300h256M690 356h256M690 412h256M746 252v248M818 252v248M890 252v248" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+  <rect x="722" y="330" width="128" height="112" rx="6" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="6"/>
+  <rect x="850" y="286" width="64" height="72" rx="6" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="5"/>
+</svg>

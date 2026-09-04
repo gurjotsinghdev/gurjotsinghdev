@@ -1,17 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NYRWKVFWTL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NYRWKVFWTL');
+</script>
+
 <title>Gurjot Singh (Gary) — Digital Consultant</title>
 <meta name="description" content="Gurjot Singh (Gary). Web design, digital marketing and IT consulting. Custom WordPress and Next.js builds, technical SEO, security and automation. Available for projects and full-time roles.">
 <meta name="author" content="Gurjot Singh">
 <meta name="theme-color" content="#EDF0F5">
+<link rel="canonical" href="https://gurjotdigital.vercel.app/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gurjot Singh (Gary) — Digital Consultant">
 <meta property="og:description" content="Web design, digital marketing and IT consulting. One person who designs it, builds it, ships it and keeps it fast.">
-<meta property="og:site_name" content="Gurjot Singh">
+<meta property="og:site_name" content="Gurjot Singh (Gary)">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="https://gurjotdigital.vercel.app/">
+<meta property="og:image" content="https://gurjotdigital.vercel.app/img/og-home.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://gurjotdigital.vercel.app/img/og-home.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gurjot Singh (Gary) — Digital Consultant">
 <meta name="twitter:description" content="Web design, digital marketing and IT consulting.">
@@ -35,7 +53,46 @@
     "Web Design","Web Development","WordPress","Elementor","Next.js","React","TypeScript","PHP",
     "Digital Marketing","Technical SEO","Structured Data","Google Analytics","Conversion Optimisation",
     "IT Consulting","Web Security","Incident Response","Performance Optimisation","DevOps Automation"
-  ]
+  ],
+  "url": "https://gurjotdigital.vercel.app/",
+  "address": { "@type": "PostalAddress", "addressLocality": "Vancouver", "addressRegion": "BC", "addressCountry": "CA" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://gurjotdigital.vercel.app/#business",
+  "name": "Gurjot Singh (Gary)",
+  "url": "https://gurjotdigital.vercel.app/",
+  "image": "https://gurjotdigital.vercel.app/img/og-home.svg",
+  "telephone": "+1-778-929-0374",
+  "email": "gurjotangad97@gmail.com",
+  "priceRange": "$",
+  "description": "Web design, digital marketing and IT consulting for Canadian businesses. WordPress and Next.js builds, technical SEO, Google Ads, security and performance work.",
+  "founder": { "@type": "Person", "name": "Gurjot Singh", "alternateName": "Gary" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Vancouver", "addressRegion": "BC", "addressCountry": "CA" },
+  "areaServed": [
+    { "@type": "City", "name": "Vancouver" }, { "@type": "City", "name": "Kelowna" },
+    { "@type": "City", "name": "Edmonton" }, { "@type": "City", "name": "Calgary" },
+    { "@type": "City", "name": "Toronto" }, { "@type": "City", "name": "Ottawa" },
+    { "@type": "City", "name": "Saskatoon" }, { "@type": "City", "name": "Regina" },
+    { "@type": "Country", "name": "Canada" }
+  ],
+  "knowsLanguage": "en-CA"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://gurjotdigital.vercel.app/#website",
+  "url": "https://gurjotdigital.vercel.app/",
+  "name": "Gurjot Singh (Gary)",
+  "inLanguage": "en-CA",
+  "publisher": { "@id": "https://gurjotdigital.vercel.app/#business" }
 }
 </script>
 <style>
@@ -226,6 +283,63 @@ canvas{ display:block; }
 .progress i{ display:block; height:100%; width:0%; background:var(--acid); }
 
 /* =========================================================
+   CLIENTS
+   A quiet row under the hero. The marks sit muted and lift to full weight
+   one at a time on hover, so the row reads as a list rather than a grid of
+   competing logos.
+   ========================================================= */
+.clients{ padding-block:clamp(30px,5vh,54px); border-bottom:1px solid var(--line-2); }
+.clients__row{
+  display:flex; align-items:center; gap:clamp(24px,4vw,64px); flex-wrap:wrap;
+}
+.clients__lead{
+  flex:none; font-family:var(--f-display); font-weight:600; letter-spacing:-.03em;
+  font-size:clamp(15px,1.5vw,20px); line-height:1.25; color:var(--paper);
+}
+.clients__list{
+  flex:1 1 340px; display:flex; align-items:center; flex-wrap:wrap;
+  gap:clamp(18px,3vw,52px);
+}
+.clients__item{ list-style:none; }
+.clients__mark{
+  font-family:var(--f-display); font-weight:600; letter-spacing:-.02em;
+  font-size:clamp(14px,1.35vw,18px); line-height:1; white-space:nowrap;
+  color:var(--muted-2); opacity:.75;
+  transition:color .35s var(--ease), opacity .35s ease, transform .4s var(--ease);
+}
+.clients__logo{
+  display:block; width:auto; height:var(--lh,clamp(22px,2.3vw,30px));
+  max-width:min(190px,42vw); object-fit:contain;
+  opacity:.82; transition:opacity .35s ease, transform .4s var(--ease);
+}
+/* Three of the five logos ship as opaque PNGs with a white background, which
+   would sit as white rectangles on the page. Multiplying against the light
+   ground drops the white away. It also lands the internal white counters (the
+   H in the Hitech mark) on the page colour rather than pure white, which at
+   this size is indistinguishable. Verified by sampling the alpha channel:
+   Dhaliwal's and Photography Academy are already transparent and are left alone. */
+[data-client="nero-tondo"]      .clients__logo,
+[data-client="mouseback"]       .clients__logo,
+[data-client="hitech-advisors"] .clients__logo{ mix-blend-mode:multiply; }
+
+/* Optical sizing. Equal heights would give the 8.8:1 wordmark five times the
+   width of the squarest mark, so each is set to carry a similar visual weight. */
+[data-client="dhaliwals-lounge"]    .clients__logo{ --lh:clamp(14px,1.5vw,19px); }
+[data-client="photography-academy"] .clients__logo{ --lh:clamp(21px,2.2vw,29px); }
+[data-client="mouseback"]           .clients__logo{ --lh:clamp(24px,2.5vw,33px); }
+[data-client="hitech-advisors"]     .clients__logo{ --lh:clamp(23px,2.4vw,31px); }
+[data-client="nero-tondo"]          .clients__logo{ --lh:clamp(27px,2.8vw,37px); }
+.clients__item:hover .clients__mark{ color:var(--acid-ink); opacity:1; transform:translateY(-2px); }
+.clients__item:hover .clients__logo{ opacity:1; transform:translateY(-2px); }
+/* On a phone the marks wrap onto two lines rather than scrolling sideways.
+   A hidden horizontal scroller with no affordance is exactly the problem the
+   work carousel needed arrows to solve, and this row does not warrant them. */
+@media (max-width:720px){
+  .clients__row{ gap:16px; }
+  .clients__list{ flex-wrap:wrap; gap:12px 22px; }
+}
+
+/* =========================================================
    NAV
    ========================================================= */
 .nav{
@@ -267,6 +381,41 @@ canvas{ display:block; }
   color:var(--muted); transition:color .3s ease, background-color .3s ease;
 }
 .nav__links a:hover{ color:var(--on-acid); background:var(--acid); }
+
+/* Industries is a grouping, not a page, so its trigger is a button that
+   opens a panel. The panel's transparent top padding bridges the gap back
+   to the nav bar, so the pointer can travel into it without a hover drop. */
+.nav__ind{ position:relative; }
+.nav__indBtn{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:8px 14px; border:0; border-radius:999px; background:none; cursor:pointer;
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--muted); transition:color .3s ease, background-color .3s ease;
+}
+.nav__caret{
+  width:5px; height:5px; border-right:1.4px solid currentColor; border-bottom:1.4px solid currentColor;
+  transform:translateY(-2px) rotate(45deg); transition:transform .3s var(--ease);
+}
+.nav__ind:hover .nav__indBtn, .nav__ind:focus-within .nav__indBtn{ color:var(--on-acid); background:var(--acid); }
+.nav__ind:hover .nav__caret, .nav__ind:focus-within .nav__caret{ transform:translateY(0) rotate(225deg); }
+.nav__drop{
+  position:absolute; top:100%; left:50%; padding-top:14px; width:min(560px,86vw);
+  transform:translate(-50%,10px); opacity:0; visibility:hidden;
+  transition:opacity .3s ease, transform .35s var(--ease), visibility .3s;
+}
+.nav__ind:hover .nav__drop, .nav__ind:focus-within .nav__drop{ opacity:1; visibility:visible; transform:translate(-50%,0); }
+.nav__dropIn{
+  padding:18px; border:1px solid var(--line-2); border-radius:16px;
+  background:var(--ink-3); box-shadow:0 22px 50px rgba(12,12,14,.14);
+}
+.nav__dropH{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted-2); margin-bottom:12px; }
+.nav__dropGrid{ display:grid; grid-template-columns:1fr 1fr; gap:2px 14px; }
+.nav__dropGrid a{
+  padding:8px 10px; border-radius:9px; font-size:13px; font-weight:500;
+  color:var(--body); transition:color .25s ease, background-color .25s ease;
+}
+.nav__dropGrid a:hover{ color:var(--acid-ink); background:var(--ink-2); }
+@media (max-width:1080px){ .nav__ind{ display:none; } }
 
 .nav__right{ display:flex; align-items:center; gap:12px; }
 
@@ -313,20 +462,59 @@ body.menu-open .burger i:nth-child(3){ transform:rotate(-45deg); }
 .menu__inner{
   position:relative; height:100%; display:flex; flex-direction:column; justify-content:center;
   padding:110px var(--pad) 40px; opacity:0;
+  overflow-y:auto; overscroll-behavior:contain;
 }
 body.menu-open .menu{ pointer-events:auto; }
 .menu__list li{ overflow:hidden; border-bottom:1px solid var(--line-2); }
 .menu__list a{
-  display:flex; align-items:baseline; gap:20px; padding:clamp(10px,2.2vh,22px) 0;
+  display:flex; align-items:baseline; gap:20px; padding:clamp(6px,1.6vh,16px) 0;
   transform:translateY(130%);
 }
 .menu__num{ color:var(--muted-2); }
 .menu__word{
   font-family:var(--f-display); font-weight:600; letter-spacing:-.04em;
-  font-size:clamp(34px,9vw,86px); line-height:1;
+  font-size:clamp(28px,6vw,60px); line-height:1;
   transition:color .35s ease, transform .5s var(--ease);
 }
 .menu__list a:hover .menu__word{ color:var(--acid-ink); transform:translateX(18px); }
+.menu__trigger{
+  display:flex; align-items:baseline; gap:20px; width:100%; padding:clamp(6px,1.6vh,16px) 0;
+  border:0; background:none; cursor:pointer; text-align:left; color:inherit;
+  transform:translateY(130%);
+}
+.menu__caret{
+  align-self:center; margin-left:auto; width:11px; height:11px;
+  border-right:1.6px solid var(--muted-2); border-bottom:1.6px solid var(--muted-2);
+  transform:translateY(-3px) rotate(45deg); transition:transform .4s var(--ease), border-color .3s ease;
+}
+.menu__trigger:hover .menu__word{ color:var(--acid-ink); transform:translateX(18px); }
+.menu__group.open .menu__caret{ transform:translateY(2px) rotate(225deg); border-color:var(--acid-ink); }
+.menu__sub{ max-height:0; overflow:hidden; transition:max-height .55s var(--ease); }
+.menu__group.open .menu__sub{ max-height:52vh; }
+.menu__subGrid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:2px 26px; max-width:760px; padding:0 0 clamp(10px,1.6vh,18px);
+}
+.menu__subGrid a{
+  padding:7px 0; font-size:12px; letter-spacing:.06em; color:var(--muted);
+  transition:color .25s ease, transform .3s var(--ease);
+}
+.menu__subGrid a:hover{ color:var(--acid-ink); transform:translateX(8px); }
+
+.seo__ind{ margin-top:44px; padding-top:34px; border-top:1px solid var(--line-2); }
+.seo__indList{ columns:3; column-gap:28px; }
+@media (max-width:900px){ .seo__indList{ columns:2; } }
+@media (max-width:560px){ .seo__indList{ columns:1; } }
+.seo__indList li{ break-inside:avoid; }
+
+/* The generated pages carry no GSAP, so the overlay animates in CSS there.
+   The stagger is applied as a per-row transition-delay from the inline script. */
+.no-gsap .menu__bg{ transition:transform .8s var(--ease); }
+.no-gsap .menu__inner{ transition:opacity .35s ease; }
+.no-gsap .menu__list a, .no-gsap .menu__trigger{ transition:transform .7s var(--ease); }
+.no-gsap .menu__list a:hover .menu__word,
+.no-gsap .menu__trigger:hover .menu__word{ transition:color .35s ease, transform .5s var(--ease); }
+
 .menu__foot{ margin-top:auto; padding-top:30px; display:flex; justify-content:space-between; color:var(--muted); }
 
 /* =========================================================
@@ -451,7 +639,13 @@ body.menu-open .menu{ pointer-events:auto; }
    arrived, so the ask is legible before anyone hovers anything.
    ========================================================= */
 .wa{
-  position:fixed; right:clamp(14px,2.2vw,26px); bottom:clamp(14px,2.2vw,26px);
+  /* --waLift is written from script as the footer comes into view, so the
+     card parks above it rather than covering the copyright line. It rides on
+     `bottom` because `transform` carries the entrance animation and its
+     transition would make the card lag behind the scroll. */
+  --waBase:clamp(14px,2.2vw,26px);
+  --waLift:0px;
+  position:fixed; right:clamp(14px,2.2vw,26px); bottom:calc(var(--waBase) + var(--waLift));
   z-index:185;                        /* above the grain and vignette washes */
   /* Shrink-to-fit. A fixed width left dead space to the right of the copy,
      because the card grid is auto/1fr and that 1fr stretched past the text. */
@@ -709,6 +903,42 @@ body.menu-open .menu{ pointer-events:auto; }
   .hz__track{ padding-right:var(--pad); }
   .proj{ scroll-snap-align:center; }
 }
+/* The gallery pans under a pinned heading on desktop, so the controls are a
+   touch-width affordance only: below 900px the same markup becomes a real
+   scroller and the arrows and dots are the only signal that it moves. */
+.hzNav{ display:none; }
+.hzNav__btn{
+  width:46px; height:46px; flex:none; display:grid; place-items:center;
+  border:1px solid var(--line); border-radius:50%; background:var(--ink-3); color:var(--paper);
+  cursor:pointer; -webkit-tap-highlight-color:transparent;
+  transition:background-color .3s var(--ease), border-color .3s var(--ease),
+             color .3s var(--ease), opacity .3s ease, transform .25s var(--ease);
+}
+.hzNav__btn:active{ transform:scale(.9); }
+.hzNav__btn[disabled]{ opacity:.28; cursor:default; }
+.hzNav__btn:not([disabled]):hover{ background:var(--acid); border-color:var(--acid); color:var(--on-acid); }
+.hzNav__arr{
+  width:9px; height:9px; border-top:1.7px solid currentColor; border-right:1.7px solid currentColor;
+  transform:translateX(-2px) rotate(45deg);
+}
+.hzNav__arr--l{ transform:translateX(2px) rotate(225deg); }
+.hzNav__dots{ display:flex; align-items:center; gap:9px; }
+.hzNav__dot{
+  width:8px; height:8px; flex:none; padding:0; border:0; border-radius:50%;
+  background:var(--line); cursor:pointer; -webkit-tap-highlight-color:transparent;
+  transition:width .4s var(--ease), border-radius .4s var(--ease), background-color .35s ease;
+}
+.hzNav__dot[aria-selected="true"]{ width:28px; border-radius:4px; background:var(--acid); }
+
+.hz__hintTouch{ display:none; }
+
+@media (max-width:900px){
+  .hzNav{ display:flex; align-items:center; justify-content:center; gap:18px; padding-top:clamp(20px,3vh,30px); }
+  .hz__hint{ padding-block:clamp(14px,2vh,20px) clamp(28px,5vh,56px); }
+  .hz__hintWide{ display:none; }
+  .hz__hintTouch{ display:inline; }
+}
+
 .hz__hint{
   display:flex; align-items:center; justify-content:center; gap:12px;
   color:var(--muted-2); padding-block:clamp(28px,5vh,56px);
@@ -904,6 +1134,31 @@ a.cRow__v:hover{ color:var(--acid-ink); }
     <a href="#services" data-scramble>Services</a>
     <a href="#work"     data-scramble>Work</a>
     <a href="#skills"   data-scramble>Skills</a>
+
+    <div class="nav__ind">
+      <button class="nav__indBtn" type="button" aria-expanded="false" aria-haspopup="true">
+        <span>Industries</span><i class="nav__caret" aria-hidden="true"></i>
+      </button>
+      <div class="nav__drop">
+        <div class="nav__dropIn">
+          <p class="nav__dropH mono">Sectors I work in across Canada</p>
+          <div class="nav__dropGrid">
+        <a href="/industries/restaurants">Restaurants</a>
+        <a href="/industries/real-estate">Real Estate</a>
+        <a href="/industries/trades-and-home-services">Trades &amp; Home Services</a>
+        <a href="/industries/healthcare-and-clinics">Healthcare &amp; Clinics</a>
+        <a href="/industries/professional-services">Professional Services</a>
+        <a href="/industries/construction">Construction</a>
+        <a href="/industries/ecommerce-and-retail">Ecommerce &amp; Retail</a>
+        <a href="/industries/publishing-and-media">Publishing &amp; Media</a>
+        <a href="/industries/nonprofits-and-associations">Nonprofits</a>
+        <a href="/industries/manufacturing-and-industrial">Manufacturing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="/faq" data-scramble>FAQ</a>
   </nav>
 
   <div class="nav__right">
@@ -914,13 +1169,33 @@ a.cRow__v:hover{ color:var(--acid-ink); }
 
 <div class="menu" id="menu" aria-hidden="true">
   <div class="menu__bg"></div>
-  <div class="menu__inner">
+  <div class="menu__inner" data-lenis-prevent>
     <ul class="menu__list">
-      <li><a href="#about"><span class="menu__num mono">01</span><span class="menu__word">About</span></a></li>
-      <li><a href="#services"><span class="menu__num mono">02</span><span class="menu__word">Services</span></a></li>
-      <li><a href="#work"><span class="menu__num mono">03</span><span class="menu__word">Work</span></a></li>
-      <li><a href="#skills"><span class="menu__num mono">04</span><span class="menu__word">Skills</span></a></li>
-      <li><a href="#contact"><span class="menu__num mono">05</span><span class="menu__word">Contact</span></a></li>
+      <li><a class="menu__reveal" href="#about"><span class="menu__num mono">01</span><span class="menu__word">About</span></a></li>
+      <li><a class="menu__reveal" href="#services"><span class="menu__num mono">02</span><span class="menu__word">Services</span></a></li>
+      <li><a class="menu__reveal" href="#work"><span class="menu__num mono">03</span><span class="menu__word">Work</span></a></li>
+      <li><a class="menu__reveal" href="#skills"><span class="menu__num mono">04</span><span class="menu__word">Skills</span></a></li>
+      <li class="menu__group" id="menuInd">
+        <button class="menu__reveal menu__trigger" type="button" aria-expanded="false" aria-controls="menuIndSub">
+          <span class="menu__num mono">05</span><span class="menu__word">Industries</span><i class="menu__caret" aria-hidden="true"></i>
+        </button>
+        <div class="menu__sub" id="menuIndSub">
+          <div class="menu__subGrid mono">
+          <a href="/industries/restaurants">Restaurants</a>
+          <a href="/industries/real-estate">Real Estate</a>
+          <a href="/industries/trades-and-home-services">Trades &amp; Home Services</a>
+          <a href="/industries/healthcare-and-clinics">Healthcare &amp; Clinics</a>
+          <a href="/industries/professional-services">Professional Services</a>
+          <a href="/industries/construction">Construction</a>
+          <a href="/industries/ecommerce-and-retail">Ecommerce &amp; Retail</a>
+          <a href="/industries/publishing-and-media">Publishing &amp; Media</a>
+          <a href="/industries/nonprofits-and-associations">Nonprofits</a>
+          <a href="/industries/manufacturing-and-industrial">Manufacturing</a>
+          </div>
+        </div>
+      </li>
+      <li><a class="menu__reveal" href="/faq"><span class="menu__num mono">06</span><span class="menu__word">FAQ</span></a></li>
+      <li><a class="menu__reveal" href="#contact"><span class="menu__num mono">07</span><span class="menu__word">Contact</span></a></li>
     </ul>
     <div class="menu__foot mono">
       <span>gurjotangad97@gmail.com</span>
@@ -1007,6 +1282,39 @@ a.cRow__v:hover{ color:var(--acid-ink); }
   </div>
 </div>
 
+<!-- ============ CLIENTS ============
+     Logos pulled from somydigital.com, the user's agency site, where the same
+     five already run as a client carousel. Each is sized by its own rule in
+     the stylesheet rather than a single height, because the aspect ratios run
+     from 1.7:1 to 8.8:1 and one height would make the wordmarks enormous. -->
+<section class="clients" aria-label="Clients">
+  <div class="wrap clients__row">
+    <p class="clients__lead">Your Trusted<br>Growth Partner</p>
+    <ul class="clients__list">
+      <li class="clients__item" data-client="nero-tondo">
+        <img class="clients__logo" src="/img/clients/nero-tondo.png" width="346" height="200"
+             loading="lazy" decoding="async" alt="Nero Tondo">
+      </li>
+      <li class="clients__item" data-client="mouseback">
+        <img class="clients__logo" src="/img/clients/mouseback.png" width="335" height="150"
+             loading="lazy" decoding="async" alt="Mouseback">
+      </li>
+      <li class="clients__item" data-client="dhaliwals-lounge">
+        <img class="clients__logo" src="/img/clients/dhaliwals-lounge.png" width="640" height="73"
+             loading="lazy" decoding="async" alt="Dhaliwal&rsquo;s Lounge">
+      </li>
+      <li class="clients__item" data-client="hitech-advisors">
+        <img class="clients__logo" src="/img/clients/hitech-advisors.png" width="400" height="200"
+             loading="lazy" decoding="async" alt="Hitech Advisors">
+      </li>
+      <li class="clients__item" data-client="photography-academy">
+        <img class="clients__logo" src="/img/clients/photography-academy.png" width="1200" height="300"
+             loading="lazy" decoding="async" alt="Photography Academy">
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- ============ ABOUT / STATEMENT ============ -->
 <section class="section statement" id="about">
   <div class="wrap">
@@ -1022,7 +1330,7 @@ a.cRow__v:hover{ color:var(--acid-ink); }
     <div class="about__grid">
       <div class="about__col reveal-up">
         <h3 class="mono about__h">What I actually do</h3>
-        <p>I design and build websites and web products in WordPress and Next.js, then handle the parts most designers hand off: SEO and structured data, analytics, lead capture, performance, security and long-term maintenance.</p>
+        <p>I work with companies to build websites and to run the marketing campaigns that bring people to them. Alongside that I provide IT consultancy and support of every kind: hosting and servers, security, integrations, automation and the day-to-day help that keeps a business running.</p>
       </div>
       <div class="about__col reveal-up">
         <h3 class="mono about__h">How I work</h3>
@@ -1030,11 +1338,11 @@ a.cRow__v:hover{ color:var(--acid-ink); }
       </div>
       <div class="about__col reveal-up">
         <h3 class="mono about__h">Who I work with</h3>
-        <p>Founders, small teams and agencies in Canada and India. Real estate, news publishing, healthcare, procurement, home services and SaaS. From one landing page to a fleet of sites.</p>
+        <p>Founders, businesses and agencies across Canada. Restaurants, real estate, trades and home services, healthcare, professional services, construction, ecommerce, publishing, nonprofits and manufacturing. From one landing page to a fleet of sites.</p>
       </div>
     </div>
 
-    <p class="quip">I want to build something that ends up in a museum. Until then I&rsquo;ll settle for building something that ends up making you money.</p>
+    <p class="quip">I want to build something that ends up in a museum. Until then I&rsquo;ll settle for building something that helps your business grow.</p>
 
     <div class="stats" id="stats">
       <div class="stat"><span class="stat__num" data-count="65" data-suffix="+">0</span><span class="mono stat__lab">Projects shipped</span></div>
@@ -1147,17 +1455,44 @@ a.cRow__v:hover{ color:var(--acid-ink); }
         </div>
       </article>
 
-      <article class="proj" style="--p1:#C77DFF;--p2:#33116B">
-        <div class="proj__art"><span class="proj__glyph">&#10035;</span><span class="proj__idx mono">02</span></div>
+      <article class="proj" style="--p1:#E5B45C;--p2:#4A1526">
+        <div class="proj__art"><span class="proj__glyph">&#9672;</span><span class="proj__idx mono">02</span></div>
         <div class="proj__meta">
-          <h3 class="proj__name">PromptProMax</h3>
-          <p class="proj__desc">My own product, an AI prompt and tools directory. Next.js 16 on Turbopack, React 19, hand-written CSS, four lead-capture surfaces behind a single validated API route.</p>
-          <div class="proj__tags mono"><span>Product</span><span>Next.js</span><span>TypeScript</span><span>Growth</span></div>
+          <h3 class="proj__name">Dhaliwal&rsquo;s Lounge</h3>
+          <p class="proj__desc">Upscale Punjabi restaurant and lounge in Surrey, BC. A WordPress build carrying the full menu, with the search work pointed straight at the terms people use when they are deciding where to eat tonight.</p>
+          <div class="proj__tags mono"><span>WordPress</span><span>Local SEO</span><span>Hospitality</span><span>Menu</span></div>
+        </div>
+      </article>
+
+      <article class="proj" style="--p1:#7DE38A;--p2:#0E3A1E">
+        <div class="proj__art"><span class="proj__glyph">&#9678;</span><span class="proj__idx mono">03</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Photography Academy</h3>
+          <p class="proj__desc">Online photography school with more than 900,000 students. A large course catalogue and store where the checkout, the funnel pages and raw page speed are what the business actually runs on.</p>
+          <div class="proj__tags mono"><span>Ecommerce</span><span>Funnels</span><span>Performance</span><span>Education</span></div>
+        </div>
+      </article>
+
+      <article class="proj" style="--p1:#FF4B4B;--p2:#3A0B0B">
+        <div class="proj__art"><span class="proj__glyph">&#9635;</span><span class="proj__idx mono">04</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Hitech Advisors</h3>
+          <p class="proj__desc">Technology consulting and AI leadership for enterprise clients. The buyers here are executives, so the site has to establish credibility before it does anything else, and every page is built around that.</p>
+          <div class="proj__tags mono"><span>WordPress</span><span>B2B</span><span>Consulting</span><span>Content</span></div>
+        </div>
+      </article>
+
+      <article class="proj" style="--p1:#FF6A3D;--p2:#3A1206">
+        <div class="proj__art"><span class="proj__glyph">&#10035;</span><span class="proj__idx mono">05</span></div>
+        <div class="proj__meta">
+          <h3 class="proj__name">Mouseback</h3>
+          <p class="proj__desc">Web design and build for Mouseback. The same arrangement as everything else on this list: design, build and the technical work underneath all handled by one person.</p>
+          <div class="proj__tags mono"><span>Web Design</span><span>Brand</span></div>
         </div>
       </article>
 
       <article class="proj" style="--p1:#5EE9D4;--p2:#0A4A44">
-        <div class="proj__art"><span class="proj__glyph">&#9636;</span><span class="proj__idx mono">03</span></div>
+        <div class="proj__art"><span class="proj__glyph">&#9636;</span><span class="proj__idx mono">06</span></div>
         <div class="proj__meta">
           <h3 class="proj__name">Sharan Forms</h3>
           <p class="proj__desc">A WordPress form builder written from scratch to compete with Gravity Forms. Fields, entries, notifications, save-and-continue drafts, scheduling, GDPR export and erase.</p>
@@ -1174,8 +1509,14 @@ a.cRow__v:hover{ color:var(--acid-ink); }
   </div>
   </div>
 
-  <div class="wrap"><p class="quip">Three projects here. Zero templates in any of them.</p></div>
-  <div class="hz__hint mono"><i></i><span>drag or scroll</span><i></i></div>
+  <div class="wrap"><p class="quip">Six projects here. Zero templates in any of them.</p></div>
+  <div class="hzNav" id="hzNav">
+    <button class="hzNav__btn" id="hzPrev" type="button" aria-label="Previous project"><i class="hzNav__arr hzNav__arr--l"></i></button>
+    <div class="hzNav__dots" id="hzDots" role="tablist" aria-label="Projects"></div>
+    <button class="hzNav__btn" id="hzNext" type="button" aria-label="Next project"><i class="hzNav__arr"></i></button>
+  </div>
+
+  <div class="hz__hint mono"><i></i><span class="hz__hintWide">drag or scroll</span><span class="hz__hintTouch">swipe to see more</span><i></i></div>
 </section>
 
 <!-- ============ STACK ============ -->
@@ -1413,6 +1754,23 @@ a.cRow__v:hover{ color:var(--acid-ink); }
       </div>
     </div>
     </div>
+
+    <div class="seo__ind">
+      <h3 class="seo__provName">Industries</h3>
+      <ul class="seo__list seo__indList">
+        <li><a href="/industries/restaurants">Restaurant Web Design Canada</a></li>
+        <li><a href="/industries/real-estate">Real Estate Web Design Canada</a></li>
+        <li><a href="/industries/trades-and-home-services">Web Design for Trades Canada</a></li>
+        <li><a href="/industries/healthcare-and-clinics">Healthcare Web Design Canada</a></li>
+        <li><a href="/industries/professional-services">Professional Services Web Design Canada</a></li>
+        <li><a href="/industries/construction">Construction Web Design Canada</a></li>
+        <li><a href="/industries/ecommerce-and-retail">Ecommerce Web Design Canada</a></li>
+        <li><a href="/industries/publishing-and-media">News Website Design Canada</a></li>
+        <li><a href="/industries/nonprofits-and-associations">Nonprofit Web Design Canada</a></li>
+        <li><a href="/industries/manufacturing-and-industrial">Manufacturing Web Design Canada</a></li>
+        <li><a href="/faq">Frequently Asked Questions</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -1612,7 +1970,7 @@ a.cRow__v:hover{ color:var(--acid-ink); }
     if (!hasGSAP || !menu) return null;
     var tl = window.gsap.timeline({ paused: true });
     tl.to($('.menu__bg'), { y: '0%', duration: .8, ease: 'power4.inOut' })
-      .fromTo($$('.menu__list a'), { yPercent: MENU_HIDDEN, y: 0 },
+      .fromTo($$('.menu__reveal'), { yPercent: MENU_HIDDEN, y: 0 },
               { yPercent: 0, y: 0, duration: .7, stagger: .055, ease: 'power4.out' }, '-=.35')
       .to($('.menu__inner'), { opacity: 1, duration: .3 }, '-=.7');
     return tl;
@@ -1628,7 +1986,7 @@ a.cRow__v:hover{ color:var(--acid-ink); }
       var bg = $('.menu__bg'), inner = $('.menu__inner');
       if (bg) bg.style.transform = 'translateY(0)';
       if (inner) inner.style.opacity = 1;
-      $$('.menu__list a').forEach(function (a) { a.style.transform = 'translateY(0)'; });
+      $$('.menu__reveal').forEach(function (a) { a.style.transform = 'translateY(0)'; });
     }
     if (lenis) lenis.stop();
   }
@@ -1643,12 +2001,77 @@ a.cRow__v:hover{ color:var(--acid-ink); }
       var bg2 = $('.menu__bg'), inner2 = $('.menu__inner');
       if (bg2) bg2.style.transform = 'translateY(-100%)';
       if (inner2) inner2.style.opacity = 0;
-      $$('.menu__list a').forEach(function (a) { a.style.transform = 'translateY(' + MENU_HIDDEN + '%)'; });
+      $$('.menu__reveal').forEach(function (a) { a.style.transform = 'translateY(' + MENU_HIDDEN + '%)'; });
     }
     if (lenis) lenis.start();
   }
   if (burger) burger.addEventListener('click', function () { menuOpen ? closeMenu() : openMenu(); });
+
+  /* Industries is a group heading rather than a destination, so its row in
+     the overlay toggles the sub-list open instead of navigating anywhere. */
+  var indGroup = $('#menuInd'), indBtn = indGroup && indGroup.querySelector('.menu__trigger');
+  if (indBtn) indBtn.addEventListener('click', function () {
+    var open = indGroup.classList.toggle('open');
+    indBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
+  /* ---------------------------------------------------------
+     1b. Work carousel controls (touch widths)
+     --------------------------------------------------------- */
+  (function () {
+    var hz = $('#hz'), dots = $('#hzDots'), prev = $('#hzPrev'), next = $('#hzNext');
+    if (!hz || !dots || !prev || !next) return;
+    var panels = [].slice.call(hz.querySelectorAll('.proj, .hz__end'));
+    if (panels.length < 2) return;
+    var idx = -1;
+
+    panels.forEach(function (p, i) {
+      var name = p.querySelector('.proj__name');
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'hzNav__dot';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', name ? name.textContent : 'Start a project');
+      d.addEventListener('click', function () { go(i); });
+      dots.appendChild(d);
+    });
+    var buttons = [].slice.call(dots.children);
+
+    function go(i) {
+      i = Math.max(0, Math.min(panels.length - 1, i));
+      panels[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      /* paint straight away rather than waiting for the scroll to settle, so
+         a tap on an arrow or a dot never looks like it did nothing */
+      paint(i);
+    }
+    /* whichever panel sits nearest the middle of the viewport is the one
+       the reader is looking at, which is also how scroll-snap centres them */
+    function nearest() {
+      var mid = hz.scrollLeft + hz.clientWidth / 2, best = 0, bestD = Infinity;
+      panels.forEach(function (p, i) {
+        var d = Math.abs(p.offsetLeft + p.offsetWidth / 2 - mid);
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      return best;
+    }
+    function paint(i) {
+      if (i === idx) return;
+      idx = i;
+      buttons.forEach(function (b, k) { b.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+      prev.disabled = i === 0;
+      next.disabled = i === panels.length - 1;
+    }
+    var t;
+    hz.addEventListener('scroll', function () {
+      clearTimeout(t);
+      t = setTimeout(function () { paint(nearest()); }, 70);
+    }, { passive: true });
+    prev.addEventListener('click', function () { go(idx - 1); });
+    next.addEventListener('click', function () { go(idx + 1); });
+    window.addEventListener('resize', function () { paint(nearest()); });
+    paint(0);
+  })();
 
   /* ---------------------------------------------------------
      2. Custom cursor + magnetic
@@ -2135,6 +2558,48 @@ a.cRow__v:hover{ color:var(--acid-ink); }
       /* let the dots run briefly so it reads as a message being typed */
       setTimeout(function () { wa.classList.add('said'); }, reduce ? 0 : 1000);
     }, reduce ? 0 : 500);
+
+    /* Park the card above the footer. Without this it floats over the
+       copyright line and the service-areas directory at the end of the page. */
+    var foot = $('.foot');
+    if (foot) {
+      var GAP = 18, queued = false, restInset = null;
+
+      /* How far the card's bottom edge sits above the viewport bottom with no
+         lift applied. Measured rather than read from --waBase, which is a
+         clamp() and so comes back as an expression, not a length. Only valid
+         once the card has entered, since the entrance transform moves it. */
+      function measure() {
+        if (!wa.classList.contains('on')) return null;
+        var prev = wa.style.getPropertyValue('--waLift');
+        wa.style.setProperty('--waLift', '0px');
+        var inset = window.innerHeight - wa.getBoundingClientRect().bottom;
+        if (prev) wa.style.setProperty('--waLift', prev);
+        return inset;
+      }
+
+      function place() {
+        queued = false;
+        if (wa.classList.contains('gone')) return;
+        if (restInset === null) restInset = measure();
+        if (restInset === null) return;
+        var top = foot.getBoundingClientRect().top;
+        /* how far the card's bottom edge reaches past the footer's top edge */
+        var over = (window.innerHeight - restInset) - (top - GAP);
+        wa.style.setProperty('--waLift', Math.max(0, Math.round(over)) + 'px');
+      }
+      function schedule() {
+        if (queued) return;
+        queued = true;
+        window.requestAnimationFrame(place);
+      }
+      window.addEventListener('scroll', schedule, { passive: true });
+      window.addEventListener('resize', function () { restInset = null; schedule(); });
+      if (lenis && lenis.on) lenis.on('scroll', schedule);
+      /* the card enters on a timer, so take the first reading after it lands */
+      setTimeout(place, reduce ? 60 : 900);
+      schedule();
+    }
 
     var x = $('#waClose');
     if (x) x.addEventListener('click', function (e) {

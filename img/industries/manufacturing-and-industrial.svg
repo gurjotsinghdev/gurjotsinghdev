@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Manufacturing">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9AA6B4"/><stop offset="1" stop-color="#1A2230"/>
+    </linearGradient>
+    <radialGradient id="v" cx="30%" cy="18%" r="85%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".38"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#v)"/>
+
+  <path d="M452 168l30 4 20-26 32 14-4 32 28 18-10 32-32 6-6 32-34 4-16-28-32 6-20-28 18-26-16-28 24-24 26 16z"
+        fill="none" stroke="rgba(255,255,255,.7)" stroke-width="0"/>
+  <g transform="translate(452 330)">
+    <circle r="132" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="30" stroke-dasharray="52 34"/>
+    <circle r="76" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="18"/>
+    <circle r="26" fill="rgba(255,255,255,.5)"/>
+  </g>
+  <rect x="672" y="168" width="272" height="324" rx="12" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.6)" stroke-width="3"/>
+  <rect x="702" y="200" width="150" height="14" rx="6" fill="rgba(255,255,255,.85)"/>
+  <rect x="702" y="238" width="212" height="1" fill="rgba(255,255,255,.3)"/>
+  <rect x="702" y="258" width="96" height="9" rx="4" fill="rgba(255,255,255,.34)"/>
+  <rect x="838" y="258" width="76" height="9" rx="4" fill="rgba(255,255,255,.22)"/>
+  <rect x="702" y="290" width="110" height="9" rx="4" fill="rgba(255,255,255,.34)"/>
+  <rect x="838" y="290" width="76" height="9" rx="4" fill="rgba(255,255,255,.22)"/>
+  <rect x="702" y="322" width="84" height="9" rx="4" fill="rgba(255,255,255,.34)"/>
+  <rect x="838" y="322" width="76" height="9" rx="4" fill="rgba(255,255,255,.22)"/>
+  <rect x="702" y="354" width="120" height="9" rx="4" fill="rgba(255,255,255,.34)"/>
+  <rect x="838" y="354" width="76" height="9" rx="4" fill="rgba(255,255,255,.22)"/>
+  <rect x="702" y="404" width="212" height="1" fill="rgba(255,255,255,.3)"/>
+  <rect x="702" y="428" width="140" height="34" rx="17" fill="rgba(255,255,255,.9)"/>
+</svg>

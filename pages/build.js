@@ -9,7 +9,8 @@ const { EXTRA, CITY_EXTRA } = require('./extra.js');
 const { CITY_MORE } = require('./cityextra.js');
 
 const ROOT = path.join(__dirname, '..');
-const ORIGIN = 'https://gurjotsinghdev.vercel.app';
+const { ORIGIN, GA, NAV, MENU, MENU_JS } = require('./chrome.js');
+const STAMP = new Date().toISOString().slice(0, 10);
 const WA = 'https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat.';
 const CSS = fs.readFileSync(path.join(ROOT, 'src', 'style.css'), 'utf8');
 
@@ -93,15 +94,19 @@ function page(svc, city) {
   };
 
   return `<!doctype html>
-<html lang="en">
+<html lang="en-CA" class="no-gsap">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+${GA}
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${url}">
 <meta name="theme-color" content="#EDF0F5">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Gurjot Singh (Gary)">
+<meta property="og:locale" content="en_CA">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
@@ -168,10 +173,10 @@ function page(svc, city) {
     </span>
     <span class="nav__brandtext">Gurjot Singh <em>&ldquo;Gary&rdquo;</em></span>
   </a>
-  <div class="nav__right">
-    <a class="btn btn--sm" href="${WA}" target="_blank" rel="noopener noreferrer"><span>Let&rsquo;s talk</span></a>
-  </div>
+${NAV}
 </header>
+
+${MENU}
 
 <main class="lp">
   <div class="wrap">
@@ -240,6 +245,7 @@ ${faq}
     <a href="/">Back to home &uarr;</a>
   </div>
 </footer>
+${MENU_JS}
 </body>
 </html>`;
 }
@@ -260,7 +266,7 @@ const urls = [ORIGIN + '/'].concat(
   SERVICES.flatMap(s => CITIES.map(c => ORIGIN + '/' + slugFor(s, c))));
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
   '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  urls.map(u => '  <url><loc>' + u + '</loc></url>').join('\n') + '\n</urlset>\n');
+  urls.map(u => '  <url><loc>' + u + '</loc><lastmod>' + STAMP + '</lastmod></url>').join('\n') + '\n</urlset>\n');
 fs.writeFileSync(path.join(ROOT, 'robots.txt'),
   'User-agent: *\nAllow: /\n\nSitemap: ' + ORIGIN + '/sitemap.xml\n');
 
