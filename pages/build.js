@@ -241,7 +241,7 @@ ${faq}
 <footer class="foot">
   <div class="wrap foot__bar mono">
     <span>&copy; ${new Date().getFullYear()} Gurjot Singh (Gary). All rights reserved.</span>
-    <span class="foot__mid">Web design &middot; Digital marketing &middot; IT consulting</span>
+    <span class="foot__mid">Web &amp; marketing &middot; IT &amp; CRM &middot; AI automation</span>
     <a href="/">Back to home &uarr;</a>
   </div>
 </footer>

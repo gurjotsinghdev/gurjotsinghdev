@@ -93,7 +93,7 @@ ${o.links || ''}
 <footer class="foot">
   <div class="wrap foot__bar mono">
     <span>&copy; ${new Date().getFullYear()} Gurjot Singh (Gary). All rights reserved.</span>
-    <span class="foot__mid">Web design &middot; Digital marketing &middot; IT consulting</span>
+    <span class="foot__mid">Web &amp; marketing &middot; IT &amp; CRM &middot; AI automation</span>
     <a href="/">Back to home &uarr;</a>
   </div>
 </footer>
@@ -209,7 +209,7 @@ const faqHtml = shell({
   h1: 'Questions, answered plainly',
   lede: FAQ_INTRO[0],
   image: ORIGIN + '/img/faq.svg',
-  art: '    <img class="lp__art" src="/img/faq.svg" width="1200" height="630" decoding="async" alt="Frequently asked questions about web design, marketing and IT consulting">',
+  art: '    <img class="lp__art" src="/img/faq.svg" width="1200" height="630" decoding="async" alt="Frequently asked questions about web design, marketing, IT consulting and automation">',
   body: `    <section class="lp__block"><p>${esc(FAQ_INTRO[1])}</p></section>\n` + faqBody,
   ld: { '@context':'https://schema.org', '@graph':[
     { '@type':'FAQPage', mainEntity: allQ.map(i => ({ '@type':'Question', name:i.q,
