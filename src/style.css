@@ -403,12 +403,6 @@ body.menu-open .menu{ pointer-events:auto; }
 }
 .menu__subGrid a:hover{ color:var(--acid-ink); transform:translateX(8px); }
 
-.seo__ind{ margin-top:44px; padding-top:34px; border-top:1px solid var(--line-2); }
-.seo__indList{ columns:3; column-gap:28px; }
-@media (max-width:900px){ .seo__indList{ columns:2; } }
-@media (max-width:560px){ .seo__indList{ columns:1; } }
-.seo__indList li{ break-inside:avoid; }
-
 /* The generated pages carry no GSAP, so the overlay animates in CSS there.
    The stagger is applied as a per-row transition-delay from the inline script. */
 .no-gsap .menu__bg{ transition:transform .8s var(--ease); }
