@@ -1,0 +1,997 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT Services Calgary | Gurjot Singh (Gary)</title>
+<meta name="description" content="Ongoing technical support for small businesses: keeping systems current, secure, backed up and working.">
+<link rel="canonical" href="https://gurjotsinghdev.vercel.app/it-services-calgary">
+<meta name="theme-color" content="#EDF0F5">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IT Services Calgary | Gurjot Singh (Gary)">
+<meta property="og:description" content="Ongoing technical support for small businesses: keeping systems current, secure, backed up and working.">
+<meta property="og:url" content="https://gurjotsinghdev.vercel.app/it-services-calgary">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230066CC'/%3E%3Ctext x='50' y='69' font-family='Helvetica,Arial,sans-serif' font-size='56' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://gurjotsinghdev.vercel.app/it-services-calgary#business","name":"Gurjot Singh (Gary)","description":"IT Services for businesses in Calgary, Alberta.","url":"https://gurjotsinghdev.vercel.app/it-services-calgary","telephone":"+1-778-929-0374","email":"gurjotangad97@gmail.com","areaServed":{"@type":"City","name":"Calgary","address":{"@type":"PostalAddress","addressRegion":"AB","addressCountry":"CA"}},"founder":{"@type":"Person","name":"Gurjot Singh","alternateName":"Gary"}},{"@type":"Service","@id":"https://gurjotsinghdev.vercel.app/it-services-calgary#service","serviceType":"IT Services","name":"IT Services in Calgary","provider":{"@id":"https://gurjotsinghdev.vercel.app/it-services-calgary#business"},"areaServed":{"@type":"City","name":"Calgary"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gurjotsinghdev.vercel.app/"},{"@type":"ListItem","position":2,"name":"Calgary","item":"https://gurjotsinghdev.vercel.app/it-services-calgary"},{"@type":"ListItem","position":3,"name":"IT Services","item":"https://gurjotsinghdev.vercel.app/it-services-calgary"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does ongoing IT support include?","acceptedAnswer":{"@type":"Answer","text":"Updates and patching, backup verification, uptime and certificate monitoring, security checks, and a route to reach a person when something breaks. The exact scope is agreed in writing."}},{"@type":"Question","name":"Do I need support if my site is small?","acceptedAnswer":{"@type":"Answer","text":"Small sites still get compromised, still have certificates that expire and still have backups that quietly fail. The work is proportionate to the size, but the failure modes are identical."}},{"@type":"Question","name":"How quickly do you respond to problems?","acceptedAnswer":{"@type":"Answer","text":"Response times are agreed up front rather than left vague, so you know what to expect before you need it."}},{"@type":"Question","name":"Can you work alongside our existing IT provider?","acceptedAnswer":{"@type":"Answer","text":"Yes. Clear boundaries about who owns what prevents the gaps where things get missed by both parties."}}]}]}</script>
+<style>/* =========================================================
+   Gurjot Singh (Gary) — Portfolio
+   Two themes, both painted explicitly. Light is the default;
+   [data-theme="dark"] on <html> swaps the token block only.
+   ========================================================= */
+
+:root{
+  /* ---- light (default) ----
+     The paper carries a faint cool bias toward the blue accent rather than a
+     warm cream, so the neutral reads as chosen and the accent sits in the
+     same family as its ground. */
+  --ink:      #EDF0F5;   /* page ground        */
+  --ink-2:    #E1E6EF;   /* raised surface     */
+  --ink-3:    #F9FBFF;   /* raised surface, +1 */
+  --line:     rgba(12,12,14,.16);
+  --line-2:   rgba(12,12,14,.09);
+  --tint:     rgba(12,12,14,.03);
+  --paper:    #0C0C0E;   /* body text          */
+  --body:     #3A3934;   /* secondary text     */
+  --muted:    #5A5F68;
+  --muted-2:  #6B707A;
+
+  /* The accent has two jobs: a fill you put text ON, and text itself.
+     #0066CC clears AA as text on this ground (4.8:1), so unlike the lime it
+     had before, both roles can be the same colour here. The dark theme still
+     needs a lighter tint for the text role. */
+  --acid:       #0066CC;   /* fill  */
+  --acid-ink:   #0066CC;   /* text  */
+  --on-acid:    #FFFFFF;   /* text ON the fill: 5.6:1 */
+  --coral:      #FF5A3C;
+
+  --glow:     rgba(0,102,204,.45);   /* live-dot pulse, start */
+  --glow-0:   rgba(0,102,204,0);     /* ...and its fade target */
+  --wash:     rgba(0,102,204,.10);   /* card corner light      */
+  --ring:     rgba(0,102,204,.18);   /* active process dot     */
+
+  --chrome:   rgba(237,240,245,.82);       /* stuck nav bar         */
+  --stroke:   rgba(12,12,14,.62);          /* outlined display type */
+  --ghost:    rgba(12,12,14,.22);          /* footer marquee        */
+  --shadow:   0 30px 80px -40px rgba(12,20,40,.32);
+  --vig:      rgba(20,40,80,.10);
+  --grain-o:  .028;
+  --art-base: #0A0A0C;                     /* project artwork stays dark
+                                              in both themes: the tiles read
+                                              as imagery, not as surface */
+
+  --f-display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --f-serif:   "Instrument Serif", Georgia, "Times New Roman", serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --f-body:    "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --wrap: 1440px;
+  --pad: clamp(20px, 4vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+  --ease-io: cubic-bezier(.76,0,.24,1);
+}
+
+/* ---- dark (opt in via the nav toggle) ---- */
+:root[data-theme="dark"]{
+  --ink:      #08080A;
+  --ink-2:    #0E0E11;
+  --ink-3:    #16161A;
+  --line:     rgba(242,240,235,.12);
+  --line-2:   rgba(242,240,235,.06);
+  --tint:     rgba(242,240,235,.04);
+  --paper:    #F2F0EB;
+  --body:     #C9C7C1;
+  --muted:    #8E8C86;
+  --muted-2:  #6A6862;
+
+  --acid:       #0066CC;
+  --acid-ink:   #4DA3FF;   /* #0066CC is only 3.6:1 on this ground */
+  --on-acid:    #FFFFFF;
+
+  --glow:     rgba(77,163,255,.5);
+  --glow-0:   rgba(77,163,255,0);
+  --wash:     rgba(77,163,255,.10);
+  --ring:     rgba(77,163,255,.20);
+
+  --chrome:   rgba(8,8,10,.72);
+  --stroke:   rgba(242,240,235,.55);
+  --ghost:    rgba(242,240,235,.28);
+  --shadow:   0 40px 120px -40px rgba(0,0,0,.9);
+  --vig:      rgba(0,0,0,.55);
+  --grain-o:  .045;
+  --art-base: #0A0A0C;
+}
+:root[data-theme="dark"] .globe__land{ fill:#D8E7FB; }
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.55;
+  letter-spacing:-.005em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition:background-color .55s var(--ease), color .55s var(--ease);
+}
+body.is-loading{ overflow:hidden; height:100%; }
+body.menu-open{ overflow:hidden; }
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+h1,h2,h3,h4,p{ margin:0; }
+button{ font:inherit; color:inherit; background:none; border:0; padding:0; }
+canvas{ display:block; }
+::selection{ background:var(--acid); color:var(--on-acid); }
+
+.mono{
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:400;
+}
+.display{ font-family:var(--f-display); font-weight:600; letter-spacing:-.04em; line-height:.92; }
+.serif{ font-family:var(--f-serif); font-weight:400; font-style:italic; letter-spacing:-.02em; }
+
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding-inline:var(--pad); }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+
+/* =========================================================
+   PRELOADER
+   ========================================================= */
+.loader{
+  position:fixed; inset:0; z-index:200;
+  display:flex; align-items:flex-end;
+  background:transparent;
+}
+.loader.done{ pointer-events:none; }
+.loader__panels{ position:absolute; inset:0; display:flex; }
+.loader__panels i{ flex:1; background:var(--ink); transform-origin:top; }
+.loader__inner{
+  position:relative; z-index:2;
+  width:100%; max-width:var(--wrap); margin:0 auto;
+  padding:0 var(--pad) clamp(40px,7vh,80px);
+}
+.loader__name{
+  font-family:var(--f-display); font-weight:600;
+  font-size:clamp(24px,8.6vw,120px); line-height:.9; letter-spacing:-.05em;
+  display:flex; overflow:hidden; margin-bottom:clamp(20px,4vh,44px);
+  padding-block:.2em;
+}
+.loader__name .ln{ display:block; transform:translateY(175%); }
+.loader__row{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap:28px; color:var(--muted); margin-bottom:22px;
+}
+.loader__tag{ opacity:0; }
+.loader__count{ font-size:clamp(13px,2vw,18px); color:var(--paper); letter-spacing:.04em; }
+.loader__count em{ font-style:normal; color:var(--acid-ink); margin-left:.14em; }
+.loader__bar{ height:2px; background:var(--line); overflow:hidden; }
+.loader__bar i{ display:block; height:100%; width:0%; background:var(--acid); }
+
+/* =========================================================
+   CURSOR / GRAIN / PROGRESS
+   ========================================================= */
+.grain{
+  position:fixed; inset:-120%; z-index:180; pointer-events:none; opacity:var(--grain-o);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain 6s steps(6) infinite;
+}
+@keyframes grain{
+  0%{transform:translate(0,0)} 16%{transform:translate(-3%,2%)} 33%{transform:translate(2%,-3%)}
+  50%{transform:translate(-2%,-2%)} 66%{transform:translate(3%,1%)} 83%{transform:translate(-1%,3%)} 100%{transform:translate(0,0)}
+}
+.vignette{
+  position:fixed; inset:0; z-index:170; pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 40%, transparent 40%, var(--vig) 100%);
+}
+.progress{ position:fixed; top:0; left:0; right:0; height:2px; z-index:175; background:transparent; }
+.progress i{ display:block; height:100%; width:0%; background:var(--acid); }
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:160;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  padding:18px var(--pad);
+  border-bottom:1px solid transparent;
+  transition:transform .5s var(--ease), background-color .5s var(--ease),
+             backdrop-filter .5s var(--ease), padding .5s var(--ease), border-color .5s var(--ease);
+}
+.nav.stuck{
+  background:var(--chrome); backdrop-filter:blur(14px) saturate(140%);
+  border-bottom-color:var(--line-2); padding-block:12px;
+}
+.nav.hidden{ transform:translateY(-102%); }
+
+.nav__brand{ display:flex; align-items:center; gap:12px; }
+/* A rotating globe instead of a monogram. Two copies of the same landmass
+   tile scroll behind a circular clip, so translating by exactly one tile
+   width (40 units) loops with no visible seam. */
+.globe{ display:block; width:38px; height:38px; flex:none; }
+.globe svg{ display:block; width:100%; height:100%; overflow:visible; }
+.globe__ocean{ fill:var(--acid); }
+.globe__land{ fill:#F2F7FF; }
+.globe__grid{ fill:none; stroke:#FFFFFF; stroke-width:.45; opacity:.22; }
+.globe__rim{ fill:none; stroke:var(--line); stroke-width:1; transition:stroke .4s var(--ease); }
+.globe__spin{ animation:globeSpin 18s linear infinite; }
+@keyframes globeSpin{ to{ transform:translateX(-40px); } }
+.nav__brand:hover .globe__spin{ animation-duration:5s; }
+.nav__brand:hover .globe__rim{ stroke:var(--acid); }
+@media (prefers-reduced-motion: reduce){ .globe__spin{ animation:none; } }
+.nav__brandtext{ font-size:14px; font-weight:500; letter-spacing:-.02em; }
+.nav__brandtext em{ font-family:var(--f-serif); font-style:italic; color:var(--muted); }
+
+.nav__links{ display:flex; gap:6px; }
+.nav__links a{
+  position:relative; padding:8px 14px; border-radius:999px;
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--muted); transition:color .3s ease, background-color .3s ease;
+}
+.nav__links a:hover{ color:var(--on-acid); background:var(--acid); }
+
+.nav__right{ display:flex; align-items:center; gap:12px; }
+
+.btn{
+  position:relative; display:inline-flex; align-items:center; gap:10px;
+  padding:14px 26px; border:1px solid var(--line); border-radius:999px;
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  overflow:hidden; isolation:isolate;
+  transition:color .4s var(--ease), border-color .4s var(--ease);
+}
+.btn::before{
+  content:""; position:absolute; inset:0; z-index:-1; background:var(--acid);
+  transform:translateY(101%); transition:transform .5s var(--ease);
+}
+.btn:hover{ color:var(--on-acid); border-color:var(--acid); }
+.btn:hover::before{ transform:translateY(0); }
+.btn .arr{ font-style:normal; transition:transform .4s var(--ease); }
+.btn:hover .arr{ transform:translate(3px,-3px); }
+.btn--sm{ padding:10px 18px; }
+.btn--fill{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
+.btn--fill::before{ background:var(--acid); }
+
+/* Three bars that fold into a cross. The bars are absolutely positioned so
+   each one owns the same centre point: the open state is then just a rotation
+   about that shared origin, with the middle bar fading out. */
+.burger{
+  display:none; position:relative; width:38px; height:38px;
+  border:1px solid var(--line); border-radius:50%;
+}
+.burger i{
+  position:absolute; left:50%; top:50%; width:15px; height:1.5px;
+  margin-left:-7.5px; margin-top:-.75px; background:var(--paper);
+  transition:transform .4s var(--ease), opacity .25s ease;
+}
+.burger i:nth-child(1){ transform:translateY(-5px); }
+.burger i:nth-child(3){ transform:translateY(5px); }
+body.menu-open .burger i:nth-child(1){ transform:rotate(45deg); }
+body.menu-open .burger i:nth-child(2){ opacity:0; }
+body.menu-open .burger i:nth-child(3){ transform:rotate(-45deg); }
+
+/* full-screen menu */
+.menu{ position:fixed; inset:0; z-index:155; pointer-events:none; }
+.menu__bg{ position:absolute; inset:0; background:var(--ink-2); transform:translateY(-100%); }
+.menu__inner{
+  position:relative; height:100%; display:flex; flex-direction:column; justify-content:center;
+  padding:110px var(--pad) 40px; opacity:0;
+}
+body.menu-open .menu{ pointer-events:auto; }
+.menu__list li{ overflow:hidden; border-bottom:1px solid var(--line-2); }
+.menu__list a{
+  display:flex; align-items:baseline; gap:20px; padding:clamp(10px,2.2vh,22px) 0;
+  transform:translateY(130%);
+}
+.menu__num{ color:var(--muted-2); }
+.menu__word{
+  font-family:var(--f-display); font-weight:600; letter-spacing:-.04em;
+  font-size:clamp(34px,9vw,86px); line-height:1;
+  transition:color .35s ease, transform .5s var(--ease);
+}
+.menu__list a:hover .menu__word{ color:var(--acid-ink); transform:translateX(18px); }
+.menu__foot{ margin-top:auto; padding-top:30px; display:flex; justify-content:space-between; color:var(--muted); }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end;
+  padding:140px var(--pad) clamp(28px,5vh,56px);
+  overflow:hidden;
+}
+.hero__canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; opacity:.6; }
+:root[data-theme="dark"] .hero__canvas{ opacity:.85; }
+:root[data-theme="dark"] .contact__canvas{ opacity:.5; }
+.hero__grid{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background-image:linear-gradient(var(--line-2) 1px, transparent 1px), linear-gradient(90deg, var(--line-2) 1px, transparent 1px);
+  background-size:clamp(60px,8vw,120px) clamp(60px,8vw,120px);
+  mask-image:radial-gradient(120% 80% at 50% 30%, #000 20%, transparent 85%);
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 30%, #000 20%, transparent 85%);
+}
+.hero__inner{ position:relative; z-index:2; width:100%; max-width:var(--wrap); margin:0 auto; }
+
+.hero__eyebrow{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:clamp(20px,4vh,40px); }
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:7px 14px; border:1px solid var(--line); border-radius:999px;
+  font-family:var(--f-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  background:var(--tint);
+}
+.dot{
+  width:6px; height:6px; border-radius:50%; background:var(--acid-ink); flex:none;
+  box-shadow:0 0 0 0 var(--glow); animation:pulse 2.4s infinite;
+}
+/* the pulse fades to the same hue at zero alpha, not to `transparent`,
+   which some engines interpolate through grey */
+@keyframes pulse{ 70%{ box-shadow:0 0 0 9px var(--glow-0);} 100%{ box-shadow:0 0 0 0 var(--glow-0);} }
+.hero__loc{ color:var(--muted); }
+
+.hero__title{
+  font-size:clamp(44px,9.2vw,158px);
+  margin-bottom:clamp(28px,5vh,56px);
+}
+/* The reveal mask is overflow:hidden and the display line-height (.92) is much
+   shorter than the glyphs, so the mask shaved the ascenders and descenders.
+   Padding opens the box and an equal negative margin gives the space back.
+   The parent must be a flex column: between block siblings the two negative
+   margins would collapse to one and the leading would come out wrong, whereas
+   flex items do not collapse margins, so -P + -P cancels the +2P exactly. */
+.hero__title, .secTitle{ display:flex; flex-direction:column; }
+.line{ display:block; overflow:hidden; padding-block:.22em; margin-block:-.22em; }
+.lineIn{ display:block; transform:translateY(175%); }
+
+.hero__bottom{
+  display:grid; grid-template-columns:minmax(0,1.15fr) auto; gap:clamp(24px,4vw,64px);
+  align-items:end; padding-bottom:clamp(20px,4vh,40px);
+  border-bottom:1px solid var(--line-2);
+}
+.hero__lede{ max-width:56ch; color:var(--body); font-size:clamp(15px,1.35vw,19px); line-height:1.6; }
+.hero__kicker{ display:block; color:var(--acid-ink); margin-bottom:12px; }
+.hero__actions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+.hero__rotator{ display:flex; align-items:center; gap:12px; padding-top:18px; color:var(--muted); }
+.rotator{
+  display:grid; height:1.4em; overflow:hidden;
+  /* Every entry shares one grid cell, so the track is as wide as the longest
+     word with no measurement in JS. width:max-content and flex:0 0 auto are
+     both needed: as a flex item with overflow:hidden its base size otherwise
+     collapses to zero and the words get clipped away entirely. */
+  width:max-content; flex:0 0 auto;
+}
+.rotator b{ grid-area:1 / 1; }
+.rotator b{
+  display:block; color:var(--paper); font-weight:500;
+  font-family:var(--f-mono); letter-spacing:.1em;
+}
+
+
+/* =========================================================
+   TICKER
+   ========================================================= */
+.ticker{ border-block:1px solid var(--line-2); background:var(--ink-2); overflow:hidden; }
+.ticker__row{ display:flex; padding:20px 0; }
+.ticker__track{
+  display:flex; white-space:nowrap; flex:none; will-change:transform;
+  font-family:var(--f-display); font-weight:600; letter-spacing:-.03em;
+  font-size:clamp(26px,4.4vw,64px); line-height:1;
+}
+/* no flex gap here on purpose: the marquee wraps on scrollWidth, and a
+   flex gap is not emitted after the last child, which breaks the loop. */
+.ticker__track span{ display:inline-flex; align-items:center; gap:44px; padding-right:44px; }
+.ticker__track i{ font-style:normal; color:var(--acid-ink); font-size:.44em; }
+
+/* =========================================================
+   SECTION SHELL
+   ========================================================= */
+.section{ position:relative; padding-block:clamp(64px,9vh,128px); }
+.secHead{
+  display:flex; align-items:center; gap:14px; margin-bottom:clamp(26px,5vh,52px);
+  color:var(--muted);
+}
+.secHead__num{ color:var(--acid-ink); }
+.secHead__label{ position:relative; padding-left:14px; }
+.secHead__label::before{ content:""; position:absolute; left:0; top:50%; width:6px; height:1px; background:var(--muted-2); }
+.secTitle{ font-size:clamp(34px,6.4vw,104px); margin-bottom:clamp(30px,6vh,72px); }
+
+/* Asides in the author's own voice. The serif italic marks them as a
+   different register from body copy, so they read as an aside rather than
+   as another paragraph of pitch. */
+.quip{
+  display:block;
+  font-family:var(--f-serif); font-style:italic; font-weight:400;
+  font-size:clamp(18px,1.9vw,28px); line-height:1.35; letter-spacing:-.01em;
+  color:var(--muted); max-inline-size:40ch;
+  margin-top:clamp(22px,3.5vh,44px);
+}
+.work .quip, .services .quip{ margin-inline:auto; }
+
+
+/* =========================================================
+   CHAT CTA
+   A chat card, not an icon: it reads as a message that just
+   arrived, so the ask is legible before anyone hovers anything.
+   ========================================================= */
+.wa{
+  position:fixed; right:clamp(14px,2.2vw,26px); bottom:clamp(14px,2.2vw,26px);
+  z-index:185;                        /* above the grain and vignette washes */
+  /* Shrink-to-fit. A fixed width left dead space to the right of the copy,
+     because the card grid is auto/1fr and that 1fr stretched past the text. */
+  width:max-content;
+  max-width:min(296px, calc(100vw - 28px));
+  opacity:0; transform:translateY(20px) scale(.94); pointer-events:none;
+  transition:opacity .5s var(--ease), transform .6s var(--ease);
+}
+.wa.on{ opacity:1; transform:none; pointer-events:auto; }
+.wa.gone{ display:none; }
+
+.wa__card{
+  display:grid; grid-template-columns:auto 1fr; gap:13px; align-items:center;
+  padding:12px 14px 12px 12px;
+  background:var(--ink-3); border:1px solid var(--line); border-radius:18px;
+  box-shadow:var(--shadow); text-decoration:none;
+  transition:transform .4s var(--ease), border-color .4s var(--ease);
+}
+.wa__card:hover{ transform:translateY(-3px); border-color:var(--acid-ink); }
+
+.wa__av{
+  position:relative; width:46px; height:46px; border-radius:13px; flex:none;
+  display:grid; place-items:center;
+  background:linear-gradient(150deg,#4E9BEA,var(--acid-ink));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.32);
+}
+.wa__mono{ font-family:var(--f-display); font-weight:700; font-size:16px; letter-spacing:-.02em; color:#fff; }
+.wa__dot{
+  position:absolute; right:-3px; bottom:-3px; width:13px; height:13px; border-radius:50%;
+  background:#25D366; border:2.5px solid var(--ink-3);
+}
+.wa.away .wa__dot{ background:#E0A21F; }
+
+.wa__top{ display:flex; align-items:center; gap:8px; }
+.wa__name{ font-family:var(--f-display); font-weight:600; font-size:15px; letter-spacing:-.02em; color:var(--paper); }
+.wa__badge{
+  font-family:var(--f-mono); font-style:normal; font-size:9px;
+  letter-spacing:.14em; text-transform:uppercase; color:#0E8C45;
+}
+.wa.away .wa__badge{ color:#9A6B0E; }
+
+.wa__msg{ display:block; margin-top:3px; min-height:18px; font-size:13.5px; color:var(--muted); }
+.wa__text{ display:none; }
+.wa__text em{ font-style:normal; font-weight:500; color:var(--acid-ink); }
+.wa__card:hover .wa__text em{ text-decoration:underline; text-underline-offset:3px; }
+.wa__arr{ display:inline-block; transition:transform .35s var(--ease); }
+.wa__card:hover .wa__arr{ transform:translateX(4px); }
+
+/* the card arrives as a message would: three dots first, then the line */
+.wa__typing{ display:inline-flex; gap:4px; align-items:center; height:18px; }
+.wa__typing i{ width:5px; height:5px; border-radius:50%; background:var(--muted-2); animation:waType 1.2s infinite; }
+.wa__typing i:nth-child(2){ animation-delay:.18s; }
+.wa__typing i:nth-child(3){ animation-delay:.36s; }
+@keyframes waType{ 0%,60%,100%{ transform:translateY(0); opacity:.42; } 30%{ transform:translateY(-4px); opacity:1; } }
+.wa.said .wa__typing{ display:none; }
+.wa.said .wa__text{ display:inline; animation:waSaid .4s var(--ease) both; }
+@keyframes waSaid{ from{ opacity:0; transform:translateY(4px);} to{ opacity:1; transform:none;} }
+
+.wa__x{
+  position:absolute; top:-8px; right:-8px; z-index:2;
+  width:24px; height:24px; border-radius:50%; cursor:pointer;
+  display:grid; place-items:center; font-size:14px; line-height:1;
+  background:var(--paper); color:var(--ink); border:2px solid var(--ink-3);
+  opacity:.5; transition:opacity .3s ease, transform .3s var(--ease);
+}
+.wa:hover .wa__x{ opacity:1; }
+.wa__x:hover{ transform:scale(1.12); }
+.wa__x:focus-visible{ opacity:1; outline:2px solid var(--acid-ink); outline-offset:3px; }
+.wa__card:focus-visible{ outline:2px solid var(--acid-ink); outline-offset:4px; }
+
+@media (prefers-reduced-motion: reduce){
+  .wa__typing{ display:none; }
+  .wa__text{ display:inline; }
+}
+
+/* =========================================================
+   SERVICE AREAS
+   Location landing pages, grouped by province then city.
+   Deliberately quiet: this is a directory, not a pitch.
+   ========================================================= */
+.seo{
+  position:relative; z-index:2;
+  border-top:1px solid var(--line-2);
+  padding-block:clamp(36px,5vh,64px);
+}
+.seo__h{ color:var(--muted-2); margin-bottom:clamp(18px,2.6vh,28px); }
+.seo__provs{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(20px,2.4vw,40px);
+}
+.seo__provName{
+  font-family:var(--f-display); font-weight:600; letter-spacing:-.02em;
+  font-size:clamp(15px,1.3vw,18px); margin-bottom:14px; color:var(--paper);
+  padding-bottom:10px; border-bottom:1px solid var(--line-2);
+}
+.seo__cities{ display:grid; gap:22px; }
+@media (max-width:1000px){ .seo__provs{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:600px){ .seo__provs{ grid-template-columns:1fr; } }
+.seo__cityName{ color:var(--acid-ink); margin-bottom:9px; }
+.seo__list{ display:grid; gap:5px; }
+.seo__list a{
+  display:block; font-size:12.5px; line-height:1.45; color:var(--muted);
+  transition:color .25s ease;
+}
+.seo__list a:hover, .seo__list a:focus-visible{ color:var(--acid-ink); }
+
+/* statement */
+.bigtext{
+  font-size:clamp(22px,3.4vw,52px); line-height:1.18; letter-spacing:-.03em; font-weight:500;
+  max-inline-size:26ch;
+  margin-bottom:clamp(48px,9vh,120px);
+}
+.bigtext .w{ display:inline-block; opacity:.14; transition:opacity .35s ease; }
+.bigtext em.serif{ color:var(--acid-ink); }
+
+.about__grid{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,52px);
+  padding-block:clamp(30px,5vh,56px); border-top:1px solid var(--line-2);
+}
+.about__h{ color:var(--acid-ink); margin-bottom:14px; }
+.about__col p{ color:var(--body); font-size:15px; line-height:1.65; }
+
+.stats{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(16px,2vw,32px);
+  margin-top:clamp(36px,6vh,72px); padding-top:clamp(28px,5vh,52px); border-top:1px solid var(--line-2);
+}
+.stat{ display:flex; flex-direction:column; gap:8px; }
+.stat__num{
+  font-family:var(--f-display); font-weight:600; letter-spacing:-.05em; line-height:1;
+  font-size:clamp(40px,6vw,92px);
+}
+.stat__lab{ color:var(--muted); }
+
+/* =========================================================
+   SERVICES CARD STACK
+   ========================================================= */
+.services{ padding-bottom:clamp(12px,2vh,28px); }
+.cards{ position:relative; }
+.card{ position:sticky; top:0; height:100svh; display:grid; place-items:center; padding:90px var(--pad) 40px; }
+.card__in{
+  width:100%; max-width:1180px;
+  border:1px solid var(--line); border-radius:26px;
+  background:linear-gradient(160deg, var(--ink-3), var(--ink-2) 60%);
+  padding:clamp(26px,4vw,60px);
+  display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(24px,4vw,64px);
+  box-shadow:var(--shadow);
+  overflow:hidden; position:relative;
+}
+.card__in::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(80% 60% at 100% 0%, var(--wash), transparent 60%);
+}
+.card__num{ color:var(--acid-ink); display:block; margin-bottom:18px; }
+.card__title{ font-size:clamp(32px,4.6vw,72px); }
+.card__lede{ color:var(--body); font-size:clamp(15px,1.3vw,19px); line-height:1.6; margin-bottom:clamp(20px,3vh,36px); max-width:44ch; }
+.card__list{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(16px,2vw,32px); }
+.card__list li{
+  padding:12px 0; border-top:1px solid var(--line-2);
+  font-size:14px; color:var(--body);
+  display:flex; align-items:center; gap:10px;
+}
+.card__list li::before{ content:""; width:4px; height:4px; border-radius:50%; background:var(--acid); flex:none; opacity:.7; }
+
+/* =========================================================
+   WORK — horizontal
+   ========================================================= */
+.work{ position:relative; padding-block:clamp(28px,3.5vh,56px) 0; }
+.hz{ position:relative; overflow:hidden; }
+
+/* The heading holds its place for the whole horizontal run. It has to be
+   sticky rather than pinned: ScrollTrigger's pin fixes only the element it
+   is handed, and everything above that element keeps scrolling away. The
+   pin offset below is measured from this block, so the two stay aligned. */
+.work__stage{ position:relative; }
+@media (min-width:901px){
+  .work__stage > .wrap{ padding-top:26px; }
+
+  /* The stage is pinned whole, so it has to fit the window or its lower edge
+     is cut. On a short screen the heading and the card artwork both give way
+     rather than letting the cards run off the bottom. */
+  @media (max-height:900px){
+    .work__stage .secTitle{ font-size:clamp(30px,4.6vw,68px); margin-bottom:clamp(18px,3vh,36px); }
+    .work__stage .proj__art{ aspect-ratio:auto; height:clamp(150px,26vh,300px); }
+  }
+  @media (max-height:760px){
+    .work__stage .secHead{ margin-bottom:14px; }
+    /* trimmed rather than dropped: losing the description entirely on a
+       short window costs real content */
+    .work__stage .proj__desc{
+      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+  }
+}
+.hz__track{ display:flex; gap:clamp(18px,2vw,32px); padding-inline:var(--pad); will-change:transform; }
+.proj{
+  flex:none; width:clamp(280px,32vw,460px);
+  border:1px solid var(--line); border-radius:20px; overflow:hidden;
+  background:var(--ink-2);
+  transition:border-color .45s var(--ease);
+}
+.proj:hover{ border-color:rgba(242,240,235,.28); }
+.proj__art{
+  position:relative; aspect-ratio:4/3; display:grid; place-items:center;
+  background:linear-gradient(150deg, var(--p2), var(--art-base) 78%);
+  background:
+    radial-gradient(120% 120% at 20% 10%, color-mix(in srgb, var(--p1) 55%, transparent), transparent 60%),
+    linear-gradient(150deg, var(--p2), var(--art-base) 78%);
+  overflow:hidden;
+}
+.proj__art::before{
+  content:""; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(0,0,0,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.22) 1px, transparent 1px);
+  background-size:34px 34px; opacity:.5;
+}
+.proj__art::after{
+  content:""; position:absolute; inset:-40%;
+  background:conic-gradient(from 0deg, transparent, rgba(255,255,255,.3), transparent 45%);
+  background:conic-gradient(from 0deg, transparent, color-mix(in srgb, var(--p1) 40%, transparent), transparent 45%);
+  opacity:0; transition:opacity .6s ease; animation:spin 9s linear infinite;
+}
+.proj:hover .proj__art::after{ opacity:.55; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.proj__glyph{
+  position:relative; font-size:clamp(56px,7vw,104px); line-height:1;
+  color:rgba(255,255,255,.92); text-shadow:0 12px 40px rgba(0,0,0,.5);
+  transition:transform .7s var(--ease);
+}
+.proj:hover .proj__glyph{ transform:scale(1.14) rotate(-6deg); }
+.proj__idx{
+  position:absolute; top:16px; left:18px; z-index:2;
+  color:rgba(255,255,255,.85); font-size:10px;
+}
+.proj__meta{ padding:clamp(20px,2vw,30px); }
+.proj__name{ font-family:var(--f-display); font-weight:600; letter-spacing:-.03em; font-size:clamp(19px,1.7vw,26px); margin-bottom:10px; }
+.proj__desc{ color:var(--muted); font-size:14px; line-height:1.6; margin-bottom:18px; }
+.proj__tags{ display:flex; flex-wrap:wrap; gap:6px; }
+.proj__tags span{
+  padding:5px 10px; border:1px solid var(--line-2); border-radius:999px;
+  color:var(--muted); font-size:9.5px;
+}
+.hz__end{
+  flex:none; width:clamp(280px,30vw,420px);
+  display:flex; flex-direction:column; justify-content:center; gap:26px;
+  padding-inline:clamp(10px,2vw,30px);
+}
+.hz__end p{ font-size:clamp(28px,3.4vw,52px); }
+.hz__end em{ color:var(--acid-ink); }
+.hz__end .btn{ align-self:flex-start; }
+/* touch carousel: momentum, no scrollbar chrome, and the snap padding that
+   lets the first and last card sit centred like the others */
+@media (max-width:900px){
+  .hz{ -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-padding-inline:var(--pad); }
+  .hz::-webkit-scrollbar{ display:none; }
+  .hz__track{ padding-right:var(--pad); }
+  .proj{ scroll-snap-align:center; }
+}
+.hz__hint{
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  color:var(--muted-2); padding-block:clamp(28px,5vh,56px);
+}
+.hz__hint i{ display:block; width:clamp(30px,6vw,90px); height:1px; background:var(--line); }
+
+/* =========================================================
+   STACK LIST
+   ========================================================= */
+.stackList li{
+  position:relative; display:grid;
+  grid-template-columns:56px minmax(0,1fr) auto; align-items:center; gap:20px;
+  padding:clamp(18px,2.6vh,30px) 0; border-top:1px solid var(--line-2);
+  cursor:default; overflow:hidden;
+}
+.stackList li:last-child{ border-bottom:1px solid var(--line-2); }
+.stackList li::before{
+  content:""; position:absolute; inset:0; background:var(--acid);
+  transform:translateY(101%); transition:transform .55s var(--ease); z-index:0;
+}
+.stackList li:hover::before{ transform:translateY(0); }
+.stackList li > *{ position:relative; z-index:1; transition:color .35s ease, transform .55s var(--ease); }
+.sl__n{ color:var(--muted-2); }
+.sl__t{ font-size:clamp(22px,3.2vw,46px); }
+.sl__d{ color:var(--muted); text-align:right; }
+.stackList li:hover > *{ color:var(--on-acid); }
+.stackList li:hover .sl__t{ transform:translateX(16px); }
+.stackList li:hover .sl__n{ color:rgba(255,255,255,.62); }
+.stackList li:hover .sl__d{ color:rgba(255,255,255,.80); }
+
+.ctaRow{ display:flex; justify-content:center; padding-top:clamp(26px,4vh,52px); }
+
+/* =========================================================
+   CONTACT / FOOTER
+   ========================================================= */
+.contact{ position:relative; padding-top:clamp(80px,12vh,170px); overflow:hidden; }
+.contact__canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; opacity:.45; }
+.contact__wrap{ position:relative; z-index:2; }
+.huge{ display:block; margin-bottom:clamp(40px,7vh,90px); }
+/* One line, sized to very nearly fill the measure. The upper clamp is what
+   keeps it there: .wrap stops growing at 1440px while vw does not, so an
+   uncapped vw size would overflow the container on wide screens. */
+.huge__line{
+  display:block; white-space:nowrap;
+  /* Measured: this face sets "LET'S TALK" at ~4.73x the font size, so
+     19vw fills 97-99% of the measure at every width, and the 272px cap is
+     what .wrap's own 1440px ceiling allows. .contact clips overflow, so a
+     failed webfont can never push the page sideways. */
+  font-size:clamp(34px,18.4vw,268px); line-height:.9; letter-spacing:-.05em;
+  color:transparent; -webkit-text-stroke:1px var(--stroke);
+  transition:color .5s var(--ease), -webkit-text-stroke-color .5s var(--ease), transform .6s var(--ease);
+}
+.huge:hover .huge__line,
+.huge:focus-visible .huge__line{
+  color:var(--acid-ink); -webkit-text-stroke-color:var(--acid-ink); transform:translateX(10px);
+}
+/* browsers without text-stroke would render an invisible outline */
+@supports not (-webkit-text-stroke: 1px #000){
+  .huge__line{ color:var(--paper); }
+}
+
+.contact__grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(24px,4vw,80px); }
+.cRow{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  padding:clamp(14px,2.4vh,24px) 0; border-top:1px solid var(--line-2);
+}
+.cRow__k{ color:var(--muted-2); flex:none; }
+.cRow__v{ font-size:clamp(14px,1.25vw,18px); display:inline-flex; align-items:center; gap:9px; text-align:right; }
+a.cRow__v{ transition:color .3s ease; }
+a.cRow__v:hover{ color:var(--acid-ink); }
+
+.foot{ position:relative; z-index:2; margin-top:clamp(60px,10vh,130px); border-top:1px solid var(--line-2); }
+.foot__marquee{ overflow:hidden; padding-block:clamp(18px,3vh,34px); border-bottom:1px solid var(--line-2); }
+.foot__marquee .ticker__track{ font-size:clamp(22px,3.6vw,54px); color:var(--ghost); }
+.foot__bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:24px; color:var(--muted-2); }
+.foot__bar i{ font-style:normal; }
+.foot__bar a{ transition:color .3s ease; }
+.foot__bar a:hover{ color:var(--acid-ink); }
+
+/* =========================================================
+   REVEALS
+   ========================================================= */
+.js .reveal-up{ opacity:0; transform:translateY(28px); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:1080px){
+  .nav__links{ display:none; }
+  .burger{ display:block; }
+  .card__in{ grid-template-columns:1fr; }
+  .card{ height:auto; min-height:100svh; }
+  .about__grid{ grid-template-columns:1fr; gap:28px; }
+  .stats{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 20px; }
+  .hero__bottom{ grid-template-columns:1fr; align-items:start; }
+  .step{ grid-template-columns:1fr; gap:10px; }
+  .contact__grid{ grid-template-columns:1fr; }
+}
+/* Below this the row cannot hold brand + name + toggle + CTA + burger, so
+   the CTA goes: it is duplicated in the menu and in the chat card. */
+@media (max-width:520px){
+  .nav__cta, .nav__right .btn--sm{ display:none; }
+  .nav__brandtext{ font-size:12px; }
+}
+@media (max-width:720px){
+  /* the name stays on mobile; it is the whole point of a personal site */
+  .nav__brandtext{ font-size:13px; }
+  .bigtext{ font-size:clamp(34px,10.6vw,46px); line-height:1.14; max-inline-size:none; }
+  .hero{ min-height:92svh; padding-top:120px; }
+  .stackList li{ grid-template-columns:38px minmax(0,1fr); gap:12px; }
+  .sl__d{ grid-column:1 / -1; text-align:left; padding-left:50px; margin-top:4px; }
+  .stackList li:hover .sl__t{ transform:translateX(8px); }
+  .card__list{ grid-template-columns:1fr; }
+  .foot__bar{ flex-direction:column; align-items:flex-start; gap:8px; }
+  .foot__mid{ order:3; }
+  .cRow{ flex-direction:column; align-items:flex-start; gap:6px; }
+  .cRow__v{ text-align:left; }
+  .hero__actions .btn{ flex:1 1 auto; justify-content:center; }
+}
+
+/* ---- landing page ---- */
+.lp{ padding:clamp(96px,13vh,150px) 0 clamp(48px,7vh,88px); }
+.lp__crumb{ color:var(--muted-2); margin-bottom:clamp(16px,2.4vh,26px); }
+.lp__crumb a{ color:var(--muted); } .lp__crumb a:hover{ color:var(--acid-ink); }
+.lp h1{ font-family:var(--f-display); font-weight:600; letter-spacing:-.04em; line-height:.98;
+  font-size:clamp(34px,5.6vw,74px); max-inline-size:18ch; margin-bottom:clamp(16px,2.4vh,26px); }
+.lp__lede{ font-size:clamp(17px,1.5vw,22px); line-height:1.55; color:var(--body); max-inline-size:60ch; }
+.lp__art{ position:relative; height:clamp(150px,22vw,260px); border-radius:20px; overflow:hidden;
+  margin:clamp(28px,4vh,52px) 0; display:grid; place-items:center;
+  background:linear-gradient(150deg, var(--p2), var(--art-base) 78%);
+  background:radial-gradient(120% 120% at 20% 10%, color-mix(in srgb, var(--p1) 55%, transparent), transparent 60%), linear-gradient(150deg, var(--p2), var(--art-base) 78%); }
+.lp__art::before{ content:""; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(0,0,0,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.22) 1px,transparent 1px);
+  background-size:34px 34px; opacity:.5; }
+.lp__art span{ position:relative; font-size:clamp(44px,6vw,86px); color:rgba(255,255,255,.94); }
+.lp__block{ padding-block:clamp(22px,3vh,34px); border-top:1px solid var(--line-2); }
+.lp__block h2{ font-family:var(--f-display); font-weight:600; letter-spacing:-.03em;
+  font-size:clamp(22px,2.6vw,34px); margin-bottom:14px; max-inline-size:26ch; }
+.lp__block p, .lp__city p{ color:var(--body); font-size:clamp(15px,1.15vw,17px); line-height:1.7;
+  max-inline-size:68ch; margin-bottom:14px; }
+.lp__city{ padding-block:clamp(22px,3vh,34px); border-top:1px solid var(--line-2); }
+.lp__faq{ border-top:1px solid var(--line-2); padding-block:14px; }
+.lp__faq summary{ cursor:pointer; font-weight:500; font-size:clamp(15px,1.2vw,18px); list-style:none; }
+.lp__faq summary::-webkit-details-marker{ display:none; }
+.lp__faq summary::before{ content:"+"; color:var(--acid-ink); margin-right:10px; }
+.lp__faq[open] summary::before{ content:"\2212"; }
+.lp__faq p{ color:var(--body); font-size:15px; line-height:1.65; margin:10px 0 4px 22px; max-inline-size:66ch; }
+.lp__steps, .lp__signals{ max-inline-size:66ch; margin:4px 0 10px; }
+.lp__steps li, .lp__signals li{ position:relative; padding:9px 0 9px 30px; border-top:1px solid var(--line-2);
+  color:var(--body); font-size:clamp(14.5px,1.1vw,16.5px); line-height:1.55; }
+.lp__steps{ counter-reset:step; }
+.lp__steps li::before{ counter-increment:step; content:counter(step,decimal-leading-zero);
+  position:absolute; left:0; top:11px; font-family:var(--f-mono); font-size:10px; letter-spacing:.1em; color:var(--acid-ink); }
+.lp__signals li::before{ content:"\2192"; position:absolute; left:0; top:9px; color:var(--acid-ink); }
+.lp__cta{ margin-top:clamp(30px,4vh,54px); display:flex; gap:12px; flex-wrap:wrap; }
+.lp__links{ padding-block:clamp(24px,3.4vh,40px); border-top:1px solid var(--line-2);
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(18px,2.4vw,36px); }
+.lp__links h3{ color:var(--muted-2); margin-bottom:10px; }
+.lp__links ul{ display:grid; gap:5px; }
+.lp__links a{ font-size:12.5px; line-height:1.45; color:var(--muted); }
+.lp__links a:hover{ color:var(--acid-ink); }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav stuck" id="nav">
+  <a class="nav__brand" href="/">
+    <span class="globe" aria-hidden="true">
+      <svg viewBox="0 0 40 40" role="presentation">
+        <circle class="globe__ocean" cx="20" cy="20" r="19"/>
+        <circle class="globe__rim" cx="20" cy="20" r="19"/>
+      </svg>
+    </span>
+    <span class="nav__brandtext">Gurjot Singh <em>&ldquo;Gary&rdquo;</em></span>
+  </a>
+  <div class="nav__right">
+    <a class="btn btn--sm" href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat." target="_blank" rel="noopener noreferrer"><span>Let&rsquo;s talk</span></a>
+  </div>
+</header>
+
+<main class="lp">
+  <div class="wrap">
+    <nav class="mono lp__crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> &nbsp;/&nbsp; Calgary, AB &nbsp;/&nbsp; IT Services
+    </nav>
+
+    <h1>IT Services in Calgary</h1>
+    <p class="lp__lede">Ongoing technical support for small businesses: keeping systems current, secure, backed up and working.</p>
+
+    <div class="lp__art" style="--p1:#6BA8FF;--p2:#0C2E63" role="img" aria-label="IT Services">
+      <span>&#9636;</span>
+    </div>
+
+        <section class="lp__block">
+          <h2>Maintenance is cheaper than recovery</h2>
+          <p>Almost every expensive technical emergency was preventable and visible in advance. Expired certificates, unpatched software, backups that silently stopped running months ago, disks filling up.</p>
+          <p>Routine maintenance catches those while they are still administrative rather than urgent. The unglamorous work of checking, updating and verifying is what stops the weekend outage from ever happening.</p>
+        </section>
+        <section class="lp__block">
+          <h2>Backups that have been tested</h2>
+          <p>Most businesses believe they have backups. Fewer have verified that those backups contain what they think, run on schedule, and can actually be restored.</p>
+          <p>A backup nobody has restored is an untested assumption. Part of ongoing service is periodically restoring one to confirm the process works before the day it has to.</p>
+        </section>
+        <section class="lp__block">
+          <h2>Updates without breaking things</h2>
+          <p>The tension in maintenance is real: updating promptly closes security holes, and updating carelessly breaks production. Both failure modes are common.</p>
+          <p>The resolution is process rather than courage. Updates are applied on staging, checked, then applied to production, with a rollback path established beforehand. It is slower than clicking update on a live site and considerably cheaper than the alternative.</p>
+        </section>
+        <section class="lp__block">
+          <h2>One point of contact instead of four vendors</h2>
+          <p>Small businesses usually end up with a hosting company, a domain registrar, whoever built the site and whoever set up the email, and none of them consider the others their responsibility. When something breaks, the business spends a day being told it is somebody else’s problem.</p>
+          <p>Consolidating that under one point of contact does not mean replacing every vendor. It means somebody knows where everything lives, holds the access, and deals with the finger-pointing on your behalf so a broken mailbox does not cost you an afternoon of phone calls.</p>
+          <p>It also means decisions get made with the whole picture in view. Moving hosting affects email. Changing DNS affects both. Renewing a certificate affects anything that depends on it. Those connections are obvious to somebody holding the map and invisible to four separate suppliers each looking at their own piece.</p>
+        </section>
+        <section class="lp__block">
+          <h2>Monitoring, and knowing before your customers do</h2>
+          <p>The worst way to learn your site is down is a customer telling you. Uptime monitoring, certificate expiry alerts and error tracking turn that into something you knew about first.</p>
+          <p>Where it matters, that extends further: performance monitoring so gradual degradation is visible before it becomes complaints, and log review so unusual activity is noticed early rather than during an incident.</p>
+        </section>
+
+    <section class="lp__block">
+      <h2>What the work usually involves</h2>
+      <ol class="lp__steps">
+        <li>Agree what is covered, what is not, and how quickly you get a response.</li>
+        <li>Put monitoring in place so problems surface before customers find them.</li>
+        <li>Apply updates on staging first, with a rollback path ready.</li>
+        <li>Verify backups by restoring one, not by trusting the dashboard.</li>
+        <li>Review access and credentials periodically.</li>
+        <li>Report what was done, in plain language, on a schedule.</li>
+      </ol>
+    </section>
+
+    <section class="lp__block">
+      <h2>Signs you need it services</h2>
+      <ul class="lp__signals">
+        <li>You found out your site was down because a customer told you.</li>
+        <li>Nobody is certain when anything was last updated.</li>
+        <li>Certificates or domains have expired without warning before.</li>
+        <li>Backups exist but have never been restored.</li>
+        <li>There is no clear person to call when something breaks.</li>
+      </ul>
+      <p>Maintenance is unglamorous and it is almost always cheaper than recovery. Nearly every expensive technical emergency was visible in advance to somebody who was looking.</p>
+    </section>
+
+    <section class="lp__city">
+      <h2>IT Services for Calgary businesses</h2>
+      <p><strong>Calgary has more competition for the same searches than most Canadian cities its size, and the businesses that win are usually the ones that took technical SEO seriously first.</strong></p>
+      <p>Calgary is a competitive search market. Energy, professional services, consulting and a dense small-business layer all fight for the same terms, and many of them have already paid an agency. Turning up with a slow, thin site is not going to move anything.</p>
+          <p>What still moves the needle here is technical quality: correct structured data, fast Core Web Vitals, a proper internal linking structure and service pages that actually answer the question a buyer typed. Most competitors have a site; far fewer have one that is technically sound.</p>
+          <p>The other Calgary pattern is a long sales cycle. Someone may find you months before they hire. The site has to hold up to being read carefully rather than skimmed, which means real content, not a hero image and three adjectives.</p>
+          <p>Given that competition, measurement matters more here than almost anywhere. Knowing which pages bring enquiries, and which merely bring traffic, is what stops a Calgary marketing budget from being spent on activity that looks busy and returns nothing.</p>
+    </section>
+
+    <section class="lp__block">
+      <h2>What Calgary businesses tend to need first</h2>
+      <p>Because Calgary is competitive, the most valuable early work is usually diagnostic rather than creative. Before spending on content or ads, it is worth establishing what is already ranking, what is indexed, what the site actually loads and where enquiries currently come from. A surprising number of Calgary businesses are paying for marketing on top of a site that search engines cannot crawl properly.</p>
+      <p>The second is differentiation in the copy. When a dozen competitors describe themselves in identical language, the page that names the specific problem, industry or situation wins the click even from a lower position. Generic service copy is invisible in a crowded market.</p>
+      <p>The third is attribution. In a long sales cycle it is easy to credit the last click and quietly defund the channel that actually started the relationship. Setting up tracking that survives a multi-month consideration period changes which decisions look correct.</p>
+    </section>
+
+    <section class="lp__block">
+      <h2>Common questions</h2>
+          <details class="lp__faq">
+            <summary>What does ongoing IT support include?</summary>
+            <p>Updates and patching, backup verification, uptime and certificate monitoring, security checks, and a route to reach a person when something breaks. The exact scope is agreed in writing.</p>
+          </details>
+          <details class="lp__faq">
+            <summary>Do I need support if my site is small?</summary>
+            <p>Small sites still get compromised, still have certificates that expire and still have backups that quietly fail. The work is proportionate to the size, but the failure modes are identical.</p>
+          </details>
+          <details class="lp__faq">
+            <summary>How quickly do you respond to problems?</summary>
+            <p>Response times are agreed up front rather than left vague, so you know what to expect before you need it.</p>
+          </details>
+          <details class="lp__faq">
+            <summary>Can you work alongside our existing IT provider?</summary>
+            <p>Yes. Clear boundaries about who owns what prevents the gaps where things get missed by both parties.</p>
+          </details>
+    </section>
+
+    <div class="lp__cta">
+      <a class="btn btn--fill" href="https://wa.me/17789290374?text=Hello%20Gary!%20I%20just%20saw%20your%20portfolio%20website%20and%20would%20like%20to%20chat." target="_blank" rel="noopener noreferrer"><span>Let&rsquo;s talk</span><i class="arr">&nearr;</i></a>
+      <a class="btn" href="mailto:gurjotangad97@gmail.com?subject=IT%20Services%20Calgary"><span>Email instead</span><i class="arr">&nearr;</i></a>
+    </div>
+
+    <div class="lp__links">
+      <div>
+        <h3 class="mono">IT Services elsewhere</h3>
+        <ul><li><a href="/it-services-vancouver">IT Services Vancouver</a></li><li><a href="/it-services-kelowna">IT Services Kelowna</a></li><li><a href="/it-services-edmonton">IT Services Edmonton</a></li><li><a href="/it-services-toronto">IT Services Toronto</a></li><li><a href="/it-services-ottawa">IT Services Ottawa</a></li><li><a href="/it-services-saskatoon">IT Services Saskatoon</a></li><li><a href="/it-services-regina">IT Services Regina</a></li></ul>
+      </div>
+      <div>
+        <h3 class="mono">Other services in Calgary</h3>
+        <ul><li><a href="/freelance-web-design-calgary">Freelance Web Design Calgary</a></li><li><a href="/small-business-web-design-calgary">Small Business Web Design Calgary</a></li><li><a href="/wordpress-developer-calgary">WordPress Developer Calgary</a></li><li><a href="/local-seo-expert-calgary">Local SEO Expert Calgary</a></li><li><a href="/technical-seo-consultant-calgary">Technical SEO Consultant Calgary</a></li><li><a href="/google-ads-consultant-calgary">Google Ads Consultant Calgary</a></li><li><a href="/ppc-consultant-calgary">PPC Consultant Calgary</a></li><li><a href="/hubspot-consultant-calgary">HubSpot Consultant Calgary</a></li><li><a href="/wordpress-malware-removal-calgary">WordPress Malware Removal Calgary</a></li><li><a href="/wordpress-website-speed-optimization-calgary">WordPress Website Speed Optimization Calgary</a></li><li><a href="/it-consultant-calgary">IT Consultant Calgary</a></li></ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__bar mono">
+    <span>&copy; 2026 Gurjot Singh (Gary). All rights reserved.</span>
+    <span class="foot__mid">Web design &middot; Digital marketing &middot; IT consulting</span>
+    <a href="/">Back to home &uarr;</a>
+  </div>
+</footer>
+</body>
+</html>
