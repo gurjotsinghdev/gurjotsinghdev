@@ -612,7 +612,7 @@ body.menu-open .menu{ pointer-events:auto; }
 }
 .seo__provName{
   font-family:var(--f-display); font-weight:600; letter-spacing:-.02em;
-  font-size:clamp(15px,1.3vw,18px); margin-bottom:14px; color:var(--paper);
+  font-size:clamp(18px,1.56vw,21.6px); margin-bottom:14px; color:var(--paper);
   padding-bottom:10px; border-bottom:1px solid var(--line-2);
 }
 .seo__cities{ display:grid; gap:22px; }
@@ -749,6 +749,20 @@ body.menu-open .menu{ pointer-events:auto; }
   transition:transform .7s var(--ease);
 }
 .proj:hover .proj__glyph{ transform:scale(1.14) rotate(-6deg); }
+/* A real screenshot replaces the drawn tile where there is a site to shoot.
+   The gradient underneath stays as the placeholder colour while the JPEG
+   loads, so the card never flashes white. The blueprint grid and the conic
+   sweep are both switched off over a photograph, which they only muddy. */
+.proj__shot{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:top center; display:block;
+  transition:transform .8s var(--ease);
+}
+.proj__art--shot::before, .proj__art--shot::after{ display:none; }
+.proj:hover .proj__shot{ transform:scale(1.06); }
+/* a hairline of the accent under the shot, so the card still reacts */
+.proj__art--shot{ box-shadow:inset 0 -2px 0 rgba(255,255,255,.10); }
+
 .proj__idx{
   position:absolute; top:16px; left:18px; z-index:2;
   color:rgba(255,255,255,.85); font-size:10px;
