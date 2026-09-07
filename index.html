@@ -813,6 +813,20 @@ body.menu-open .menu{ pointer-events:auto; }
   transition:transform .7s var(--ease);
 }
 .proj:hover .proj__glyph{ transform:scale(1.14) rotate(-6deg); }
+/* A real screenshot replaces the drawn tile where there is a site to shoot.
+   The gradient underneath stays as the placeholder colour while the JPEG
+   loads, so the card never flashes white. The blueprint grid and the conic
+   sweep are both switched off over a photograph, which they only muddy. */
+.proj__shot{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:top center; display:block;
+  transition:transform .8s var(--ease);
+}
+.proj__art--shot::before, .proj__art--shot::after{ display:none; }
+.proj:hover .proj__shot{ transform:scale(1.06); }
+/* a hairline of the accent under the shot, so the card still reacts */
+.proj__art--shot{ box-shadow:inset 0 -2px 0 rgba(255,255,255,.10); }
+
 .proj__idx{
   position:absolute; top:16px; left:18px; z-index:2;
   color:rgba(255,255,255,.85); font-size:10px;
@@ -1353,7 +1367,11 @@ a.cRow__v:hover{ color:var(--acid-ink); }
     <div class="hz__track" id="hzTrack">
 
       <article class="proj" style="--p1:#F0A73C;--p2:#5C2410">
-        <div class="proj__art"><span class="proj__glyph">&#9673;</span><span class="proj__idx mono">01</span></div>
+        <div class="proj__art proj__art--shot">
+          <img class="proj__shot" src="/img/projects/nero-tondo.jpg" width="1200" height="900"
+               loading="lazy" decoding="async" alt="The Nero Tondo homepage">
+          <span class="proj__idx mono">01</span>
+        </div>
         <div class="proj__meta">
           <h3 class="proj__name">Nero Tondo</h3>
           <p class="proj__desc">Farm-to-table restaurant on Powell Street in East Vancouver. WordPress and Elementor build with a Tock reservation flow, a seasonal menu, and an Our Farmers section crediting the local growers behind the kitchen.</p>
@@ -1362,7 +1380,11 @@ a.cRow__v:hover{ color:var(--acid-ink); }
       </article>
 
       <article class="proj" style="--p1:#E5B45C;--p2:#4A1526">
-        <div class="proj__art"><span class="proj__glyph">&#9672;</span><span class="proj__idx mono">02</span></div>
+        <div class="proj__art proj__art--shot">
+          <img class="proj__shot" src="/img/projects/dhaliwals-lounge.jpg" width="1200" height="900"
+               loading="lazy" decoding="async" alt="The Dhaliwal&rsquo;s Lounge homepage">
+          <span class="proj__idx mono">02</span>
+        </div>
         <div class="proj__meta">
           <h3 class="proj__name">Dhaliwal&rsquo;s Lounge</h3>
           <p class="proj__desc">Upscale Punjabi restaurant and lounge in Surrey, BC. A WordPress build carrying the full menu, with the search work pointed straight at the terms people use when they are deciding where to eat tonight.</p>
@@ -1371,7 +1393,11 @@ a.cRow__v:hover{ color:var(--acid-ink); }
       </article>
 
       <article class="proj" style="--p1:#7DE38A;--p2:#0E3A1E">
-        <div class="proj__art"><span class="proj__glyph">&#9678;</span><span class="proj__idx mono">03</span></div>
+        <div class="proj__art proj__art--shot">
+          <img class="proj__shot" src="/img/projects/photography-academy.jpg" width="1200" height="900"
+               loading="lazy" decoding="async" alt="The Photography Academy homepage">
+          <span class="proj__idx mono">03</span>
+        </div>
         <div class="proj__meta">
           <h3 class="proj__name">Photography Academy</h3>
           <p class="proj__desc">Online photography school with more than 900,000 students. A large course catalogue and store where the checkout, the funnel pages and raw page speed are what the business actually runs on.</p>
@@ -1380,7 +1406,11 @@ a.cRow__v:hover{ color:var(--acid-ink); }
       </article>
 
       <article class="proj" style="--p1:#FF4B4B;--p2:#3A0B0B">
-        <div class="proj__art"><span class="proj__glyph">&#9635;</span><span class="proj__idx mono">04</span></div>
+        <div class="proj__art proj__art--shot">
+          <img class="proj__shot" src="/img/projects/hitech-advisors.jpg" width="1200" height="900"
+               loading="lazy" decoding="async" alt="The Hitech Advisors homepage">
+          <span class="proj__idx mono">04</span>
+        </div>
         <div class="proj__meta">
           <h3 class="proj__name">Hitech Advisors</h3>
           <p class="proj__desc">Technology consulting and AI leadership for enterprise clients. The buyers here are executives, so the site has to establish credibility before it does anything else, and every page is built around that.</p>
